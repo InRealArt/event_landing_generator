@@ -11,6 +11,7 @@ export const art3fJeanDuboisData: ArtistData = {
     profileImage: "/images/artists/jean-dubois/artist.webp",
     aboutImage: "/images/artists/jean-dubois/artist-1.webp",
     backgroundImage: "/images/artists/jean-dubois/artist-background.webp",
+    posterImage: "/images/artists/jean-dubois/poster.webp",
 
     email: "jean.dubois@email.com",
     phone: "+33 6 98 76 54 32",
@@ -128,7 +129,7 @@ export const art3fJeanDuboisData: ArtistData = {
         ],
 
         // Catalog Section
-        catalogTitle: "Catalogue art3f MONACO",
+        catalogTitle: "Catalogue art3f BORDEAUX",
         catalogDescription: "Explorez une collection unique d'œuvres toutes plus originales les unes que les autres.",
         catalogForm: {
             nameLabel: "Nom*",
