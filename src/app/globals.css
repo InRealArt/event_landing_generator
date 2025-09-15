@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card: #1d1c1c;
+  --text: #ffffff;
+  --background: #131313;
+  --purple: #6052ff;
+  --header-height: 90px;
+  --footer-height: 300px;
+  --font-bricolage: 'Bricolage Grotesque', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+/* Light mode variables */
+[data-theme='light'] {
+  --background: #ffffff;
+  --text: #1a1a1a;
+  --card: #f6f3ee;
+  --purple: #6052ff;
+  --gradient-start: rgba(255, 255, 255, 0.9);
+  --gradient-end: rgba(255, 255, 255, 0);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --stroke-color: rgba(0, 0, 0, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --gradient-from: #e5e7eb;
+  --gradient-to: #d1d5db;
+  --gray-text: #6b7280;
+  --background-grey: #f3f4f6;
+}
+
+/* Dark mode variables (explicit for consistency) */
+[data-theme='dark'] {
+  --background: #131313;
+  --text: #ffffff;
+  --card: #1d1c1c;
+  --purple: #6052ff;
+  --gradient-start: rgba(0, 0, 0, 0.9);
+  --gradient-end: rgba(255, 255, 255, 0);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --stroke-color: rgba(255, 255, 255, 0.3);
+  --shadow-color: rgba(255, 255, 255, 0.08);
+  --gradient-from: #111827;
+  --gradient-to: #1f2937;
+  --gray-text: #9ca3af;
+  --background-grey: #111827;
+}
+
+.bricolage-grotesque {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'width' 100;
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+p,
+span {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Font utilities */
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Default font for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Force font loading */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.stroke {
+  -webkit-text-stroke: 1px var(--stroke-color);
+  text-stroke: 1px var(--stroke-color);
+  text-shadow: 0 0 13px var(--shadow-color);
+}
+
+/* Phone Input Styles */
+.phone-input-container .PhoneInputInput {
+  @apply w-full px-4 py-3 bg-cardBackground border border-gray-600 rounded-lg text-textColor placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purpleColor focus:border-transparent;
+}
+
+.phone-input-container .PhoneInputCountry {
+  @apply bg-cardBackground border-r border-gray-600 rounded-l-lg px-3;
+}
+
+.phone-input-container .PhoneInputCountrySelect {
+  @apply bg-cardBackground text-textColor;
+}
+
+.phone-input-container .PhoneInputCountryIcon {
+  @apply opacity-70;
+}
+
+.phone-input-container .PhoneInputCountrySelectArrow {
+  @apply border-t-textColor opacity-70;
+}
+
+/* Pour le débogage, rendons le badge visible temporairement */
+.grecaptcha-badge {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+}
