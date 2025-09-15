@@ -6,12 +6,12 @@ import fs from 'fs';
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, mobile } = await request.json();
+    const { name, email, mobile, slug } = await request.json();
 
     // Validate required fields
-    if (!name || !email) {
+    if (!name || !email || !slug) {
       return NextResponse.json(
-        { error: 'Nom et email sont requis' },
+        { error: 'Nom, email et slug sont requis' },
         { status: 400 }
       );
     }
@@ -63,15 +63,16 @@ export async function POST(request: NextRequest) {
       `
     };
 
-    // Check if PDF file exists
-    const pdfPath = path.join(process.cwd(), 'public', 'catalogue.pdf');
+    // Check if PDF file exists based on slug
+    const pdfFileName = `catalog-${slug}.pdf`;
+    const pdfPath = path.join(process.cwd(), 'public', pdfFileName);
     console.log('📁 PDF Path:', pdfPath);
     console.log('📁 File exists:', fs.existsSync(pdfPath));
-    
+
     if (!fs.existsSync(pdfPath)) {
       console.error('❌ PDF file not found at:', pdfPath);
       return NextResponse.json(
-        { error: 'PDF file not found' },
+        { error: `PDF file not found: ${pdfFileName}` },
         { status: 500 }
       );
     }
@@ -130,7 +131,7 @@ export async function POST(request: NextRequest) {
       `,
       attachments: [
         {
-          filename: 'Catalogue Monique Laville & InRealArt 2025.pdf',
+          filename: `Catalogue ${slug} & InRealArt 2025.pdf`,
           path: pdfPath
         }
       ]
@@ -138,7 +139,7 @@ export async function POST(request: NextRequest) {
 
     // Send both emails
     console.log('🚀 Starting email sending process...');
-    
+
     const [teamResult, userResult] = await Promise.all([
       sendEmail(teamNotificationData),
       sendEmail(userCatalogData)
@@ -149,14 +150,14 @@ export async function POST(request: NextRequest) {
 
     // Check if both emails were sent successfully
     if (!teamResult.success || !userResult.success) {
-      console.error('❌ Email sending failed:', { 
-        teamResult, 
+      console.error('❌ Email sending failed:', {
+        teamResult,
         userResult,
         teamError: teamResult.message,
         userError: userResult.message
       });
       return NextResponse.json(
-        { 
+        {
           error: 'Erreur lors de l\'envoi des emails',
           details: {
             team: teamResult.message,

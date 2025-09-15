@@ -6,9 +6,10 @@ import { ArtistData } from '@/lib/artistData';
 
 interface CatalogSectionProps {
   artistData: ArtistData;
+  slug: string;
 }
 
-export default function CatalogSection({ artistData }: CatalogSectionProps) {
+export default function CatalogSection({ artistData, slug }: CatalogSectionProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,7 +37,7 @@ export default function CatalogSection({ artistData }: CatalogSectionProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, slug }),
       });
 
       if (response.ok) {

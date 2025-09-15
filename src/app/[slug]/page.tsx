@@ -92,7 +92,7 @@ export default async function ArtistPage({ params }: PageProps) {
       </div>
 
       <div id="contact">
-        <CatalogSection artistData={artistData} />
+        <CatalogSection artistData={artistData} slug={slug} />
       </div>
 
       {/* Footer */}
