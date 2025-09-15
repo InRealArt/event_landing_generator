@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ArtistData } from '@/lib/artistData';
+import ArtistNavigation from './ArtistNavigation';
 
 interface HeaderProps {
   artistData: ArtistData;
 }
 
-export default function Header({ artistData: _artistData }: HeaderProps) {
+export default function Header({ artistData }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToContact = () => {
@@ -60,6 +61,8 @@ export default function Header({ artistData: _artistData }: HeaderProps) {
               Pourquoi nous ?
             </button>
             
+            {/* Navigation entre artistes */}
+            {/* <ArtistNavigation currentSlug={artistData.name.toLowerCase().replace(/\s+/g, '-')} /> */}
           </nav>
 
           {/* Desktop CTA Button */}
