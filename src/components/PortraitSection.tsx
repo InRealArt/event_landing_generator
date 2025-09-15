@@ -9,16 +9,22 @@ interface PortraitSectionProps {
 }
 
 export default function PortraitSection({ artistData }: PortraitSectionProps) {
+  // Récupérer la première œuvre d'art mise en avant
+  const featuredArtworks = artistData.artworks.filter(artwork =>
+    artistData.featuredArtworks.includes(artwork.id)
+  );
+  const firstFeaturedArtwork = featuredArtworks[0];
+
   return (
     <section className="py-12 md:py-20 px-4 bg-gray-50">
       <div className="max-w-[80%] md:max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Section - Artist Portrait Image */}
+          {/* Left Section - Featured Artwork Image */}
           <div className="flex justify-center h-full">
             <div className="relative w-full max-w-md h-full">
               <Image
-                src="/images/art3f/laville/artwork-1.webp"
-                alt="Portrait de Monique Laville"
+                src={firstFeaturedArtwork?.image || artistData.aboutImage}
+                alt={firstFeaturedArtwork?.title || `Portrait de ${artistData.fullName}`}
                 fill
                 className="object-cover rounded-lg shadow-lg"
               />

@@ -60,8 +60,8 @@ export default function CatalogSection({ artistData }: CatalogSectionProps) {
           <div className="flex flex-col items-center">
             <div className="relative w-full max-w-md mb-6">
               <Image
-                src="/images/art3f/laville/affiche.webp"
-                alt="Catalogue InRealArt"
+                src={artistData.posterImage}
+                alt={`Catalogue ${artistData.fullName}`}
                 width={400}
                 height={600}
                 className="object-cover rounded-lg shadow-lg"

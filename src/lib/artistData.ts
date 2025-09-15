@@ -18,12 +18,13 @@ export interface ArtistData {
   tagline: string;
   bio: string;
   location: string;
-  
+
   // Images
   profileImage: string;
   aboutImage: string;
   backgroundImage: string;
-  
+  posterImage: string;
+
   // Contact
   email: string;
   phone?: string;
@@ -34,23 +35,23 @@ export interface ArtistData {
     pinterest?: string;
     linkedin?: string;
   };
-  
+
   // Artworks
   artworks: Artwork[];
   featuredArtworks: string[]; // Array of artwork IDs
-  
+
   // About section
   specialties: string[];
   achievements: string[];
   exhibitions?: string[];
-  
+
   // Text Content
   content: {
     // Hero Section
     heroBadge: string;
     heroTitle: string;
     heroSubtitle: string;
-    
+
     // About Section
     aboutBirthInfo: string;
     aboutDescription: string;
@@ -58,26 +59,26 @@ export interface ArtistData {
     aboutQuote: string;
     aboutQuoteAuthor: string;
     aboutTags: string[];
-    
+
     // Portrait Section
     portraitTitle: string;
     portraitDescription: string;
     awards: string[];
     soloExhibitions: string[];
     publications: string[];
-    
+
     // Gallery Section
     galleryMainTitle: string;
     gallerySubtitle: string;
     galleryDescription: string;
-    
+
     // Stats Section
     statsTitle: string;
     stats: {
       number: string;
       description: string;
     }[];
-    
+
     // Catalog Section
     catalogTitle: string;
     catalogDescription: string;
@@ -93,7 +94,7 @@ export interface ArtistData {
       successMessage: string;
       errorMessage: string;
     };
-    
+
     // Footer
     footer: {
       artistDescription: string;
@@ -110,7 +111,7 @@ export interface ArtistData {
       };
     };
   };
-  
+
   // SEO
   seo: {
     title: string;
@@ -127,11 +128,12 @@ export const defaultArtistData: ArtistData = {
   tagline: "Contemporary French Artist",
   bio: "Passionate about capturing the beauty of nature through impressionistic landscapes, Monique Laville brings decades of artistic experience to every piece. Her work explores the relationship between light, color, and emotion in rural French landscapes.",
   location: "Provence, France",
-  
+
   profileImage: "/images/art3f/laville/artist.webp",
   aboutImage: "/images/art3f/laville/artist-1.webp",
   backgroundImage: "/images/art3f/laville/artist-background.webp",
-  
+  posterImage: "/images/art3f/laville/affiche.webp",
+
   email: "teaminrealart@gmail.com",
   phone: "+33 6 12 34 56 78",
   website: "www.moniquelaville.com",
@@ -141,7 +143,7 @@ export const defaultArtistData: ArtistData = {
     facebook: "InRealArt/",
     pinterest: "teaminrealart/",
   },
-  
+
   artworks: [
     {
       id: "artwork-1",
@@ -166,9 +168,9 @@ export const defaultArtistData: ArtistData = {
       available: true,
     },
   ],
-  
+
   featuredArtworks: ["artwork-1", "artwork-2"],
-  
+
   specialties: [
     "Paysages Impressionnistes",
     "Études de Nature",
@@ -176,26 +178,26 @@ export const defaultArtistData: ArtistData = {
     "Peinture à l'Huile",
     "Théorie des Couleurs"
   ],
-  
+
   achievements: [
     "Exposée à la Galerie des Beaux-Arts, Paris",
     "Lauréate du Festival d'Art de Provence 2023",
     "Exposée dans plus de 15 galeries à travers la France",
     "Professeure d'art pendant plus de 10 ans"
   ],
-  
+
   exhibitions: [
     "Exposition Solo - Galerie Provence, Aix-en-Provence (2024)",
     "Exposition Collective - Salon des Artistes, Paris (2023)",
     "Foire d'Art - Foire d'Art Contemporain, Nice (2023)"
   ],
-  
+
   content: {
     // Hero Section
     heroBadge: "Peintre",
     heroTitle: "Artiste contemporaine française",
     heroSubtitle: "Monique Laville",
-    
+
     // About Section
     aboutBirthInfo: "Né en 1950 - France",
     aboutDescription: "L'artiste Monique Laville fait partie de la communauté InRealArt est une artiste côtée I-CAC & ARTPRICE",
@@ -203,7 +205,7 @@ export const defaultArtistData: ArtistData = {
     aboutQuote: "Mon atelier est le refuge où je peux m'exprimer librement sur ma peinture, mais pas uniquement. Je retrace \"en écriture\" ma vie depuis mon enfance d'aussi loin que remontent mes souvenirs.",
     aboutQuoteAuthor: "- Monique Laville , Interview pour InRealArt Juin 2025",
     aboutTags: ["Peintre", "Peinture au couteau"],
-    
+
     // Portrait Section
     portraitTitle: "Portrait de Monique Laville",
     portraitDescription: "Monique Laville est une artiste française dont les œuvres ont été exposées nationalement et internationalement dans des pays tels que le Canada, la Chine, l'Italie, le Portugal, l'Autriche, Monaco, le Brésil, les États-Unis et le Royaume-Uni. Ses œuvres ont également été présentées dans des publications prestigieuses comme Nice Matin, Magazine Marianne Maison, et ART EN VOYAGE. Ses tableaux sont souvent impressionnistes, principalement à l'huile sur toile, créés au couteau pour leur donner une texture et une expressivité uniques.",
@@ -240,12 +242,12 @@ export const defaultArtistData: ArtistData = {
       "2015: Nice Matin- Article",
       "2015: RAI 3 ROME- Interview"
     ],
-    
+
     // Gallery Section
     galleryMainTitle: "Catalogue InReal Art 2025",
     gallerySubtitle: "& Monique Laville",
     galleryDescription: "Découvrez les œuvres exposées lors de art3f Monaco",
-    
+
     // Stats Section
     statsTitle: "Le catalogue InRealArt c'est",
     stats: [
@@ -262,7 +264,7 @@ export const defaultArtistData: ArtistData = {
         description: "De nos artistes satisfaits de leurs accompagnements"
       }
     ],
-    
+
     // Catalog Section
     catalogTitle: "Catalogue art3f MONACO",
     catalogDescription: "Explorez une collection unique d'œuvres toutes plus originales les unes que les autres.",
@@ -278,7 +280,7 @@ export const defaultArtistData: ArtistData = {
       successMessage: "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
       errorMessage: "Erreur lors de l'envoi. Veuillez réessayer."
     },
-    
+
     // Footer
     footer: {
       artistDescription: "Artiste contemporaine française spécialisée dans les paysages impressionnistes de Provence.",
@@ -295,7 +297,7 @@ export const defaultArtistData: ArtistData = {
       }
     }
   },
-  
+
   seo: {
     title: "Monique Laville - Contemporary French Artist | Impressionistic Landscapes",
     description: "Discover the beautiful impressionistic landscapes of Monique Laville, a contemporary French artist specializing in oil paintings of Provence's natural beauty.",

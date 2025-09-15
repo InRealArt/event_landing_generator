@@ -11,6 +11,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
     profileImage: "/images/art3f/laville/artist.webp",
     aboutImage: "/images/art3f/laville/artist-1.webp",
     backgroundImage: "/images/art3f/laville/artist-background.webp",
+    posterImage: "/images/art3f/laville/affiche.webp",
 
     email: "teaminrealart@gmail.com",
     phone: "+33 6 12 34 56 78",
