@@ -32,9 +32,10 @@ export default function ArtworkCard({ artwork, onClick }: ArtworkCardProps) {
               src={artwork.image}
               alt={artwork.title}
               width={350}
-              height={0}
+              height={350}
               className="max-w-[250px] w-full h-auto object-contain rounded"
-              style={{ height: 'auto' }}
+              quality={85}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
         </div>
       </div>

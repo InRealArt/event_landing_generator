@@ -15,6 +15,7 @@ export const art3fNouvelartisteData: ArtistData = {
     profileImage: "/images/artistes/nouvel-artiste/artist.webp",
     aboutImage: "/images/artistes/nouvel-artiste/artist-1.webp",
     backgroundImage: "/images/artistes/nouvel-artiste/artist-background.webp",
+    posterImage: "/images/artistes/nouvel-artiste/affiche.webp",
 
     email: "email@example.com",
     phone: "+33 6 12 34 56 78",

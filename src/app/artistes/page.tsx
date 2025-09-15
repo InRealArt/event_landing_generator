@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllArtists } from '@/lib/artistDataManager'
 import type { Metadata } from 'next'
 
@@ -18,7 +19,7 @@ export default async function ArtistesPage() {
             Nos Artistes
           </h1>
           <p className="text-xl text-gray-600 font-montserrat max-w-3xl mx-auto">
-            Découvrez la sélection exclusive d'artistes contemporains de notre catalogue InRealArt.
+            Découvrez la sélection exclusive d&apos;artistes contemporains de notre catalogue InRealArt.
             Chaque artiste apporte sa vision unique et son talent exceptionnel.
           </p>
         </div>
@@ -30,10 +31,14 @@ export default async function ArtistesPage() {
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="aspect-w-16 aspect-h-12">
-                <img
+                <Image
                   src={artist.data.profileImage}
                   alt={artist.data.fullName}
+                  width={400}
+                  height={256}
                   className="w-full h-64 object-cover"
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               

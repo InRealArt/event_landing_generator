@@ -48,6 +48,9 @@ export default function Header({ artistData }: HeaderProps) {
                 width={120}
                 height={40}
                 className="h-8 w-auto invert"
+                quality={90}
+                priority
+                sizes="120px"
               />
             </div>
           </div>

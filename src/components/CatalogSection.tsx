@@ -65,6 +65,8 @@ export default function CatalogSection({ artistData }: CatalogSectionProps) {
                 width={400}
                 height={600}
                 className="object-cover rounded-lg shadow-lg"
+                quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </div>

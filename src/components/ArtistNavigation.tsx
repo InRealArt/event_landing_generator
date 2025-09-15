@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { getAllArtists } from '@/lib/artistDataManager'
@@ -54,10 +55,14 @@ export default function ArtistNavigation({ currentSlug }: ArtistNavigationProps)
             {/* Artiste actuel */}
             <div className="px-4 py-2 bg-purple-50 border-b border-gray-200">
               <div className="flex items-center space-x-3">
-                <img
-                  src={currentArtist?.data.profileImage}
-                  alt={currentArtist?.data.fullName}
+                <Image
+                  src={currentArtist?.data.profileImage || '/images/placeholder-avatar.webp'}
+                  alt={currentArtist?.data.fullName || 'Artiste'}
+                  width={32}
+                  height={32}
                   className="w-8 h-8 rounded-full object-cover"
+                  quality={85}
+                  sizes="32px"
                 />
                 <div>
                   <p className="text-sm font-medium text-gray-900 font-bricolage">
@@ -79,10 +84,14 @@ export default function ArtistNavigation({ currentSlug }: ArtistNavigationProps)
                   className="flex items-center space-x-3 px-4 py-2 hover:bg-gray-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <img
+                  <Image
                     src={artist.data.profileImage}
                     alt={artist.data.fullName}
+                    width={32}
+                    height={32}
                     className="w-8 h-8 rounded-full object-cover"
+                    quality={85}
+                    sizes="32px"
                   />
                   <div>
                     <p className="text-sm font-medium text-gray-900 font-bricolage">

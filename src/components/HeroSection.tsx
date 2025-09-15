@@ -18,6 +18,8 @@ export default function HeroSection({ artistData }: HeroSectionProps) {
           fill
           className="object-cover"
           priority
+          quality={85}
+          sizes="100vw"
         />
       </div>
 
@@ -31,6 +33,8 @@ export default function HeroSection({ artistData }: HeroSectionProps) {
             alt={artistData.fullName}
             fill
             className="object-cover"
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
 

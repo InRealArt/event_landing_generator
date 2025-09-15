@@ -2,6 +2,9 @@ import { ArtistData } from './artistData'
 import { defaultArtistData } from './artistData'
 import { loadArtistData, loadAllArtists, discoverAllArtists, ArtistConfig } from './artists'
 
+// Réexporter ArtistConfig pour les composants
+export type { ArtistConfig }
+
 // Cache pour les données des artistes
 const artistCache = new Map<string, ArtistData>()
 
