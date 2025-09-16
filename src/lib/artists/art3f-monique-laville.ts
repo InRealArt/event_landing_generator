@@ -129,7 +129,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
         // Gallery Section
         galleryMainTitle: "Catalogue InReal Art 2025",
         gallerySubtitle: "& Monique Laville",
-        galleryDescription: "Découvrez les œuvres exposées lors de art3f Monaco",
+        galleryDescription: "Découvrez les œuvres exposées par Monique",
 
         // Stats Section
         statsTitle: "Le catalogue InRealArt c'est",
