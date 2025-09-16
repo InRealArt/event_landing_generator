@@ -66,13 +66,13 @@ export default function PortraitSection({ artistData }: PortraitSectionProps) {
               </ExpandableSection>
 
               {/* Publications */}
-              <ExpandableSection title="Publications">
+              {/* <ExpandableSection title="Publications">
                 <div className="space-y-2">
                   {artistData.content.publications.map((publication, index) => (
                     <p key={index} className="text-gray-700 font-montserrat text-sm">{publication}</p>
                   ))}
                 </div>
-              </ExpandableSection>
+              </ExpandableSection> */}
             </div>
           </div>
         </div>
