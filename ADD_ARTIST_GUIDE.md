@@ -154,7 +154,7 @@ export const art3fNouvelartisteData: ArtistData = {
       privacyText: "Vous acceptez notre politique de confidentialité.",
       buttonText: "Recevoir le catalogue",
       successMessage:
-        "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
+        "Votre catalogue vous sera envoyé très prochainement ! Vérifiez votre boîte mail.",
       errorMessage: "Erreur lors de l'envoi. Veuillez réessayer.",
     },
 

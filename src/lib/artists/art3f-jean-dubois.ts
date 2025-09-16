@@ -12,10 +12,12 @@ export const art3fJeanDuboisData: ArtistData = {
     aboutImage: "/images/artists/jean-dubois/artist-1.webp",
     backgroundImage: "/images/artists/jean-dubois/artist-background.webp",
     posterImage: "/images/artists/jean-dubois/poster.webp",
+    partnershipLabel: "En partenariat avec Biancoscuro",
 
     email: "jean.dubois@email.com",
     phone: "+33 6 98 76 54 32",
     website: "www.jeandubois-sculpteur.com",
+    brevoListId: 28, // ID de la liste Brevo #28
     socialMedia: {
         instagram: "@jeandubois_sculpteur",
         facebook: "JeanDuboisSculpteur",
@@ -140,7 +142,7 @@ export const art3fJeanDuboisData: ArtistData = {
             mobilePlaceholder: "+33 6 98 76 54 32",
             privacyText: "Vous acceptez notre politique de confidentialité.",
             buttonText: "Recevoir le catalogue",
-            successMessage: "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
+            successMessage: "Votre catalogue vous sera envoyé très prochainement ! Vérifiez votre boîte mail.",
             errorMessage: "Erreur lors de l'envoi. Veuillez réessayer."
         },
 

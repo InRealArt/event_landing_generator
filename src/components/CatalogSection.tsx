@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ArtistData } from '@/lib/artistData';
+import PartnershipLabel from './PartnershipLabel';
 
 interface CatalogSectionProps {
   artistData: ArtistData;
@@ -32,7 +33,7 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/send-catalog', {
+      const response = await fetch('/api/create-contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,6 +71,10 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
+            {/* Partnership Label */}
+            {artistData.partnershipLabel && (
+              <PartnershipLabel label={artistData.partnershipLabel} />
+            )}
           </div>
 
           {/* Right Section - Catalog Request Form */}

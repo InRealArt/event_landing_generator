@@ -12,10 +12,12 @@ export const art3fMoniqueLavilleData: ArtistData = {
     aboutImage: "/images/art3f/laville/artist-1.webp",
     backgroundImage: "/images/art3f/laville/artist-background.webp",
     posterImage: "/images/art3f/laville/affiche.webp",
+    partnershipLabel: "BIANCOSCURO partenaire de Art3f",
 
     email: "teaminrealart@gmail.com",
     phone: "+33 6 12 34 56 78",
     website: "www.moniquelaville.com",
+    brevoListId: 28, // ID de la liste Brevo #28
     socialMedia: {
         instagram: "@inrealartgallery/",
         linkedin: "company/inrealart/posts/?feedView=all",
@@ -26,10 +28,10 @@ export const art3fMoniqueLavilleData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Champs de Lavande de Provence",
+            title: "Bouquets de Mimosa",
             year: 2024,
             medium: "Huile sur toile",
-            dimensions: "60cm x 80cm",
+            dimensions: "65cm x 50cm",
             image: "/images/art3f/laville/artwork-1.webp",
             description: "Une peinture impressionniste vibrante capturant l'essence des célèbres champs de lavande de Provence pendant la saison de floraison.",
             price: "€2,500",
@@ -37,10 +39,10 @@ export const art3fMoniqueLavilleData: ArtistData = {
         },
         {
             id: "artwork-2",
-            title: "Vallée des Tournesols",
+            title: "Tournesols et chardons dans l'Oise",
             year: 2024,
             medium: "Huile sur toile",
-            dimensions: "50cm x 70cm",
+            dimensions: "73cm x 54cm",
             image: "/images/art3f/laville/artwork-2.webp",
             description: "Une composition énergique mettant en scène des tournesols dorés se balançant dans la brise estivale, avec une ferme rustique au loin.",
             price: "€2,200",
@@ -89,6 +91,8 @@ export const art3fMoniqueLavilleData: ArtistData = {
         portraitTitle: "Portrait de Monique Laville",
         portraitDescription: "Monique Laville est une artiste française dont les œuvres ont été exposées nationalement et internationalement dans des pays tels que le Canada, la Chine, l'Italie, le Portugal, l'Autriche, Monaco, le Brésil, les États-Unis et le Royaume-Uni. Ses œuvres ont également été présentées dans des publications prestigieuses comme Nice Matin, Magazine Marianne Maison, et ART EN VOYAGE. Ses tableaux sont souvent impressionnistes, principalement à l'huile sur toile, créés au couteau pour leur donner une texture et une expressivité uniques.",
         awards: [
+            "2024: ARTSHOW PARIS - Prix de la technique - Paris, France",
+            "2024 - Reconnaissance en tant qu'artiste peintre européenne à l'internationale de l'année 2024",
             "2022: BIENNALE INTERNAZIONALE - Nominé- Monte Carlo, Monaco",
             "2022: Award Palma d'Oro per l'Arte - Nominé- SAN REMO, Italie",
             "2022: Art Museum V° Biennale - Nominé- VENISE, Italie",
@@ -156,7 +160,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
             mobilePlaceholder: "+33 6 12 34 56 78",
             privacyText: "Vous acceptez notre politique de confidentialité.",
             buttonText: "Recevoir le catalogue",
-            successMessage: "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
+            successMessage: "Votre catalogue vous sera envoyé très prochainement ! Vérifiez votre boîte mail.",
             errorMessage: "Erreur lors de l'envoi. Veuillez réessayer."
         },
 

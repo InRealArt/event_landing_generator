@@ -308,6 +308,84 @@ function createUserEmailTemplate(data: {
   `
 }
 
+// Create contact in Brevo list
+export async function createBrevoContact(contactData: {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  listId: number;
+}): Promise<{ success: boolean; message: string; contactId?: string }> {
+  try {
+    const brevoApiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY || process.env.BREVO_API_KEY
+
+    if (!brevoApiKey) {
+      console.error('❌ Brevo API key missing')
+      return {
+        success: false,
+        message: 'Brevo API key missing'
+      }
+    }
+
+    console.log('✅ Brevo API key found:', brevoApiKey.substring(0, 10) + '...')
+
+    // Prepare contact payload
+    const contactPayload = {
+      email: contactData.email,
+      attributes: {
+        ...(contactData.firstName && { FIRSTNAME: contactData.firstName }),
+        ...(contactData.lastName && { LASTNAME: contactData.lastName }),
+        ...(contactData.phone && { SMS: contactData.phone })
+      },
+      listIds: [contactData.listId],
+      updateEnabled: true // Permet de mettre à jour un contact existant
+    }
+
+    console.log('👤 Creating contact in Brevo:', contactData.email)
+    console.log('👤 List ID:', contactData.listId)
+    console.log('👤 Contact payload:', JSON.stringify(contactPayload, null, 2))
+
+    const response = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'api-key': brevoApiKey
+      },
+      body: JSON.stringify(contactPayload)
+    })
+
+    console.log('👤 Response status:', response.status)
+    console.log('👤 Response ok:', response.ok)
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      console.error('❌ Brevo API error:', errorData)
+      return {
+        success: false,
+        message: `Failed to create contact: ${errorData.message || 'Unknown error'}`
+      }
+    }
+
+    const responseData = await response.json()
+    console.log('✅ Contact created successfully:', responseData)
+    console.log('👤 Contact ID:', responseData.id)
+
+    return {
+      success: true,
+      message: 'Contact created successfully',
+      contactId: responseData.id
+    }
+
+  } catch (error) {
+    console.error('❌ Error creating contact:', error)
+    return {
+      success: false,
+      message: 'Contact creation error'
+    }
+  }
+}
+
 // Export sendEmail function for catalog API
 export async function sendEmail(emailData: {
   to: string;
@@ -355,7 +433,7 @@ export async function sendEmail(emailData: {
       try {
         const fs = await import('fs');
         const path = await import('path');
-        
+
         emailPayload.attachment = emailData.attachments.map(attachment => {
           const filePath = path.resolve(process.cwd(), attachment.path);
           const fileContent = fs.readFileSync(filePath, 'base64');

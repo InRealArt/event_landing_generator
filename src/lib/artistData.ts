@@ -24,11 +24,13 @@ export interface ArtistData {
   aboutImage: string;
   backgroundImage: string;
   posterImage: string;
+  partnershipLabel?: string; // Label de partenariat à afficher sous l'image du catalogue
 
   // Contact
   email: string;
   phone?: string;
   website?: string;
+  brevoListId?: number; // ID de la liste Brevo pour les contacts
   socialMedia?: {
     instagram?: string;
     facebook?: string;
@@ -137,6 +139,7 @@ export const defaultArtistData: ArtistData = {
   email: "teaminrealart@gmail.com",
   phone: "+33 6 12 34 56 78",
   website: "www.moniquelaville.com",
+  brevoListId: 28, // ID de la liste Brevo #28
   socialMedia: {
     instagram: "@inrealartgallery/",
     linkedin: "company/inrealart/posts/?feedView=all",
@@ -277,7 +280,7 @@ export const defaultArtistData: ArtistData = {
       mobilePlaceholder: "+33 6 12 34 56 78",
       privacyText: "Vous acceptez notre politique de confidentialité.",
       buttonText: "Recevoir le catalogue",
-      successMessage: "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
+      successMessage: "Votre catalogue vous sera envoyé très prochainement ! Vérifiez votre boîte mail.",
       errorMessage: "Erreur lors de l'envoi. Veuillez réessayer."
     },
 

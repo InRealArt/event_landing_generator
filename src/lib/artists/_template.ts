@@ -16,6 +16,7 @@ export const art3fNouvelartisteData: ArtistData = {
     aboutImage: "/images/artistes/nouvel-artiste/artist-1.webp",
     backgroundImage: "/images/artistes/nouvel-artiste/artist-background.webp",
     posterImage: "/images/artistes/nouvel-artiste/affiche.webp",
+    partnershipLabel: "Biancoscuro partenaire de Art3f",
 
     email: "email@example.com",
     phone: "+33 6 12 34 56 78",
@@ -125,7 +126,7 @@ export const art3fNouvelartisteData: ArtistData = {
             mobilePlaceholder: "+33 6 12 34 56 78",
             privacyText: "Vous acceptez notre politique de confidentialité.",
             buttonText: "Recevoir le catalogue",
-            successMessage: "Catalogue envoyé avec succès ! Vérifiez votre boîte mail.",
+            successMessage: "Votre catalogue vous sera envoyé très prochainement ! Vérifiez votre boîte mail.",
             errorMessage: "Erreur lors de l'envoi. Veuillez réessayer."
         },
 
