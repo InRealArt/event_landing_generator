@@ -28,7 +28,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Bouquets de Mimosa",
+            title: "Bouquet de Mimosa",
             year: 2024,
             medium: "Huile sur toile",
             dimensions: "65cm x 50cm",
