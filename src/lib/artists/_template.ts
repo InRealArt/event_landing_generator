@@ -115,7 +115,7 @@ export const art3fNouvelartisteData: ArtistData = {
         ],
 
         // Catalog Section
-        catalogTitle: "Catalogue art3f MONACO",
+        catalogTitle: "Catalogue Monique Laville & InRealart",
         catalogDescription: "Description du catalogue...",
         catalogForm: {
             nameLabel: "Nom*",
