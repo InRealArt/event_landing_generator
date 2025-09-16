@@ -149,7 +149,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
         ],
 
         // Catalog Section
-        catalogTitle: "Catalogue art3f MONACO",
+        catalogTitle: "Catalogue Monique Laville & InRealart",
         catalogDescription: "Explorez une collection unique d'œuvres toutes plus originales les unes que les autres.",
         catalogForm: {
             nameLabel: "Nom*",
