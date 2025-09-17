@@ -70,8 +70,8 @@ export const expositionTrompeOeilNadineLeprinceData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
-            quand: "du 02 au 20 Octobre 2025",
-            ou: "à la salle Patenôtre, à Rambouillet"
+            quand: "du 17 au 07 Décembre 2025",
+            ou: "Galerie À l’Écu de France, Viroflay"
         },
 
         // About Section
