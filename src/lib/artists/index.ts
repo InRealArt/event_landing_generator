@@ -44,7 +44,8 @@ export async function discoverAllArtists(): Promise<string[]> {
         const knownArtists = [
             'art3f-monique-laville',
             'salonrambouillet-nadine-leprince',
-            'salontaverny-nadine-leprince'
+            'salontaverny-nadine-leprince',
+            'exposition-trompe-oeil-nadine-leprince'
         ]
 
         // Vérifier que chaque artiste peut être chargé

@@ -1,6 +1,6 @@
 import { ArtistData } from '../artistData'
 
-export const salonrambouilletNadineLeprinceData: ArtistData = {
+export const expositionTrompeOeilNadineLeprinceData: ArtistData = {
     name: "Nadine",
     fullName: "Nadine Leprince",
     title: "Artiste contemporaine française",
@@ -11,13 +11,13 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
     profileImage: "/images/salonRambouillet/nadine-leprince/artist.webp",
     aboutImage: "/images/salonRambouillet/nadine-leprince/artist-1.webp",
     backgroundImage: "/images/salonRambouillet/nadine-leprince/artist-background.webp",
-    posterImage: "/images/salonRambouillet/nadine-leprince/affiche.webp",
+    posterImage: "/images/salonViroflay/nadine-leprince/affiche_expo_trompe_l_oeil.webp",
     partnershipLabel: "",
 
     email: "teaminrealart@gmail.com",
     phone: "+33 6 12 34 56 78",
     website: "www.nadineleprince.com",
-    brevoListId: 30, // ID de la liste Brevo 
+    brevoListId: 31, // ID de la liste Brevo 
     socialMedia: {
         instagram: "@inrealartgallery/",
         linkedin: "company/inrealart/posts/?feedView=all",
