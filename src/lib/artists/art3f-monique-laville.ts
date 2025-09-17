@@ -86,7 +86,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
         },
 
         // About Section
-        aboutBirthInfo: "Né en 1950 - France",
+        aboutBirthInfo: "Née en 1950 - France",
         aboutDescription: "L'artiste Monique Laville fait partie de la communauté InRealArt est une artiste côtée I-CAC & ARTPRICE",
         aboutQuestion: "Ton atelier : laboratoire, refuge, chaos ?",
         aboutQuote: "Mon atelier est le refuge où je peux m'exprimer librement sur ma peinture, mais pas uniquement. Je retrace \"en écriture\" ma vie depuis mon enfance d'aussi loin que remontent mes souvenirs.",

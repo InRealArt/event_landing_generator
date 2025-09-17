@@ -75,7 +75,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
         },
         
         // About Section
-        aboutBirthInfo: "Né en 1975 - France",
+        aboutBirthInfo: "Née en 1942 - France",
         aboutDescription: "L'artiste Nadine Leprince fait partie de la communauté InRealArt est une artiste côtée I-CAC & ARTPRICE",
         aboutQuestion: "Ton atelier : laboratoire, refuge, chaos ?",
         aboutQuote: "À travers InRealArt, j’ancre aujourd’hui mon art traditionnel du trompe-l’œil dans l’avenir.",
