@@ -122,7 +122,7 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
         ],
 
         // Catalog Section
-        catalogTitle: "Catalogue Salon de Taverny & Nadine Leprince",
+        catalogTitle: "Catalogue Nadine Leprince & InRealArt",
         catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon de Taverny du 19 au 28 septembre 2024.",
         catalogForm: {
             nameLabel: "Nom*",
