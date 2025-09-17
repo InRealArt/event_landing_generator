@@ -102,18 +102,12 @@ export default function Header({ artistData }: HeaderProps) {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              <a href="https://example.com/exposition" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors font-montserrat">
-                Exposition
-              </a>
               <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors font-montserrat">
                 Artiste
               </a>
               <button onClick={scrollToStats} className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors font-montserrat">
                 Pourquoi nous ?
               </button>
-              <a href="https://example.com/temoignage" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors font-montserrat">
-                Témoignage
-              </a>
               <button 
                 onClick={scrollToContact}
                 className="w-full text-left px-3 py-2 bg-[#6052FF] text-white rounded-lg hover:bg-[#4a3bcc] transition-colors font-montserrat flex items-center justify-between"
