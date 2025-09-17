@@ -102,7 +102,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
         // Gallery Section
         galleryMainTitle: "Salon de Taverny 2024",
         gallerySubtitle: "& Nadine Leprince",
-        galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon de Taverny",
+        galleryDescription: "Découvrez l'œuvre exposée par Nadine lors de cet évènement",
 
         // Stats Section
         statsTitle: "Le catalogue InRealArt c'est",
