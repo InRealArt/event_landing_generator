@@ -86,17 +86,17 @@ export const expositionTrompeOeilNadineLeprinceData: ArtistData = {
         portraitTitle: "Portrait de Nadine Leprince",
         portraitDescription: "Nadine, née à Paris, provient d'une illustre lignée d'artistes depuis le XVIe siècle, dont Jean-Baptiste Le Prince, ami de Diderot et peintre à la Cour de Russie au XVIIIe siècle. Présentant très jeune un talent remarquable pour le dessin, elle se passionne pour la peinture à l'huile, réalisant natures mortes, paysages, et portraits. Exposant dès 17 ans, elle intègre le groupe des Peintres de la Réalité. Inspirée par le XVIIe siècle, elle modernise cette influence par la composition et le choix des sujets, se divisant entre la France et l'Inde où elle explore le contraste des civilisations. Sa peinture, offrant une réalité en trois dimensions et une réflexion profonde, est un mélange d'émotions, de spiritualité, et de questionnements, servant à la fois de miroir et de fenêtre sur le monde.",
         awards: [
-
+            "2020: Prix Rotary - Paris, France",
+            "2016: Médaille d’Or de la Ville de Sainte-Maure-de-Touraine, France",
+            "2015: Prix, Fondation Taylor (Madeleine Couderc) - Paris, France",
+            "2008: Prix & Médaille de la Ville - Quincy sous Senart, France",
+            "2006: Médaille de la Ville - Chantilly, France"
         ],
         soloExhibitions: [
 
         ],
         publications: [
-            "2024: REVUE D'ART CONTEMPORAIN - Article",
-            "2023: PROVENCE ART - Article",
-            "2022: CULTURE PROVENCE - Article",
-            "2021: ARTISTES DU SUD - Article",
-            "2020: CONTEMPORAIN MAGAZINE - Article"
+            
         ],
 
         // Gallery Section
