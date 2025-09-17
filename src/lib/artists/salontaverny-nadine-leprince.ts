@@ -139,7 +139,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
 
         // Footer
         footer: {
-            artistDescription: "Artiste contemporaine française spécialisée dans l'art abstrait et les techniques mixtes.",
+            artistDescription: "Artiste contemporaine française spécialisée dans l'art du trompe l'oeil.",
             inrealArtDescription: "Catalyseur d'art, de Culture & de Patrimoine",
             contactLabels: {
                 email: "Email",
