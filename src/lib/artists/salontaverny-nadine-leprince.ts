@@ -64,7 +64,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
 
     content: {
         // Hero Section
-        heroBadge: "Salon de Taverny",
+        heroBadge: "Peintre",
         heroTitle: "Artiste contemporaine française",
         heroSubtitle: "Nadine Leprince",
 
