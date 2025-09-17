@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ArtistData } from '@/lib/artistData';
+import { addCacheBusting } from '@/lib/cacheBusting';
 import ExpandableSection from './ExpandableSection';
 
 interface PortraitSectionProps {
@@ -23,7 +24,7 @@ export default function PortraitSection({ artistData }: PortraitSectionProps) {
           <div className="flex justify-center h-full">
             <div className="relative w-full max-w-md h-full">
               <Image
-                src={firstFeaturedArtwork?.image || artistData.aboutImage}
+                src={firstFeaturedArtwork?.image || addCacheBusting(artistData.aboutImage)}
                 alt={firstFeaturedArtwork?.title || `Portrait de ${artistData.fullName}`}
                 fill
                 className="object-cover rounded-lg shadow-lg"

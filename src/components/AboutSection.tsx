@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ArtistData } from '@/lib/artistData';
+import { addCacheBusting } from '@/lib/cacheBusting';
 
 interface AboutSectionProps {
   artistData: ArtistData;
@@ -51,7 +52,7 @@ export default function AboutSection({ artistData }: AboutSectionProps) {
           <div className="flex justify-center h-full">
             <div className="relative w-full h-full">
               <Image
-                src={artistData.aboutImage}
+                src={addCacheBusting(artistData.aboutImage)}
                 alt={artistData.fullName}
                 fill
                 className="object-cover rounded-lg shadow-lg"
