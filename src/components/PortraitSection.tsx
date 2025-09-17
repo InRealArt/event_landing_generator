@@ -47,23 +47,27 @@ export default function PortraitSection({ artistData }: PortraitSectionProps) {
 
             {/* Expandable Sections */}
             <div className="space-y-4">
-              {/* Prix */}
-              <ExpandableSection title="Prix">
-                <div className="space-y-2">
-                  {artistData.content.awards.map((award, index) => (
-                    <p key={index} className="text-gray-700 font-montserrat text-sm">{award}</p>
-                  ))}
-                </div>
-              </ExpandableSection>
+              {/* Prix - Afficher seulement si le tableau awards n'est pas vide */}
+              {artistData.content.awards && artistData.content.awards.length > 0 && (
+                <ExpandableSection title="Prix">
+                  <div className="space-y-2">
+                    {artistData.content.awards.map((award, index) => (
+                      <p key={index} className="text-gray-700 font-montserrat text-sm">{award}</p>
+                    ))}
+                  </div>
+                </ExpandableSection>
+              )}
 
-              {/* Exposition solo */}
-              <ExpandableSection title="Exposition solo">
-                <div className="space-y-2">
-                  {artistData.content.soloExhibitions.map((exhibition, index) => (
-                    <p key={index} className="text-gray-700 font-montserrat text-sm">{exhibition}</p>
-                  ))}
-                </div>
-              </ExpandableSection>
+              {/* Exposition solo - Afficher seulement si le tableau soloExhibitions n'est pas vide */}
+              {artistData.content.soloExhibitions && artistData.content.soloExhibitions.length > 0 && (
+                <ExpandableSection title="Exposition solo">
+                  <div className="space-y-2">
+                    {artistData.content.soloExhibitions.map((exhibition, index) => (
+                      <p key={index} className="text-gray-700 font-montserrat text-sm">{exhibition}</p>
+                    ))}
+                  </div>
+                </ExpandableSection>
+              )}
 
               {/* Publications */}
               {/* <ExpandableSection title="Publications">

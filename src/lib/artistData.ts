@@ -54,6 +54,12 @@ export interface ArtistData {
     heroTitle: string;
     heroSubtitle: string;
 
+    // Event Info Section
+    eventInfo?: {
+      quand: string;
+      ou: string;
+    };
+
     // About Section
     aboutBirthInfo: string;
     aboutDescription: string;

@@ -79,6 +79,12 @@ export const art3fMoniqueLavilleData: ArtistData = {
         heroTitle: "Artiste contemporaine française",
         heroSubtitle: "Monique Laville",
 
+        // Event Info Section
+        eventInfo: {
+            quand: "du 19 au 21 Septembre 2025",
+            ou: "au Château de Fontvielle, à Monaco"
+        },
+
         // About Section
         aboutBirthInfo: "Né en 1950 - France",
         aboutDescription: "L'artiste Monique Laville fait partie de la communauté InRealArt est une artiste côtée I-CAC & ARTPRICE",
