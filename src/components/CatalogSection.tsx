@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { ArtistData } from '@/lib/artistData';
 import PartnershipLabel from './PartnershipLabel';
 
@@ -11,6 +12,7 @@ interface CatalogSectionProps {
 }
 
 export default function CatalogSection({ artistData, slug }: CatalogSectionProps) {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,21 +35,36 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
     setSubmitStatus('idle');
 
     try {
+      // Générer le token reCAPTCHA si disponible
+      let recaptchaToken = '';
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha('catalog_request');
+      } else {
+        console.warn('⚠️ reCAPTCHA non disponible - soumission sans validation');
+      }
+
       const response = await fetch('/api/create-contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, slug }),
+        body: JSON.stringify({ 
+          ...formData, 
+          slug,
+          recaptchaToken 
+        }),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', mobile: '' });
       } else {
+        const errorData = await response.json();
+        console.error('Erreur API:', errorData);
         setSubmitStatus('error');
       }
-    } catch (_error) {
+    } catch (error) {
+      console.error('Erreur lors de la soumission:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

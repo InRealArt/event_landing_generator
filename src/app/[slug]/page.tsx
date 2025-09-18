@@ -6,6 +6,7 @@ import PortraitSection from '@/components/PortraitSection'
 import InRealArtStats from '@/components/InRealArtStats'
 import ArtworkGallery from '@/components/ArtworkGallery'
 import CatalogSection from '@/components/CatalogSection'
+import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import { getArtistData, getAllArtistSlugs } from '@/lib/artistDataManager'
 import type { Metadata } from 'next'
 
@@ -92,7 +93,9 @@ export default async function ArtistPage({ params }: PageProps) {
       </div>
 
       <div id="contact">
-        <CatalogSection artistData={artistData} slug={slug} />
+        <GoogleCaptchaWrapper>
+          <CatalogSection artistData={artistData} slug={slug} />
+        </GoogleCaptchaWrapper>
       </div>
 
       {/* Footer */}

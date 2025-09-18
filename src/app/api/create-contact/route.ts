@@ -1,17 +1,73 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createBrevoContact } from '@/actions/emailActions';
 import { getArtistData } from '@/lib/artistDataManager';
+import { verifyRecaptchaToken } from '@/lib/recaptcha';
+import { z } from 'zod';
+
+// Schéma de validation Zod pour les données de contact
+const contactSchema = z.object({
+  name: z.string()
+    .min(2, 'Le nom doit contenir au moins 2 caractères')
+    .max(100, 'Le nom ne peut pas dépasser 100 caractères')
+    .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, 'Le nom ne peut contenir que des lettres, espaces, apostrophes et tirets'),
+  email: z.string()
+    .email('Adresse email invalide')
+    .max(255, 'L\'email ne peut pas dépasser 255 caractères'),
+  mobile: z.string()
+    .optional()
+    .refine((val) => !val || /^(\+33|0)[1-9](\d{8})$/.test(val), 'Numéro de mobile français invalide'),
+  slug: z.string()
+    .min(1, 'Le slug est requis')
+    .max(100, 'Le slug ne peut pas dépasser 100 caractères')
+    .regex(/^[a-z0-9-]+$/, 'Le slug ne peut contenir que des lettres minuscules, chiffres et tirets'),
+  recaptchaToken: z.string()
+    .min(1, 'Le token reCAPTCHA est requis')
+    .optional()
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, mobile, slug } = await request.json();
+    const body = await request.json();
 
-    // Validate required fields
-    if (!name || !email || !slug) {
+    // Validation des données avec Zod
+    const validationResult = contactSchema.safeParse(body);
+
+    if (!validationResult.success) {
+      const errors = validationResult.error.issues.map((err: any) => ({
+        field: err.path.join('.'),
+        message: err.message
+      }));
+
       return NextResponse.json(
-        { error: 'Nom, email et slug sont requis' },
+        {
+          error: 'Données de validation invalides',
+          details: errors
+        },
         { status: 400 }
       );
+    }
+
+    const { name, email, mobile, slug, recaptchaToken } = validationResult.data;
+
+    // Validation reCAPTCHA (optionnelle en développement si pas de clé configurée)
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+    if (recaptchaSecretKey && recaptchaToken) {
+      const isRecaptchaValid = await verifyRecaptchaToken(recaptchaToken);
+
+      if (!isRecaptchaValid) {
+        return NextResponse.json(
+          { error: 'Validation reCAPTCHA échouée' },
+          { status: 400 }
+        );
+      }
+    } else if (recaptchaSecretKey && !recaptchaToken) {
+      return NextResponse.json(
+        { error: 'Token reCAPTCHA requis' },
+        { status: 400 }
+      );
+    } else {
+      console.warn('⚠️ reCAPTCHA désactivé - RECAPTCHA_SECRET_KEY non configurée');
     }
 
     // Get artist data to retrieve Brevo list ID
