@@ -28,6 +28,14 @@ const nextConfig: NextConfig = {
 
     // Configuration pour les images locales
     disableStaticImages: false,
+
+    // Configuration des patterns d'images locales avec support des query strings
+    localPatterns: [
+      {
+        pathname: '/images/**',
+        // Permettre tous les query strings pour les images locales
+      },
+    ],
   },
 
   // Configuration des en-têtes de cache pour les images

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' 
+    ? 'https://event.inrealart.com' 
+    : 'http://localhost:3000'
+  ),
   title: "Monique Laville - Contemporary French Artist | Impressionistic Landscapes",
   description: "Discover the beautiful impressionistic landscapes of Monique Laville, a contemporary French artist specializing in oil paintings of Provence's natural beauty.",
   keywords: "Monique Laville, French artist, impressionistic paintings, Provence landscapes, contemporary art, oil paintings, French countryside",
