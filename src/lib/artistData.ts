@@ -157,7 +157,7 @@ export const defaultArtistData: ArtistData = {
     {
       id: "artwork-1",
       title: "Champs de Lavande de Provence",
-      year: 2024,
+      year: 2025,
       medium: "Huile sur toile",
       dimensions: "60cm x 80cm",
       image: "/images/art3f/laville/artwork-1.webp",
@@ -168,7 +168,7 @@ export const defaultArtistData: ArtistData = {
     {
       id: "artwork-2",
       title: "Vallée des Tournesols",
-      year: 2024,
+      year: 2025,
       medium: "Huile sur toile",
       dimensions: "50cm x 70cm",
       image: "/images/art3f/laville/artwork-2.webp",

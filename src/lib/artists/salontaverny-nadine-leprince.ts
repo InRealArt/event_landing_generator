@@ -100,7 +100,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
         ],
 
         // Gallery Section
-        galleryMainTitle: "Salon de Taverny 2024",
+        galleryMainTitle: "Salon de Taverny 2025",
         gallerySubtitle: "& Nadine Leprince",
         galleryDescription: "Découvrez l'œuvre exposée par Nadine lors de cet évènement",
 
