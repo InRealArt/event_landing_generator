@@ -7,8 +7,8 @@ export default function GoogleCaptchaWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  // Utiliser une clé fixe pour éviter les problèmes de compilation avec Next.js
-  const recaptchaKey = "6LeX-vgpAAAAAP6do9qsGjgEOVefIAmRq1HMDUGl";
+  // Utiliser la variable d'environnement pour la clé publique
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeX-vgpAAAAAP6do9qsGjgEOVefIAmRq1HMDUGl";
 
   // Vérifier l'initialisation de reCAPTCHA
   useEffect(() => {
