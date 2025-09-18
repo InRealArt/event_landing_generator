@@ -100,7 +100,7 @@ export const expositionTrompeOeilNadineLeprinceData: ArtistData = {
         ],
 
         // Gallery Section
-        galleryMainTitle: "Salon de Taverny 2024",
+        galleryMainTitle: "Salon de Viroflay 2025",
         gallerySubtitle: "& Nadine Leprince",
         galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon de Taverny",
 
