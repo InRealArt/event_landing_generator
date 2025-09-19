@@ -82,7 +82,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
         // Event Info Section
         eventInfo: {
             quand: "du 19 au 21 Septembre 2025",
-            ou: "au Château de Fontvielle, à Monaco"
+            ou: "au Chapiteau de Fontvielle, à Monaco"
         },
 
         // About Section
