@@ -46,7 +46,8 @@ export async function discoverAllArtists(): Promise<string[]> {
             'salonrambouillet-nadine-leprince',
             'salontaverny-nadine-leprince',
             'exposition-trompe-oeil-nadine-leprince',
-            'salon-automne-2025-nadine-leprince'
+            'salon-automne-2025-nadine-leprince',
+            'salon-automne-2025-catherine-senechal',
         ]
 
         // Vérifier que chaque artiste peut être chargé
