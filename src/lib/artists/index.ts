@@ -48,6 +48,7 @@ export async function discoverAllArtists(): Promise<string[]> {
             'exposition-trompe-oeil-nadine-leprince',
             'salon-automne-2025-nadine-leprince',
             'salon-automne-2025-catherine-senechal',
+            'businessArtFair-2025-monique-laville'
         ]
 
         // Vérifier que chaque artiste peut être chargé
