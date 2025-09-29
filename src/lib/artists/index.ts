@@ -43,7 +43,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         // Pour l'instant, on retourne une liste statique des artistes connus
         const knownArtists = [
             'art3f-monique-laville',
-            'salonrambouillet-nadine-leprince',
+            'salon-rambouillet-2025-nadine-leprince',
             'salontaverny-nadine-leprince',
             'exposition-trompe-oeil-viroflay-2025-nadine-leprince',
             'salon-automne-2025-nadine-leprince',

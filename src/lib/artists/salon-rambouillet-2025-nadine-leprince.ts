@@ -1,17 +1,17 @@
 import { ArtistData } from '../artistData'
 
-export const salonrambouilletNadineLeprinceData: ArtistData = {
+export const salonRambouillet2025NadineLeprinceData: ArtistData = {
     name: "Nadine",
     fullName: "Nadine Leprince",
     title: "Artiste contemporaine française",
     tagline: "Contemporary French Artist",
     bio: "Artiste passionnée par l'expression artistique contemporaine, Nadine Leprince explore les frontières entre tradition et modernité à travers ses créations uniques. Son travail reflète une sensibilité particulière pour les textures et les formes organiques.",
-    location: "Salon de Taverny : 19 au 28 septembre",
+    location: "Salon de Rambouillet : 02 au 20 octobre",
 
     profileImage: "/images/salonRambouillet/nadine-leprince/artist.webp",
     aboutImage: "/images/salonRambouillet/nadine-leprince/artist-1.webp",
     backgroundImage: "/images/salonRambouillet/nadine-leprince/artist-background.webp",
-    posterImage: "/images/salonRambouillet/nadine-leprince/affiche.webp",
+    posterImage: "/images/salonRambouillet/nadine-leprince/affiche_salon_rambouillet.webp",
     partnershipLabel: "",
 
     email: "teaminrealart@gmail.com",
@@ -28,13 +28,13 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Sur la rivière Nam (ou Laos)",
-            year: 2024,
-            medium: "Acrylique sur toile",
-            dimensions: "65cm x 54cm",
-            image: "/images/salonRambouillet/nadine-leprince/artwork-1.webp",
+            title: "Repos à la tombée du jour",
+            year: null,
+            medium: "",
+            dimensions: "81cm x 100cm",
+            image: "/images/salonRambouillet/nadine-leprince/repos_tombee_du_jour.webp",
             description: "Cette peinture captivante s'inspire des premières explorations de l'artiste en Chine, un pays qui a profondément influencé son parcours créatif. La rivière Li, avec ses imposantes montagnes karstiques et sa végétation luxuriante qui borde ses rives, est au cœur de cette œuvre d'art. Les bateaux de pêche traditionnels, accompagnés de cormorans, et les vieux bateaux à moteur glissant sur les eaux calmes, créent une scène débordante de vitalité. Les teintes bleues des montagnes se fondent avec le vert luxuriant de la flore et les reflets argentés de l'eau, capturant une image qui reste indélébile. Cette œuvre transporte les spectateurs dans un lieu où la nature et l'humanité coexistent en harmonie, offrant un aperçu de la beauté tranquille et intemporelle de la rivière Li.",
-            price: "€1,800",
+            price: "",
             available: true,
         }
     ],
@@ -101,9 +101,9 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
         ],
 
         // Gallery Section
-        galleryMainTitle: "Salon de Taverny 2024",
+        galleryMainTitle: "Catalogue InRealArt 2025",
         gallerySubtitle: "& Nadine Leprince",
-        galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon de Taverny",
+        galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon de Rambouillet",
 
         // Stats Section
         statsTitle: "Le catalogue InRealArt c'est",
@@ -124,7 +124,7 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
 
         // Catalog Section
         catalogTitle: "Catalogue Nadine Leprince & InRealArt",
-        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon de Taverny du 19 au 28 septembre 2024.",
+        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon de Rambouillet du 02 au 20 octobre 2025.",
         catalogForm: {
             nameLabel: "Nom*",
             namePlaceholder: "Entrer votre nom",
