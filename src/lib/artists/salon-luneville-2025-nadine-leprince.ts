@@ -124,7 +124,7 @@ export const salonLuneville2025NadineLeprinceData: ArtistData = {
 
         // Catalog Section
         catalogTitle: "Catalogue Nadine Leprince & InRealArt",
-        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon Automne 2025 du 29 octobre au 02 novembre 2025.",
+        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon de Lunéville 2025 du 05 au 27 octobre 2025.",
         catalogForm: {
             nameLabel: "Nom*",
             namePlaceholder: "Entrer votre nom",
