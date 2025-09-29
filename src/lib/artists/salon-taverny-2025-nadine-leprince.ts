@@ -1,6 +1,6 @@
 import { ArtistData } from '../artistData'
 
-export const salontavernyNadineLeprinceData: ArtistData = {
+export const salonTaverny2025NadineLeprinceData: ArtistData = {
     name: "Nadine",
     fullName: "Nadine Leprince",
     title: "Artiste contemporaine française",
