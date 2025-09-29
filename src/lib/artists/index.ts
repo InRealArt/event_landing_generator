@@ -45,7 +45,7 @@ export async function discoverAllArtists(): Promise<string[]> {
             'art3f-monique-laville',
             'salonrambouillet-nadine-leprince',
             'salontaverny-nadine-leprince',
-            'exposition-trompe-oeil-nadine-leprince',
+            'exposition-trompe-oeil-viroflay-2025-nadine-leprince',
             'salon-automne-2025-nadine-leprince',
             'salon-automne-2025-catherine-senechal',
             'businessArtFair-2025-monique-laville',

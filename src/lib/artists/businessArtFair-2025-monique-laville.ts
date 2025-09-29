@@ -94,17 +94,6 @@ export const businessArtFair2025MoniqueLavilleData: ArtistData = {
         },
         {
             id: "artwork-7",
-            title: "L'étang aux glycines",
-            year: null,
-            medium: "Huile sur toile",
-            dimensions: "73cm x 54cm",
-            image: "/images/businessArtFair2025/monique-laville/etang_aux_glycines.webp",
-            description: "",
-            price: "3 900 €",
-            available: true,
-        },
-        {
-            id: "artwork-8",
             title: "Les paludiers de Guérande",
             year: null,
             medium: "Huile sur toile",
@@ -115,7 +104,7 @@ export const businessArtFair2025MoniqueLavilleData: ArtistData = {
             available: true,
         },
         {
-            id: "artwork-9",
+            id: "artwork-8",
             title: "Tournesols et chardons dans l'Oise",
             year: null,
             medium: "Huile sur toile",
@@ -127,7 +116,7 @@ export const businessArtFair2025MoniqueLavilleData: ArtistData = {
         }
     ],
 
-    featuredArtworks: ["artwork-1", "artwork-2", "artwork-3", "artwork-4", "artwork-5", "artwork-6", "artwork-7", "artwork-8", "artwork-9"],
+    featuredArtworks: ["artwork-1", "artwork-2", "artwork-3", "artwork-4", "artwork-5", "artwork-6", "artwork-7", "artwork-8"],
 
     specialties: [
         "Paysages Impressionnistes",
