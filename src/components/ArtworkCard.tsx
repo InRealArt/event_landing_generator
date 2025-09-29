@@ -60,6 +60,11 @@ export default function ArtworkCard({ artwork, onClick }: ArtworkCardProps) {
               {artwork.year}
             </p>
           )}
+          {artwork.price && (
+            <p className="text-sm font-semibold text-gray-900">
+              {artwork.price}
+            </p>
+          )}
         </div>
       </div>
     </div>

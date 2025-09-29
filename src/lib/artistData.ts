@@ -1,7 +1,7 @@
 export interface Artwork {
   id: string;
   title: string;
-  year: number;
+  year: number | null;
   medium: string;
   dimensions: string;
   image: string;
@@ -56,6 +56,7 @@ export interface ArtistData {
 
     // Event Info Section
     eventInfo?: {
+      title: string;
       quand: string;
       ou: string;
     };
@@ -162,7 +163,7 @@ export const defaultArtistData: ArtistData = {
       dimensions: "60cm x 80cm",
       image: "/images/art3f/laville/artwork-1.webp",
       description: "Une peinture impressionniste vibrante capturant l'essence des célèbres champs de lavande de Provence pendant la saison de floraison.",
-      price: "€2,500",
+      price: "2 500 €",
       available: true,
     },
     {
@@ -173,7 +174,7 @@ export const defaultArtistData: ArtistData = {
       dimensions: "50cm x 70cm",
       image: "/images/art3f/laville/artwork-2.webp",
       description: "Une composition énergique mettant en scène des tournesols dorés se balançant dans la brise estivale, avec une ferme rustique au loin.",
-      price: "€2,200",
+      price: "2 200 €",
       available: true,
     },
   ],

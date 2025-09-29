@@ -34,6 +34,11 @@ export default function ArtworkGallery({ artistData }: ArtworkGalleryProps) {
                   {/* Right Box - Event Details */}
                   <div className="bg-white p-8 rounded-lg shadow-lg">
                     <div className="space-y-3 text-gray-700 font-montserrat">
+                      {artistData.content.eventInfo?.title && (
+                        <h2 className="text-xl font-bold text-gray-900 font-bricolage mb-2">
+                          {artistData.content.eventInfo.title}
+                        </h2>
+                      )}
                       <p><span className="font-semibold">Quand:</span> {artistData.content.eventInfo?.quand || 'Date à confirmer'}</p>
                       <p><span className="font-semibold">Où:</span> {artistData.content.eventInfo?.ou || 'Lieu à confirmer'}</p>
                     </div>
