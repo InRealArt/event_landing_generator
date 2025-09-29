@@ -1,6 +1,6 @@
 import { ArtistData } from '../artistData'
 
-export const salontavernyNadineLeprinceData: ArtistData = {
+export const salonLuneville2025NadineLeprinceData: ArtistData = {
     name: "Nadine",
     fullName: "Nadine Leprince",
     title: "Artiste contemporaine française",
@@ -8,16 +8,16 @@ export const salontavernyNadineLeprinceData: ArtistData = {
     bio: "Artiste passionnée par l'expression artistique contemporaine, Nadine Leprince explore les frontières entre tradition et modernité à travers ses créations uniques. Son travail reflète une sensibilité particulière pour les textures et les formes organiques.",
     location: "Salon de Taverny : 19 au 28 septembre",
 
-    profileImage: "/images/salontaverny/nadine-leprince/artist.webp",
-    aboutImage: "/images/salontaverny/nadine-leprince/artist-1.webp",
-    backgroundImage: "/images/salontaverny/nadine-leprince/artist-background.webp",
-    posterImage: "/images/salontaverny/nadine-leprince/affiche.webp",
+    profileImage: "/images/salonAutomne2025/nadine-leprince/artist.webp",
+    aboutImage: "/images/salonAutomne2025/nadine-leprince/artist-1.webp",
+    backgroundImage: "/images/salonAutomne2025/nadine-leprince/artist-background.webp",
+    posterImage: "/images/salonLuneville2025/nadine-leprince/affiche_salon_luneville_2025.webp",
     partnershipLabel: "",
 
     email: "teaminrealart@gmail.com",
     phone: "+33 6 12 34 56 78",
     website: "www.nadineleprince.com",
-    brevoListId: 29, // ID de la liste Brevo #29
+    brevoListId: 36, // ID de la liste Brevo 
     socialMedia: {
         instagram: "@inrealartgallery/",
         linkedin: "company/inrealart/posts/?feedView=all",
@@ -28,12 +28,12 @@ export const salontavernyNadineLeprinceData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Sur la rivière Nam (ou Laos)",
-            year: 2024,
+            title: "Rapsodie citadine",
+            year: null,
             medium: "Acrylique sur toile",
-            dimensions: "65cm x 54cm",
-            image: "/images/salontaverny/nadine-leprince/artwork-1.webp",
-            description: "Cette peinture captivante s'inspire des premières explorations de l'artiste en Chine, un pays qui a profondément influencé son parcours créatif. La rivière Li, avec ses imposantes montagnes karstiques et sa végétation luxuriante qui borde ses rives, est au cœur de cette œuvre d'art. Les bateaux de pêche traditionnels, accompagnés de cormorans, et les vieux bateaux à moteur glissant sur les eaux calmes, créent une scène débordante de vitalité. Les teintes bleues des montagnes se fondent avec le vert luxuriant de la flore et les reflets argentés de l'eau, capturant une image qui reste indélébile. Cette œuvre transporte les spectateurs dans un lieu où la nature et l'humanité coexistent en harmonie, offrant un aperçu de la beauté tranquille et intemporelle de la rivière Li.",
+            dimensions: "73cm x 92cm",
+            image: "/images/salonLuneville2025/nadine-leprince/raposdie_citadine.webp",
+            description: "",
             price: "",
             available: true,
         }
@@ -70,11 +70,11 @@ export const salontavernyNadineLeprinceData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
-            title: "Salon de Taverny 2025",
-            quand: "du 19 au 28 Septembre 2025",
-            ou: "au Théâtre Madeleine-Renaud, à Taverny"
+            title: "43e salon d'automne international de Lunéville",
+            quand: "du 05 au 27 octobre 2025",
+            ou: "au Réservoir, 2 cours de Verdun"
         },
-        
+
         // About Section
         aboutBirthInfo: "Née en 1942 - France",
         aboutDescription: "L'artiste Nadine Leprince fait partie de la communauté InRealArt est une artiste côtée I-CAC",
@@ -94,16 +94,16 @@ export const salontavernyNadineLeprinceData: ArtistData = {
             "2006: Médaille de la Ville - Chantilly, France"
         ],
         soloExhibitions: [
-    
+
         ],
         publications: [
-
+            
         ],
 
         // Gallery Section
-        galleryMainTitle: "Salon de Taverny 2025",
+        galleryMainTitle: "Salon d'Automne 2025",
         gallerySubtitle: "& Nadine Leprince",
-        galleryDescription: "Découvrez l'œuvre exposée par Nadine lors de cet évènement",
+        galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon Automne 2025",
 
         // Stats Section
         statsTitle: "Le catalogue InRealArt c'est",
@@ -124,7 +124,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
 
         // Catalog Section
         catalogTitle: "Catalogue Nadine Leprince & InRealArt",
-        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon de Taverny du 19 au 28 septembre 2024.",
+        catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon Automne 2025 du 29 octobre au 02 novembre 2025.",
         catalogForm: {
             nameLabel: "Nom*",
             namePlaceholder: "Entrer votre nom",
