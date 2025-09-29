@@ -259,7 +259,7 @@ export const expositionTrompeOeilViroflay2025NadineLeprinceData: ArtistData = {
         ],
 
         // Gallery Section
-        galleryMainTitle: "Salon de Viroflay 2025",
+        galleryMainTitle: "Catalogue InRealArt 2025",
         gallerySubtitle: "& Nadine Leprince",
         galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon de Viroflay",
 
