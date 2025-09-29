@@ -70,6 +70,7 @@ export const salonrambouilletNadineLeprinceData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
+            title: "Salon de Rambouillet 2025",
             quand: "du 02 au 20 Octobre 2025",
             ou: "à la salle Patenôtre, à Rambouillet"
         },

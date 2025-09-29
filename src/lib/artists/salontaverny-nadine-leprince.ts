@@ -70,6 +70,7 @@ export const salontavernyNadineLeprinceData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
+            title: "Salon de Taverny 2025",
             quand: "du 19 au 28 Septembre 2025",
             ou: "au Théâtre Madeleine-Renaud, à Taverny"
         },

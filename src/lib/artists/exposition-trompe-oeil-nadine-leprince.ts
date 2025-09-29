@@ -70,6 +70,7 @@ export const expositionTrompeOeilNadineLeprinceData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
+            title: "Salon de Viroflay 2025",
             quand: "du 17 au 07 Décembre 2025",
             ou: "Galerie À l’Écu de France, Viroflay"
         },

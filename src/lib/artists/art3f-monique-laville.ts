@@ -81,6 +81,7 @@ export const art3fMoniqueLavilleData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
+            title: "Art3f Monaco",
             quand: "du 19 au 21 Septembre 2025",
             ou: "au Chapiteau de Fontvielle, à Monaco"
         },

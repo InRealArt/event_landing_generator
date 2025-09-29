@@ -70,6 +70,7 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
 
         // Event Info Section
         eventInfo: {
+            title: "Salon d'Automne 2025",
             quand: "du 29 octobre au 02 novembre 2025",
             ou: "Place de la Concorde, à Paris"
         },
