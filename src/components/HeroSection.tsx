@@ -27,7 +27,7 @@ export default function HeroSection({ artistData }: HeroSectionProps) {
 
       {/* Artist Card Overlay on Bottom Left */}
       <div className="relative z-10 max-w-[80%] md:max-w-7xl">
-        <div className="relative rounded-lg w-full max-w-md ml-8 lg:ml-16 mb-16 max-h-cardSize h-[600px]">
+        <div className="relative rounded-lg w-full max-w-md ml-8 lg:ml-16 mb-16 max-h-cardSize h-[600px] aspect-[2.22/1]">
         {/* Artist Image as Card Background */}
         <div className="absolute inset-0">
           <Image
@@ -35,11 +35,13 @@ export default function HeroSection({ artistData }: HeroSectionProps) {
             alt={artistData.fullName}
             fill
             className="object-cover"
-            quality={95}
+            unoptimized={true}
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+              imageRendering: 'crisp-edges',
+            }}
           />
         </div>
 
