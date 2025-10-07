@@ -28,13 +28,13 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Einstein",
-            year: 2024,
+            title: "Pavillon V",
+            year: null,
             medium: "Huile sur toile",
-            dimensions: "100cm x 90cm",
-            image: "/images/salonAutomne2025/catherine-senechal/artwork-1.webp",
+            dimensions: "89cm x 116cm",
+            image: "/images/salonAutomne2025/catherine-senechal/pavillonV.webp",
             description: "Plongez dans l'univers dynamique d'« Einstein », un chef-d'œuvre moderne qui célèbre l'éclat de l'intellect humain à travers une mosaïque vibrante de couleurs, de formes et de textes",
-            price: "€1,800",
+            price: "€5,800",
             available: true,
         }
     ],
@@ -57,9 +57,11 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
     ],
 
     exhibitions: [
-        "Exposition Solo - Galerie Contemporaine, Salon-de-Provence (2024)",
-        "Exposition Collective - Salon des Artistes, Aix-en-Provence (2023)",
-        "Foire d'Art - Foire d'Art Contemporain, Marseille (2023)"
+        "2025 : Exposition Solo - Exposition de vues de Paris et Tableaux abstraits / Golf d'Ormesson - Seine et Marne - Ormession, France",
+        "2024 : Exposition personnelle au Restaurant de la Gare de Croy / Restaurant de la gare de Croy - Croy, Suisse",
+        "2024 : Restaurant de la Gare de Croy - Suisse / Suisse - Croy, Suisse",
+        "2022 : Exposition au Centre \"FAIRE LIEN\" Paris 15, France",
+        "2019 : Prochaine exposition à la Galerie 'Libre est l'Art' / 52, rue Notre-Dame de Nazareth - Paris 3, France",
     ],
 
     content: {
@@ -86,8 +88,8 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
         // Portrait Section
         portraitTitle: "Portrait de Catherine Senechal",
         portraitDescription: "Catherine Sénéchal, artiste plasticienne autodidacte, est issue d'une famille d'artistes, peintres et musiciens. Dès l'âge de 15 ans, elle peint, initialement influencée par le Caravage et Corot, utilisant des couleurs pastel et sombres. Sa rencontre avec Catherine Raynal en 1990 marque un tournant, l'encourageant à se défaire d'un style académique pour une peinture plus libre et colorée, tout en expérimentant avec de nouveaux matériaux et supports. Entre 2002 et 2009, elle se focalise sur la technique du collage, créant des œuvres contemporaines appréciées pour leur gaieté. Continuant à évoluer, elle travaille sur des formats plus petits et explore de nouvelles techniques et thèmes, tout en restant fidèle au pastel et à ses collages, cherchant constamment à innover tout en respectant ses premières influences.",
-            awards: [
-            
+        awards: [
+
         ],
         soloExhibitions: [
             "2025 : Exposition de vues de Paris et Tableaux abstraits / Golf d'Ormesson - Seine et Marne - Ormession, France",
@@ -95,7 +97,7 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
             "2024 : Restaurant de la Gare de Croy - Suisse / Suisse - Croy, Suisse"
         ],
         publications: [
-            
+
         ],
 
         // Gallery Section

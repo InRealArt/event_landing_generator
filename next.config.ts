@@ -19,8 +19,8 @@ const nextConfig: NextConfig = {
     // TTL de cache minimum pour réduire les transformations (31 jours)
     minimumCacheTTL: 2678400,
 
-    // Qualités disponibles pour l'optimisation
-    qualities: [25, 50, 75, 85, 90, 95],
+    // Qualités disponibles pour l'optimisation (selon les bonnes pratiques Vercel)
+    qualities: [25, 50, 75, 85, 90, 95, 100],
 
     // Désactiver l'optimisation pour les images qui n'en bénéficient pas
     dangerouslyAllowSVG: true,

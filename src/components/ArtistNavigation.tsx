@@ -61,8 +61,9 @@ export default function ArtistNavigation({ currentSlug }: ArtistNavigationProps)
                   width={32}
                   height={32}
                   className="w-8 h-8 rounded-full object-cover"
-                  quality={85}
+                  quality={75}
                   sizes="32px"
+                  unoptimized={false}
                 />
                 <div>
                   <p className="text-sm font-medium text-gray-900 font-bricolage">
@@ -90,8 +91,9 @@ export default function ArtistNavigation({ currentSlug }: ArtistNavigationProps)
                     width={32}
                     height={32}
                     className="w-8 h-8 rounded-full object-cover"
-                    quality={85}
+                    quality={75}
                     sizes="32px"
+                    unoptimized={false}
                   />
                   <div>
                     <p className="text-sm font-medium text-gray-900 font-bricolage">
