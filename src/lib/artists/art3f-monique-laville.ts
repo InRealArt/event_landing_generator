@@ -50,7 +50,6 @@ export const art3fMoniqueLavilleData: ArtistData = {
         },
     ],
 
-    featuredArtworks: ["artwork-1", "artwork-2"],
 
     specialties: [
         "Paysages Impressionnistes",

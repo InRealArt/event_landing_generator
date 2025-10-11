@@ -50,7 +50,6 @@ export const salonAutomne2025NadineLeprinceData: ArtistData = {
         }
     ],
 
-    featuredArtworks: ["artwork-1", "artwork-2"],
 
     specialties: [
         "Art Abstrait",

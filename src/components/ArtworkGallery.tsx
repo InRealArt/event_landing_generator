@@ -11,9 +11,8 @@ interface ArtworkGalleryProps {
 export default function ArtworkGallery({ artistData }: ArtworkGalleryProps) {
   const [_selectedArtwork, _setSelectedArtwork] = useState<Artwork | null>(null);
 
-  const featuredArtworks = artistData.artworks.filter(artwork =>
-    artistData.featuredArtworks.includes(artwork.id)
-  );
+  // Utiliser directement tous les artworks disponibles
+  const artworks = artistData.artworks;
 
   return (
     <>
@@ -53,7 +52,7 @@ export default function ArtworkGallery({ artistData }: ArtworkGalleryProps) {
                 </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredArtworks.map((artwork) => (
+            {artworks.map((artwork) => (
               <ArtworkCard
                 key={artwork.id}
                 artwork={artwork}

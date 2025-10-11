@@ -43,7 +43,6 @@ export const art3fNouvelartisteData: ArtistData = {
         // Ajoutez d'autres œuvres...
     ],
 
-    featuredArtworks: ["artwork-1", "artwork-2"],
 
     specialties: [
         "Spécialité 1",

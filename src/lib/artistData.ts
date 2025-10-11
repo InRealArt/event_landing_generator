@@ -40,7 +40,6 @@ export interface ArtistData {
 
   // Artworks
   artworks: Artwork[];
-  featuredArtworks: string[]; // Array of artwork IDs
 
   // About section
   specialties: string[];
@@ -179,7 +178,6 @@ export const defaultArtistData: ArtistData = {
     },
   ],
 
-  featuredArtworks: ["artwork-1", "artwork-2"],
 
   specialties: [
     "Paysages Impressionnistes",

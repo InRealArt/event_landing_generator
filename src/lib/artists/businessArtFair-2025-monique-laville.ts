@@ -116,7 +116,6 @@ export const businessArtFair2025MoniqueLavilleData: ArtistData = {
         }
     ],
 
-    featuredArtworks: ["artwork-1", "artwork-2", "artwork-3", "artwork-4", "artwork-5", "artwork-6", "artwork-7", "artwork-8"],
 
     specialties: [
         "Paysages Impressionnistes",

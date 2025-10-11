@@ -39,7 +39,6 @@ export const salonAutomne2025CatherineSenechalData: ArtistData = {
         }
     ],
 
-    featuredArtworks: ["artwork-1"],
 
     specialties: [
         "Art Abstrait",

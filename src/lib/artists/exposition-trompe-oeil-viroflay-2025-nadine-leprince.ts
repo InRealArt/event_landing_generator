@@ -194,10 +194,6 @@ export const expositionTrompeOeilViroflay2025NadineLeprinceData: ArtistData = {
     
     ],
 
-    featuredArtworks: [
-        "artwork-1", "artwork-2", "artwork-3", "artwork-4", "artwork-5", "artwork-6", 
-        "artwork-7", "artwork-8", "artwork-9", "artwork-10", "artwork-11", "artwork-12",
-        "artwork-13", "artwork-14", "artwork-15"],
 
     specialties: [
         "Art Abstrait",

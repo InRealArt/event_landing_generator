@@ -10,11 +10,8 @@ interface PortraitSectionProps {
 }
 
 export default function PortraitSection({ artistData }: PortraitSectionProps) {
-  // Récupérer la première œuvre d'art mise en avant
-  const featuredArtworks = artistData.artworks.filter(artwork =>
-    artistData.featuredArtworks.includes(artwork.id)
-  );
-  const firstFeaturedArtwork = featuredArtworks[0];
+  // Utiliser le premier artwork disponible
+  const firstArtwork = artistData.artworks[0];
 
   return (
     <section className="py-12 md:py-20 px-4 bg-gray-50">
@@ -24,8 +21,8 @@ export default function PortraitSection({ artistData }: PortraitSectionProps) {
           <div className="flex justify-center h-full">
             <div className="relative w-full max-w-md h-full">
               <Image
-                src={firstFeaturedArtwork?.image || addCacheBusting(artistData.aboutImage)}
-                alt={firstFeaturedArtwork?.title || `Portrait de ${artistData.fullName}`}
+                src={firstArtwork?.image || addCacheBusting(artistData.aboutImage)}
+                alt={firstArtwork?.title || `Portrait de ${artistData.fullName}`}
                 fill
                 className="object-cover rounded-lg shadow-lg"
                 quality={85}

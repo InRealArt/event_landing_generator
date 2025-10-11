@@ -39,7 +39,6 @@ export const salonRambouillet2025NadineLeprinceData: ArtistData = {
         }
     ],
 
-    featuredArtworks: ["artwork-1"],
 
     specialties: [
         "Art Abstrait",
