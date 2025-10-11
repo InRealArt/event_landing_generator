@@ -28,18 +28,29 @@ export const salonAutomne2025NadineLeprinceData: ArtistData = {
     artworks: [
         {
             id: "artwork-1",
-            title: "Sur la rivière Nam (ou Laos)",
+            title: "Installation",
             year: 2024,
             medium: "Acrylique sur toile",
-            dimensions: "65cm x 54cm",
-            image: "/images/salonAutomne2025/nadine-leprince/artwork-1.webp",
-            description: "Cette peinture captivante s'inspire des premières explorations de l'artiste en Chine, un pays qui a profondément influencé son parcours créatif. La rivière Li, avec ses imposantes montagnes karstiques et sa végétation luxuriante qui borde ses rives, est au cœur de cette œuvre d'art. Les bateaux de pêche traditionnels, accompagnés de cormorans, et les vieux bateaux à moteur glissant sur les eaux calmes, créent une scène débordante de vitalité. Les teintes bleues des montagnes se fondent avec le vert luxuriant de la flore et les reflets argentés de l'eau, capturant une image qui reste indélébile. Cette œuvre transporte les spectateurs dans un lieu où la nature et l'humanité coexistent en harmonie, offrant un aperçu de la beauté tranquille et intemporelle de la rivière Li.",
-            price: "€1,800",
+            dimensions: "60cm x 92cm",
+            image: "/images/salonAutomne2025/nadine-leprince/Installation.webp",
+            description: "",
+            price: "",
+            available: true,
+        },
+        {
+            id: "artwork-2",
+            title: "La moto",
+            year: 2024,
+            medium: "Acrylique sur toile",
+            dimensions: "22cm x 16cm",
+            image: "/images/salonAutomne2025/nadine-leprince/La_moto.webp",
+            description: "",
+            price: "",
             available: true,
         }
     ],
 
-    featuredArtworks: ["artwork-1"],
+    featuredArtworks: ["artwork-1", "artwork-2"],
 
     specialties: [
         "Art Abstrait",
