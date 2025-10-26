@@ -1,16 +1,18 @@
 'use client'
 
 import { getAllArtists } from '@/lib/artistDataManager'
+import type { ArtistConfig } from '@/lib/artistDataManager'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import type React from 'react'
 
 // Fonction pour catégoriser les événements
-function categorizeEvents(artists: any[]) {
+function categorizeEvents(artists: ArtistConfig[]) {
   const now = new Date()
-  const past: any[] = []
-  const current: any[] = []
-  const upcoming: any[] = []
+  const past: ArtistConfig[] = []
+  const current: ArtistConfig[] = []
+  const upcoming: ArtistConfig[] = []
 
   artists.forEach(artist => {
     if (!artist.data.content.eventInfo) return
@@ -47,7 +49,7 @@ function categorizeEvents(artists: any[]) {
 }
 
 export default function Home() {
-  const [artists, setArtists] = useState<any[]>([])
+  const [artists, setArtists] = useState<ArtistConfig[]>([])
   const [loading, setLoading] = useState(true)
   const [downloadLoading, setDownloadLoading] = useState(false)
 
@@ -104,8 +106,9 @@ export default function Home() {
   }
 
   // Fonction pour rendre une carte d'événement
-  const renderEventCard = (artist: any) => {
+  const renderEventCard = (artist: ArtistConfig): React.ReactElement | null => {
     const eventInfo = artist.data.content.eventInfo
+    if (!eventInfo) return null
     const posterImage = artist.data.posterImage || artist.data.profileImage
 
     return (
@@ -292,7 +295,7 @@ export default function Home() {
             Événements InRealArt
           </h1>
           <p className="text-base md:text-lg font-montserrat text-gray-600">
-            Découvrez nos expositions et salons d'art
+            Découvrez nos expositions et salons d&apos;art
           </p>
         </div>
 
@@ -390,7 +393,7 @@ export default function Home() {
                 InRealArt
               </h3>
               <p className="text-gray-300 text-sm font-montserrat mb-4">
-                Catalyseur d'art, de Culture & de Patrimoine
+                Catalyseur d&apos;art, de Culture & de Patrimoine
               </p>
               <div className="space-y-2 text-gray-400 text-sm font-montserrat">
                 <p>15+ Artistes sélectionnés</p>
@@ -482,7 +485,7 @@ export default function Home() {
                   Politique de confidentialité
                 </a>
                 <a href="https://www.inrealart.com/terms" className="hover:text-white transition-colors">
-                  Conditions d'utilisation
+                  Conditions d&apos;utilisation
                 </a>
               </div>
             </div>

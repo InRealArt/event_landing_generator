@@ -1,13 +1,20 @@
 import { NextResponse } from 'next/server'
 import * as XLSX from 'xlsx'
 import { getAllArtists } from '@/lib/artistDataManager'
+import type { ArtistConfig } from '@/lib/artistDataManager'
 
 // Fonction pour catégoriser les événements
-function categorizeEvents(artists: any[]) {
+type CategorizedArtist = ArtistConfig & {
+    category: 'Passé' | 'En cours' | 'À venir'
+    startDate: Date | null
+    endDate: Date | null
+}
+
+function categorizeEvents(artists: ArtistConfig[]): CategorizedArtist[] {
     const now = new Date()
-    const past: any[] = []
-    const current: any[] = []
-    const upcoming: any[] = []
+    const past: CategorizedArtist[] = []
+    const current: CategorizedArtist[] = []
+    const upcoming: CategorizedArtist[] = []
 
     artists.forEach(artist => {
         if (!artist.data.content.eventInfo) return
@@ -16,9 +23,9 @@ function categorizeEvents(artists: any[]) {
         const quand = artist.data.content.eventInfo.quand
         const dateMatch = quand.match(/du (\d+) au (\d+) (\w+) (\d+)/)
 
-        let category = 'À venir' // Par défaut
-        let startDate = null
-        let endDate = null
+        let category: CategorizedArtist['category'] = 'À venir' // Par défaut
+        let startDate: Date | null = null
+        let endDate: Date | null = null
 
         if (dateMatch) {
             const [, startDay, endDay, monthName, year] = dateMatch
