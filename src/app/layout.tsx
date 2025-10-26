@@ -6,19 +6,19 @@ export const metadata: Metadata = {
     ? 'https://event.inrealart.com' 
     : 'http://localhost:3000'
   ),
-  title: "Monique Laville - Contemporary French Artist | Impressionistic Landscapes",
-  description: "Discover the beautiful impressionistic landscapes of Monique Laville, a contemporary French artist specializing in oil paintings of Provence's natural beauty.",
-  keywords: "Monique Laville, French artist, impressionistic paintings, Provence landscapes, contemporary art, oil paintings, French countryside",
-  authors: [{ name: "Monique Laville" }],
+  title: 'Événements InRealArt — Expositions et salons d’art',
+  description: 'Découvrez tous les événements InRealArt : expositions, salons, dates et lieux. Classement en cours, à venir et passés.',
+  keywords: 'InRealArt, événements, expositions, salons d’art, artistes, art, catalogue',
+  authors: [{ name: 'InRealArt' }],
   openGraph: {
-    title: "Monique Laville - Contemporary French Artist",
-    description: "Discover the beautiful impressionistic landscapes of Monique Laville, a contemporary French artist specializing in oil paintings of Provence's natural beauty.",
+    title: 'Événements InRealArt — Expositions et salons d’art',
+    description: 'Découvrez tous les événements InRealArt : expositions, salons, dates et lieux. Classement en cours, à venir et passés.',
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Monique Laville - Contemporary French Artist",
-    description: "Discover the beautiful impressionistic landscapes of Monique Laville, a contemporary French artist specializing in oil paintings of Provence's natural beauty.",
+    title: 'Événements InRealArt — Expositions et salons d’art',
+    description: 'Découvrez tous les événements InRealArt : expositions, salons, dates et lieux. Classement en cours, à venir et passés.',
   },
 };
 
