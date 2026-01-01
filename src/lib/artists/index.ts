@@ -42,6 +42,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         // En production, vous pourriez utiliser fs pour lire le dossier
         // Pour l'instant, on retourne une liste statique des artistes connus
         const knownArtists = [
+            'vernissage-bercy-2026-catherine-senechal',
             'art3f-monique-laville',
             'salon-rambouillet-2025-nadine-leprince',
             'salon-taverny-2025-nadine-leprince',
@@ -49,7 +50,7 @@ export async function discoverAllArtists(): Promise<string[]> {
             'salon-automne-2025-nadine-leprince',
             'salon-automne-2025-catherine-senechal',
             'businessArtFair-2025-monique-laville',
-            'salon-luneville-2025-nadine-leprince'
+            'salon-luneville-2025-nadine-leprince',
         ]
 
         // Vérifier que chaque artiste peut être chargé
