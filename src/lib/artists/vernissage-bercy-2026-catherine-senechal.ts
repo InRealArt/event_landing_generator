@@ -6,7 +6,7 @@ export const vernissageBercy2026CatherineSenechalData: ArtistData = {
     title: "Artiste contemporaine française",
     tagline: "Contemporary French Artist",
     bio: "Artiste passionnée par l'expression artistique contemporaine, Catherine Senechal explore les frontières entre tradition et modernité à travers ses créations uniques. Son travail reflète une sensibilité particulière pour les textures et les formes organiques.",
-    location: "Salon de Taverny : 19 au 28 septembre",
+    location: "Vernissage au Ministère des Finances à Bercy : Mercredi 14 janvier 2026 de 18h à 21h",
 
     profileImage: "/images/vernissageBercy2026/c_senechal.webp",
     aboutImage: "/images/vernissageBercy2026/c_senechal2.webp",
@@ -94,7 +94,7 @@ export const vernissageBercy2026CatherineSenechalData: ArtistData = {
         // Event Info Section
         eventInfo: {
             title: "Vernissage au Ministère des Finances à Bercy",
-            quand: "mercredi 14 janvier 2026 de 18h à 21h",
+            quand: "Mercredi 14 janvier 2026 de 18h à 21h",
             ou: "139, rue de Bercy 75012 Paris"
         },
 
