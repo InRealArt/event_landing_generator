@@ -55,7 +55,7 @@ export default function AboutSection({ artistData }: AboutSectionProps) {
                 src={addCacheBusting(artistData.aboutImage)}
                 alt={artistData.fullName}
                 fill
-                className="object-cover rounded-lg shadow-lg"
+                className="object-cover object-top rounded-lg shadow-lg"
                 quality={85}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                 placeholder="blur"
