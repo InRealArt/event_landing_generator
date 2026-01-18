@@ -42,6 +42,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         // En production, vous pourriez utiliser fs pour lire le dossier
         // Pour l'instant, on retourne une liste statique des artistes connus
         const knownArtists = [
+            'vernissage-2026-lucia-mamos',
             'vernissage-bercy-2026-catherine-senechal',
             'art3f-monique-laville',
             'salon-rambouillet-2025-nadine-leprince',
