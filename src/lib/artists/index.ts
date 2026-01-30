@@ -42,6 +42,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         // En production, vous pourriez utiliser fs pour lire le dossier
         // Pour l'instant, on retourne une liste statique des artistes connus
         const knownArtists = [
+            'artCapital2026-adelaide-leferme',
             'artCapital2026-catherine-senechal',
             'artCapital2026-nadine-leprince',
             'vernissage-2026-lucia-mamos',

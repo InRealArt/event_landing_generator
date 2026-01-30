@@ -459,7 +459,7 @@ export default function Home() {
                 </div>
                 <div>
                   <a
-                    href="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                    href="https://calendly.com/teaminrealart/demande-de-rdv"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors font-montserrat"
