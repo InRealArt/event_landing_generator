@@ -43,6 +43,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         // Pour l'instant, on retourne une liste statique des artistes connus
         const knownArtists = [
             'artCapital2026-catherine-senechal',
+            'artCapital2026-nadine-leprince',
             'vernissage-2026-lucia-mamos',
             'vernissage-bercy-2026-catherine-senechal',
             'art3f-monique-laville',
