@@ -82,6 +82,14 @@ export default function PresentationBlock () {
                 </p>
               ))}
             </div>
+            <div className="pt-4">
+              <p className="text-gray-900 font-bricolage font-semibold text-lg md:text-xl">
+                Anna Chrusciany
+              </p>
+              <p className="text-gray-600 font-bricolage text-base md:text-lg" style={{ fontStyle: 'italic' }}>
+                Art Advisor – InRealArt
+              </p>
+            </div>
           </div>
         </div>
       </div>
