@@ -44,7 +44,7 @@ export default function HeroSection () {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Bloc texte (gauche) - aligné sur le screenshot */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-bricolage leading-tight text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-bricolage leading-tight text-left max-w-2xl">
               {CONTEST_HERO.title}
             </h1>
             <p className="text-white text-base md:text-lg font-bricolage font-normal max-w-2xl text-left">
@@ -52,7 +52,7 @@ export default function HeroSection () {
             </p>
 
             {/* Encadré d'information - style glass avec pastilles animées */}
-            <div className="space-y-4 bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 w-full">
+            <div className="space-y-4 bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 max-w-2xl">
               <p className="text-xl font-semibold flex items-center gap-2 text-white font-bricolage">
                 <span className="w-2 h-2 bg-[#6052FF] rounded-full animate-pulse shrink-0" aria-hidden />
                 Date: {CONTEST_HERO.infoBox.date}
@@ -65,7 +65,7 @@ export default function HeroSection () {
 
             <a
               href="#participer"
-              className="flex w-full items-center justify-center px-8 py-3 bg-[#6052FF] text-white font-medium rounded-lg border-2 border-white hover:bg-[#4a3bcc] focus:outline-none focus:ring-2 focus:ring-[#6052FF] focus:ring-offset-2 transition-colors mt-4 font-bricolage"
+              className="flex w-full max-w-2xl items-center justify-center px-8 py-3 bg-[#6052FF] text-white font-medium rounded-lg border-2 border-white hover:bg-[#4a3bcc] focus:outline-none focus:ring-2 focus:ring-[#6052FF] focus:ring-offset-2 transition-colors mt-4 font-bricolage"
             >
               {CONTEST_HERO.ctaLabel}
             </a>

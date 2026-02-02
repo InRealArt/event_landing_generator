@@ -42,7 +42,9 @@ export default function InrealartArtCapital2026Page () {
       {/* <_ArtCapital2026Nav /> */}
       <HeroSection />
       <ArtistBlock />
-      <ParticipateBlock />
+      <section id="participer" className="scroll-mt-0">
+        <ParticipateBlock />
+      </section>
       <RegistrationBlock />
 
       <Footer />
