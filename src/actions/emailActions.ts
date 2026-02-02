@@ -308,13 +308,14 @@ function createUserEmailTemplate(data: {
   `
 }
 
-// Create contact in Brevo list
+// Create contact in Brevo list(s)
 export async function createBrevoContact(contactData: {
   email: string;
   firstName?: string;
   lastName?: string;
   phone?: string;
-  listId: number;
+  listId?: number;
+  listIds?: number[];
 }): Promise<{ success: boolean; message: string; contactId?: string }> {
   try {
     const brevoApiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY || process.env.BREVO_API_KEY
@@ -324,6 +325,15 @@ export async function createBrevoContact(contactData: {
       return {
         success: false,
         message: 'Brevo API key missing'
+      }
+    }
+
+    const listIds = contactData.listIds ?? (contactData.listId != null ? [contactData.listId] : [])
+
+    if (listIds.length === 0) {
+      return {
+        success: false,
+        message: 'At least one list ID is required'
       }
     }
 
@@ -337,12 +347,12 @@ export async function createBrevoContact(contactData: {
         ...(contactData.lastName && { LASTNAME: contactData.lastName }),
         ...(contactData.phone && { SMS: contactData.phone })
       },
-      listIds: [contactData.listId],
+      listIds,
       updateEnabled: true // Permet de mettre à jour un contact existant
     }
 
     console.log('👤 Creating contact in Brevo:', contactData.email)
-    console.log('👤 List ID:', contactData.listId)
+    console.log('👤 List IDs:', listIds)
     console.log('👤 Contact payload:', JSON.stringify(contactPayload, null, 2))
 
     const response = await fetch('https://api.brevo.com/v3/contacts', {

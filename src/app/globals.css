@@ -97,7 +97,30 @@ body {
 }
 
 /* Font utilities */
-.font-bricolage {
+.font-bricolage,
+a.font-bricolage,
+button.font-bricolage {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Bloc artiste Art Capital - même fonte que le header (Bricolage Grotesque) */
+.artist-block,
+.artist-block p,
+.artist-block span,
+.artist-block button,
+.artist-block h2 {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Bloc Comment Participer - Bricolage Grotesque */
+.participate-block,
+.participate-block h2,
+.participate-block p,
+.participate-block span {
   font-family: 'Bricolage Grotesque', sans-serif !important;
   font-optical-sizing: auto;
   font-style: normal;
@@ -146,6 +169,49 @@ body {
 
 .phone-input-container .PhoneInputCountrySelectArrow {
   @apply border-t-textColor opacity-70;
+}
+
+/* Phone Input Styles - Art Capital 2026 */
+.phone-input-artcapital .PhoneInputInput {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgb(31 41 55);
+  border: 2px solid rgb(55 65 81);
+  border-radius: 0.5rem;
+  color: white;
+  font-family: var(--font-bricolage);
+}
+
+.phone-input-artcapital .PhoneInputInput:focus {
+  outline: none;
+  border-color: #6052FF;
+}
+
+.phone-input-artcapital .PhoneInputCountry {
+  background-color: rgb(31 41 55);
+  border: 2px solid rgb(55 65 81);
+  border-radius: 0.5rem;
+  padding: 0 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.phone-input-artcapital .PhoneInputCountrySelect {
+  background-color: rgb(31 41 55);
+  color: white;
+}
+
+.phone-input-artcapital .PhoneInputCountryIcon {
+  opacity: 0.9;
+}
+
+.phone-input-artcapital .PhoneInputCountrySelectArrow {
+  border-top-color: white;
+  opacity: 0.7;
+}
+
+.phone-input-artcapital.phone-error .PhoneInputInput,
+.phone-input-artcapital.phone-error .PhoneInputCountry {
+  border-color: rgb(239 68 68);
 }
 
 /* Pour le débogage, rendons le badge visible temporairement */

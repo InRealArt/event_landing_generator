@@ -12,8 +12,10 @@ const config: Config = {
       fontFamily: {
         'bricolage': ['Bricolage Grotesque', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
+        'unbounded': ['Unbounded', 'sans-serif'],
       },
       colors: {
+        primary: "var(--purple)",
         purpleColor: "var(--purple)",
         backgroundColor: "var(--background)",
         textColor: "var(--text)",
