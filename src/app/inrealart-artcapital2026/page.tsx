@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import ArtistBlock from '@/components/inrealart-artcapital2026/PresentationBlock'
 import ParticipateBlock from '@/components/inrealart-artcapital2026/ParticipateBlock'
 import RegistrationBlock from '@/components/inrealart-artcapital2026/RegistrationBlock'
@@ -12,12 +13,12 @@ export const metadata: Metadata = {
   keywords: 'Art Capital 2026, jeu concours, InRealArt, Grand Palais, œuvre d\'art'
 }
 
-function ArtCapital2026Nav () {
+function _ArtCapital2026Nav () {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
       <div className="max-w-[80%] md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/images/Logo.webp"
               alt="InRealArt"
@@ -28,7 +29,7 @@ function ArtCapital2026Nav () {
               priority
               sizes="120px"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </header>
@@ -38,7 +39,7 @@ function ArtCapital2026Nav () {
 export default function InrealartArtCapital2026Page () {
   return (
     <main className="min-h-screen bg-white">
-      {/* <ArtCapital2026Nav /> */}
+      {/* <_ArtCapital2026Nav /> */}
       <HeroSection />
       <ArtistBlock />
       <ParticipateBlock />
