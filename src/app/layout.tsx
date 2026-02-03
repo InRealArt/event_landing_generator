@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Toaster } from 'sonner'
+import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'production' 
@@ -39,6 +40,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-backgroundColor text-textColor">
         {children}
+        <Toaster position="top-center" richColors closeButton />
       </body>
     </html>
   );

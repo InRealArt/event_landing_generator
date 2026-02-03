@@ -4,6 +4,7 @@ import ArtistBlock from '@/components/inrealart-artcapital2026/PresentationBlock
 import ParticipateBlock from '@/components/inrealart-artcapital2026/ParticipateBlock'
 import RegistrationBlock from '@/components/inrealart-artcapital2026/RegistrationBlock'
 import Footer from '@/components/inrealart-artcapital2026/Footer'
+import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import type { Metadata } from 'next'
 import HeroSection from '@/components/inrealart-artcapital2026/HeroSection'
 
@@ -45,7 +46,9 @@ export default function InrealartArtCapital2026Page () {
       <section id="participer" className="scroll-mt-0">
         <ParticipateBlock />
       </section>
-      <RegistrationBlock />
+      <GoogleCaptchaWrapper>
+        <RegistrationBlock />
+      </GoogleCaptchaWrapper>
 
       <Footer />
     </main>

@@ -368,23 +368,42 @@ export async function createBrevoContact(contactData: {
     console.log('👤 Response status:', response.status)
     console.log('👤 Response ok:', response.ok)
 
+    const responseText = await response.text()
+
     if (!response.ok) {
-      const errorData = await response.json()
-      console.error('❌ Brevo API error:', errorData)
+      let errorMessage = 'Unknown error'
+      if (responseText) {
+        try {
+          const errorData = JSON.parse(responseText)
+          errorMessage = errorData.message || errorMessage
+        } catch {
+          errorMessage = responseText
+        }
+      }
+      console.error('❌ Brevo API error:', responseText)
       return {
         success: false,
-        message: `Failed to create contact: ${errorData.message || 'Unknown error'}`
+        message: `Failed to create contact: ${errorMessage}`
       }
     }
 
-    const responseData = await response.json()
-    console.log('✅ Contact created successfully:', responseData)
-    console.log('👤 Contact ID:', responseData.id)
+    let contactId: string | undefined
+    if (responseText) {
+      try {
+        const responseData = JSON.parse(responseText)
+        contactId = responseData.id
+        console.log('✅ Contact created successfully:', responseData)
+      } catch {
+        console.log('✅ Contact created (empty response body)')
+      }
+    } else {
+      console.log('✅ Contact created (empty response body)')
+    }
 
     return {
       success: true,
       message: 'Contact created successfully',
-      contactId: responseData.id
+      contactId
     }
 
   } catch (error) {

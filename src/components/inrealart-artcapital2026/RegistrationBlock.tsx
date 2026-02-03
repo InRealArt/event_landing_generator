@@ -1,7 +1,9 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useActionState, useState, useEffect, useRef } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import PhoneInput from 'react-phone-number-input'
+import { toast } from 'sonner'
 import { registerToContest, ContestFormState } from '@/actions/invitationArtCapital2026Actions'
 import 'react-phone-number-input/style.css'
 
@@ -11,9 +13,38 @@ const initialState: ContestFormState = {
 }
 
 export default function RegistrationBlock () {
+  const { executeRecaptcha } = useGoogleReCaptcha()
   const [state, formAction, pending] = useActionState(registerToContest, initialState)
   const [phone, setPhone] = useState('')
   const [acceptNewsletter, setAcceptNewsletter] = useState(false)
+  const lastToastedMessage = useRef('')
+
+  useEffect(() => {
+    if (!state.success && state.message && state.message !== lastToastedMessage.current) {
+      toast.error('Erreur d\'inscription', {
+        description: state.message
+      })
+      lastToastedMessage.current = state.message
+    }
+  }, [state.success, state.message])
+
+  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    let recaptchaToken = ''
+    if (executeRecaptcha) {
+      try {
+        recaptchaToken = await executeRecaptcha('contest_registration')
+      } catch (err) {
+        console.error('reCAPTCHA error:', err)
+      }
+    }
+    if (recaptchaToken) {
+      formData.set('recaptchaToken', recaptchaToken)
+    }
+    formAction(formData)
+  }
 
   return (
     <section className="py-12 md:py-20 px-4 bg-white">
@@ -36,7 +67,7 @@ export default function RegistrationBlock () {
             </p>
           </div>
         ) : (
-          <form action={formAction} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Prénom et Nom */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

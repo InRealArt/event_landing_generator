@@ -2,37 +2,56 @@
  * Utilitaire pour la gestion de Google reCAPTCHA v3
  */
 
-// Vérifie si un token reCAPTCHA est valide
+const RECAPTCHA_VERIFY_TIMEOUT_MS = 10000
+const RECAPTCHA_RETRY_DELAY_MS = 2000
+
+async function verifyRecaptchaOnce(token: string, signal: AbortSignal): Promise<boolean> {
+  const response = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+    { method: 'POST', signal }
+  )
+  const data = await response.json()
+  return Boolean(data.success && data.score >= 0.5)
+}
+
+function isNetworkError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : ''
+  const code = (error as { cause?: { code?: string } })?.cause?.code
+  return msg.includes('abort') || code === 'ETIMEDOUT' || code === 'ECONNRESET' || msg.includes('fetch failed')
+}
+
+// Vérifie si un token reCAPTCHA est valide (avec timeout et 1 retry en cas d'erreur réseau)
 export async function verifyRecaptchaToken(token: string): Promise<boolean> {
-  try {
-      // Clé secrète reCAPTCHA (à récupérer depuis les variables d'environnement)
-      const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY
-      console.log('recaptchaSecretKey', recaptchaSecretKey)
-      if (!recaptchaSecretKey) {
-          console.error('La clé secrète reCAPTCHA n\'est pas configurée')
-          return false
-      }
-
-      // Appel à l'API de vérification de Google
-      const response = await fetch(
-          `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${token}`,
-          { method: 'POST' }
-      )
-
-      const data = await response.json()
-      console.log('data', data)
-      // Vérification du score (0.0 à 1.0, où 1.0 est probablement humain)
-      // On peut ajuster le seuil selon les besoins
-      if (data.success && data.score >= 0.5) {
-          return true
-      }
-      console.log('data.success', data.success)
-      console.log('data.score', data.score)
-      return false
-  } catch (error) {
-      console.error('Erreur lors de la vérification du token reCAPTCHA:', error)
-      return false
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    console.error('La clé secrète reCAPTCHA n\'est pas configurée')
+    return false
   }
+
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), RECAPTCHA_VERIFY_TIMEOUT_MS)
+
+    try {
+      const ok = await verifyRecaptchaOnce(token, controller.signal)
+      clearTimeout(timeoutId)
+      return ok
+    } catch (error) {
+      clearTimeout(timeoutId)
+      const shouldRetry = attempt === 0 && isNetworkError(error)
+      if (shouldRetry) {
+        await new Promise(resolve => setTimeout(resolve, RECAPTCHA_RETRY_DELAY_MS))
+        continue
+      }
+      console.error(
+        'Erreur lors de la vérification du token reCAPTCHA:',
+        isNetworkError(error) ? 'timeout ou réseau' : (error instanceof Error ? error.message : error),
+        error
+      )
+      return false
+    }
+  }
+
+  return false
 }
 
 // Hook client pour exécuter reCAPTCHA

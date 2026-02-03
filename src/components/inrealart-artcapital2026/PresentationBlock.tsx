@@ -6,7 +6,7 @@ const ARTIST_BLOCK = {
   logo: '/images/ira_artCapital2026/Logo_IRA.avif',
   title: "",
   logoLine: 'ARTCAPITAL',
-  line2: "Une visite exceptionnelle ne pas manquer !",
+  line2: "Une visite exceptionnelle à ne pas manquer !",
   line3: "Réservez dès maintenant votre visite",
   image: '/images/ira_artCapital2026/Anna.webp',
   name: '',

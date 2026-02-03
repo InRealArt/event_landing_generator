@@ -2,6 +2,7 @@
 
 import { z } from 'zod'
 import { createBrevoContact } from '@/actions/emailActions'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 // IDs des listes Brevo : Newsletter FR (14), Prospect ArtCapital 2026 (57)
 const BREVO_LIST_IDS = [14, 57] as const
@@ -41,6 +42,24 @@ export async function registerToContest(
   formData: FormData
 ): Promise<ContestFormState> {
   try {
+    const recaptchaToken = formData.get('recaptchaToken') as string | null
+
+    if (process.env.RECAPTCHA_SECRET_KEY) {
+      if (!recaptchaToken) {
+        return {
+          success: false,
+          message: 'Vérification de sécurité manquante. Veuillez réessayer.'
+        }
+      }
+      const isValidRecaptcha = await verifyRecaptchaToken(recaptchaToken)
+      if (!isValidRecaptcha) {
+        return {
+          success: false,
+          message: 'Vérification de sécurité échouée. Veuillez réessayer.'
+        }
+      }
+    }
+
     const rawData = {
       firstName: formData.get('firstName') as string,
       lastName: formData.get('lastName') as string,
@@ -80,9 +99,12 @@ export async function registerToContest(
 
     if (!contactResult.success) {
       console.error('❌ Contest registration failed:', contactResult.message)
+      const userMessage = contactResult.message.includes('SMS is already associated')
+        ? 'Ce numéro de téléphone est déjà associé à un autre compte. Veuillez utiliser un autre numéro ou nous contacter.'
+        : contactResult.message
       return {
         success: false,
-        message: "Une erreur est survenue lors de l'inscription. Veuillez réessayer."
+        message: userMessage
       }
     }
 
