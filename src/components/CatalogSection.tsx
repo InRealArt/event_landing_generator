@@ -1,75 +1,55 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import { useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { ArtistData } from '@/lib/artistData';
-import PartnershipLabel from './PartnershipLabel';
+import Image from 'next/image'
+import { useActionState, useEffect, useRef, startTransition, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import PhoneInput from 'react-phone-number-input'
+import { ArtistData } from '@/lib/artistData'
+import PartnershipLabel from './PartnershipLabel'
+import { requestCatalog, type CatalogFormState } from '@/actions/catalogContactActions'
+import 'react-phone-number-input/style.css'
 
 interface CatalogSectionProps {
-  artistData: ArtistData;
-  slug: string;
+  artistData: ArtistData
+  slug: string
+}
+
+const initialState: CatalogFormState = {
+  success: false,
+  message: ''
 }
 
 export default function CatalogSection({ artistData, slug }: CatalogSectionProps) {
-  const { executeRecaptcha } = useGoogleReCaptcha();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const { executeRecaptcha } = useGoogleReCaptcha()
+  const [state, formAction, pending] = useActionState(requestCatalog, initialState)
+  const [phone, setPhone] = useState<string>('')
+  const errorsRef = useRef<HTMLDivElement | null>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // Générer le token reCAPTCHA si disponible
-      let recaptchaToken = '';
-      if (executeRecaptcha) {
-        recaptchaToken = await executeRecaptcha('catalog_request');
-      } else {
-        console.warn('⚠️ reCAPTCHA non disponible - soumission sans validation');
-      }
-
-      const response = await fetch('/api/create-contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          ...formData, 
-          slug,
-          recaptchaToken 
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', mobile: '' });
-      } else {
-        const errorData = await response.json();
-        console.error('Erreur API:', errorData);
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Erreur lors de la soumission:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+  useEffect(() => {
+    if (state.errors && Object.keys(state.errors).some((k) => (state.errors as Record<string, string[] | undefined>)[k]?.length)) {
+      errorsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     }
-  };
+  }, [state.errors])
+
+  async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    let recaptchaToken = ''
+    if (executeRecaptcha) {
+      try {
+        recaptchaToken = await executeRecaptcha('catalog_request')
+      } catch (err) {
+        console.error('reCAPTCHA error:', err)
+      }
+    }
+    if (recaptchaToken) {
+      formData.set('recaptchaToken', recaptchaToken)
+    }
+    startTransition(() => {
+      formAction(formData)
+    })
+  }
 
   return (
     <section className="py-12 md:py-20 px-4 bg-gray-50">
@@ -107,7 +87,14 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
               </p>
             </div>
 
+            {state.success ? (
+              <div className="p-6 bg-green-50 border border-green-200 text-green-800 rounded-lg font-montserrat">
+                <p className="font-semibold">{state.message}</p>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="slug" value={slug} />
+
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-900 font-montserrat mb-2">
@@ -117,12 +104,13 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
                   placeholder={artistData.content.catalogForm.namePlaceholder}
                   required
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-montserrat"
+                  className={`w-full px-4 py-3 bg-gray-100 border rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-montserrat ${state.errors?.name ? 'border-red-500' : 'border-gray-300'}`}
                 />
+                {state.errors?.name && (
+                  <p className="text-red-600 text-sm mt-1 font-montserrat font-medium" role="alert">{state.errors.name[0]}</p>
+                )}
               </div>
 
               {/* Email Field */}
@@ -134,28 +122,34 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
                   placeholder={artistData.content.catalogForm.emailPlaceholder}
                   required
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-montserrat"
+                  className={`w-full px-4 py-3 bg-gray-100 border rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-montserrat ${state.errors?.email ? 'border-red-500' : 'border-gray-300'}`}
                 />
+                {state.errors?.email && (
+                  <p className="text-red-600 text-sm mt-1 font-montserrat font-medium" role="alert">{state.errors.email[0]}</p>
+                )}
               </div>
 
-              {/* Mobile Field */}
+              {/* Mobile Field (optionnel) - E.164 pour Brevo */}
               <div>
                 <label htmlFor="mobile" className="block text-sm font-medium text-gray-900 font-montserrat mb-2">
-                  {artistData.content.catalogForm.mobileLabel}
+                  {artistData.content.catalogForm.mobileLabel} <span className="text-gray-500 font-normal">(optionnel)</span>
                 </label>
-                <input
-                  type="tel"
-                  id="mobile"
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  placeholder={artistData.content.catalogForm.mobilePlaceholder}
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-montserrat"
-                />
+                <div className={`phone-input-catalog ${state.errors?.mobile ? 'phone-error' : ''}`}>
+                  <PhoneInput
+                    international
+                    countryCallingCodeEditable={false}
+                    defaultCountry="FR"
+                    value={phone}
+                    onChange={(value) => setPhone(value || '')}
+                    className="w-full font-montserrat"
+                  />
+                  <input type="hidden" name="mobile" value={phone} />
+                </div>
+                {state.errors?.mobile && (
+                  <p className="text-red-600 text-sm mt-1 font-montserrat font-medium" role="alert">{state.errors.mobile[0]}</p>
+                )}
               </div>
 
               {/* Privacy Policy Checkbox */}
@@ -163,6 +157,7 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
                 <input
                   type="checkbox"
                   id="privacy"
+                  name="privacy"
                   required
                   className="mt-1 h-4 w-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                 />
@@ -171,28 +166,49 @@ export default function CatalogSection({ artistData, slug }: CatalogSectionProps
                 </label>
               </div>
 
+              {/* Message d'erreur général + liste des champs en erreur */}
+              {state.message && !state.success && (
+                <div
+                  ref={errorsRef}
+                  id="catalog-form-errors"
+                  role="alert"
+                  className="p-4 bg-red-50 border-2 border-red-400 text-red-800 rounded-lg font-montserrat"
+                  aria-live="polite"
+                >
+                  <p className="font-semibold mb-2">{state.message}</p>
+                  {state.errors && (
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      {state.errors.name?.map((msg, i) => (
+                        <li key={`name-${i}`}>
+                          <span className="font-medium">{artistData.content.catalogForm.nameLabel.replace('*', '').trim()}</span> : {msg}
+                        </li>
+                      ))}
+                      {state.errors.email?.map((msg, i) => (
+                        <li key={`email-${i}`}>
+                          <span className="font-medium">{artistData.content.catalogForm.emailLabel.replace('*', '').trim()}</span> : {msg}
+                        </li>
+                      ))}
+                      {state.errors.mobile?.map((msg, i) => (
+                        <li key={`mobile-${i}`}>
+                          <span className="font-medium">{artistData.content.catalogForm.mobileLabel.replace('*', '').trim()}</span> : {msg}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={pending}
                 className="w-full bg-purple-600 text-white py-4 px-6 rounded-lg font-medium font-montserrat hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Envoi en cours...' : artistData.content.catalogForm.buttonText}
+                {pending ? 'Envoi en cours...' : artistData.content.catalogForm.buttonText}
               </button>
 
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg font-montserrat">
-                  {artistData.content.catalogForm.successMessage}
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg font-montserrat">
-                  {artistData.content.catalogForm.errorMessage}
-                </div>
-              )}
             </form>
+            )}
           </div>
         </div>
       </div>

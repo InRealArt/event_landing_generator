@@ -218,6 +218,54 @@ body {
   border-color: rgb(239 68 68);
 }
 
+/* Phone Input - formulaire catalogue (fond clair comme les autres champs) */
+.phone-input-catalog .PhoneInputInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgb(243 244 246); /* gray-100 */
+  border: 1px solid rgb(209 213 219); /* gray-300 */
+  border-radius: 0.5rem;
+  color: rgb(17 24 39); /* gray-900 */
+  font-family: var(--font-montserrat);
+}
+
+.phone-input-catalog .PhoneInputInput::placeholder {
+  color: rgb(107 114 128); /* gray-500 */
+}
+
+.phone-input-catalog .PhoneInputInput:focus {
+  outline: none;
+  border-color: rgb(147 51 234); /* purple-500 */
+  box-shadow: 0 0 0 2px rgb(147 51 234 / 0.25);
+}
+
+.phone-input-catalog .PhoneInputCountry {
+  background-color: rgb(243 244 246);
+  border: 1px solid rgb(209 213 219);
+  border-right: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding: 0 0.5rem 0 0.75rem;
+}
+
+.phone-input-catalog .PhoneInputCountrySelect {
+  background-color: transparent;
+  color: rgb(17 24 39);
+}
+
+.phone-input-catalog .PhoneInputCountryIcon {
+  opacity: 0.8;
+}
+
+.phone-input-catalog .PhoneInputCountrySelectArrow {
+  border-top-color: rgb(75 85 99);
+  opacity: 0.7;
+}
+
+.phone-input-catalog.phone-error .PhoneInputInput,
+.phone-input-catalog.phone-error .PhoneInputCountry {
+  border-color: rgb(239 68 68);
+}
+
 /* Pour le débogage, rendons le badge visible temporairement */
 .grecaptcha-badge {
   visibility: visible !important;
