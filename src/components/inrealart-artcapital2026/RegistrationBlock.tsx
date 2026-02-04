@@ -293,7 +293,7 @@ export default function RegistrationBlock () {
                   className="text-sm text-gray-300 group-hover:text-white transition-colors"
                   style={{ fontFamily: 'var(--font-bricolage)' }}
                 >
-                  J&apos;accepte de m&apos;inscrire à la newsletter <span className="text-red-400">*</span>
+                  J&apos;accepte de m&apos;inscrire à la newsletter pour recevoir mon invitation <span className="text-red-400">*</span>
                 </span>
               </label>
               {state.errors?.acceptNewsletter && (
