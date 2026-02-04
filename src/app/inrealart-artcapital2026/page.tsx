@@ -9,9 +9,9 @@ import type { Metadata } from 'next'
 import HeroSection from '@/components/inrealart-artcapital2026/HeroSection'
 
 export const metadata: Metadata = {
-  title: 'Art Capital 2026 — Jeu concours InRealArt',
-  description: 'Tentez de remporter une toile unique. Jeu concours Art Capital 2026 en partenariat avec InRealArt.',
-  keywords: 'Art Capital 2026, jeu concours, InRealArt, Grand Palais, œuvre d\'art'
+  title: 'Art Capital 2026 — Visite exceptionnelle InRealArt',
+  description: 'Visite exceptionnelle Art Capital 2026 en partenariat avec InRealArt.',
+  keywords: 'Art Capital 2026, visite exceptionnelle, InRealArt, Grand Palais, œuvre d\'art'
 }
 
 function _ArtCapital2026Nav () {

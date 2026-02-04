@@ -12,7 +12,7 @@ const ARTIST_BLOCK = {
   name: '',
   paragraphs: [
     "Je suis heureuse de vous inviter à découvrir les artistes InRealArt et  leurs œuvres lors d’Art Capital 2026, au Grand Palais du 13 au 15 janvier 2026.",
-    "À travers ce jeu concours, je vous ouvre les portes de mon univers et vous offre une expérience artistique unique, au cœur de l’un des événements majeurs de la scène contemporaine.",
+    "À travers cette visite nous vous offrons une expérience artistique unique, au cœur de l’un des événements majeurs de la scène contemporaine.",
     " Les places sont strictement limitées : participez dès maintenant. Il me tarde de vous retrouver pour vivre ensemble un moment d’art, d’émotion et de rencontre au Grand Palais."
   ]
 }
