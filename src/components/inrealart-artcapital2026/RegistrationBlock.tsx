@@ -7,6 +7,35 @@ import { toast } from 'sonner'
 import { registerToContest, ContestFormState } from '@/actions/invitationArtCapital2026Actions'
 import 'react-phone-number-input/style.css'
 
+const FRENCH_REGIONS = [
+  'Auvergne-Rhône-Alpes',
+  'Bourgogne-Franche-Comté',
+  'Bretagne',
+  'Centre-Val de Loire',
+  'Corse',
+  'Grand Est',
+  'Guadeloupe',
+  'Guyane',
+  'Hauts-de-France',
+  'Île-de-France',
+  'Martinique',
+  'Mayotte',
+  'Normandie',
+  'Nouvelle-Aquitaine',
+  'Occitanie',
+  'Pays de la Loire',
+  'Provence-Alpes-Côte d\'Azur',
+  'La Réunion'
+] as const
+
+const PREFERRED_ARTISTS = [
+  'Catherine Sénéchal',
+  'Adélaïde Leferme',
+  'Jean-Paul Boyer',
+  'Nadine Leprince',
+  'Stefan Beiu'
+] as const
+
 const initialState: ContestFormState = {
   success: false,
   message: ''
@@ -163,6 +192,90 @@ export default function RegistrationBlock () {
               </div>
               {state.errors?.phone && (
                 <p className="text-red-400 text-sm mt-1">{state.errors.phone[0]}</p>
+              )}
+            </div>
+
+            {/* Profession */}
+            <div>
+              <label
+                htmlFor="profession"
+                className="block text-sm font-medium text-gray-300 mb-2"
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+              >
+                Profession <span className="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="profession"
+                name="profession"
+                required
+                className={`w-full px-4 py-4 rounded-lg border-2 ${
+                  state.errors?.profession ? 'border-red-500' : 'border-gray-700'
+                } bg-gray-800 focus:border-[#6052FF] focus:outline-none text-white placeholder-gray-400`}
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+                placeholder="Ex. peintre, sculpteur..."
+              />
+              {state.errors?.profession && (
+                <p className="text-red-400 text-sm mt-1">{state.errors.profession[0]}</p>
+              )}
+            </div>
+
+            {/* Lieu de résidence */}
+            <div>
+              <label
+                htmlFor="residenceRegion"
+                className="block text-sm font-medium text-gray-300 mb-2"
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+              >
+                Lieu de résidence <span className="text-red-400">*</span>
+              </label>
+              <select
+                id="residenceRegion"
+                name="residenceRegion"
+                required
+                className={`w-full px-4 py-4 rounded-lg border-2 ${
+                  state.errors?.residenceRegion ? 'border-red-500' : 'border-gray-700'
+                } bg-gray-800 focus:border-[#6052FF] focus:outline-none text-white`}
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+              >
+                <option value="">Sélectionnez une région</option>
+                {FRENCH_REGIONS.map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
+                ))}
+              </select>
+              {state.errors?.residenceRegion && (
+                <p className="text-red-400 text-sm mt-1">{state.errors.residenceRegion[0]}</p>
+              )}
+            </div>
+
+            {/* Artiste préféré */}
+            <div>
+              <label
+                htmlFor="preferredArtist"
+                className="block text-sm font-medium text-gray-300 mb-2"
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+              >
+                Artiste préféré
+              </label>
+              <select
+                id="preferredArtist"
+                name="preferredArtist"
+                className={`w-full px-4 py-4 rounded-lg border-2 ${
+                  state.errors?.preferredArtist ? 'border-red-500' : 'border-gray-700'
+                } bg-gray-800 focus:border-[#6052FF] focus:outline-none text-white`}
+                style={{ fontFamily: 'var(--font-bricolage)' }}
+              >
+                <option value="">Sélectionnez un artiste</option>
+                {PREFERRED_ARTISTS.map((artist) => (
+                  <option key={artist} value={artist}>
+                    {artist}
+                  </option>
+                ))}
+              </select>
+              {state.errors?.preferredArtist && (
+                <p className="text-red-400 text-sm mt-1">{state.errors.preferredArtist[0]}</p>
               )}
             </div>
 

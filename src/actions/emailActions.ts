@@ -309,6 +309,7 @@ function createUserEmailTemplate(data: {
 }
 
 // Create contact in Brevo list(s)
+// Attributs personnalisés : doivent exister dans Brevo (Contacts > Paramètres > Attributs)
 export async function createBrevoContact(contactData: {
   email: string;
   firstName?: string;
@@ -316,6 +317,9 @@ export async function createBrevoContact(contactData: {
   phone?: string;
   listId?: number;
   listIds?: number[];
+  profession?: string;
+  residenceRegion?: string;
+  preferredArtist?: string;
 }): Promise<{ success: boolean; message: string; contactId?: string }> {
   try {
     const brevoApiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY || process.env.BREVO_API_KEY
@@ -339,13 +343,16 @@ export async function createBrevoContact(contactData: {
 
     console.log('✅ Brevo API key found:', brevoApiKey.substring(0, 10) + '...')
 
-    // Prepare contact payload
+    // Prepare contact payload (clés d'attributs en MAJUSCULES, doivent exister dans Brevo)
     const contactPayload = {
       email: contactData.email,
       attributes: {
         ...(contactData.firstName && { FIRSTNAME: contactData.firstName }),
         ...(contactData.lastName && { LASTNAME: contactData.lastName }),
-        ...(contactData.phone && { SMS: contactData.phone })
+        ...(contactData.phone && { SMS: contactData.phone }),
+        ...(contactData.profession && { JOB_TITLE: contactData.profession }),
+        ...(contactData.residenceRegion && { REGION_RESIDENCE: contactData.residenceRegion }),
+        ...(contactData.preferredArtist && { ARTISTE_PREFERE_ARTCAPITAL_2026: contactData.preferredArtist })
       },
       listIds,
       updateEnabled: true // Permet de mettre à jour un contact existant
