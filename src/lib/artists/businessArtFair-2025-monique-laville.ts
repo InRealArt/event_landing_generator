@@ -203,23 +203,6 @@ export const businessArtFair2025MoniqueLavilleData: ArtistData = {
         gallerySubtitle: "& Monique Laville",
         galleryDescription: "Découvrez les œuvres exposées par Monique",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Monique Laville & InRealart",
         catalogDescription: "Explorez une collection unique d'œuvres toutes plus originales les unes que les autres.",

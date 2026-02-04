@@ -1,4 +1,4 @@
-import { ArtistData } from '../artistData'
+import { ArtistData, INREALART_DEFAULT_STATS, INREALART_DEFAULT_STATS_TITLE } from '../artistData'
 
 // Interface pour la configuration d'un artiste
 export interface ArtistConfig {
@@ -28,6 +28,11 @@ export async function loadArtistData(slug: string): Promise<ArtistData | null> {
             console.error(`Aucune donnée trouvée pour l'artiste ${slug}. Export attendu: ${dataKey}`)
             return null
         }
+
+        // Stats InRealArt invariantes : appliquer les valeurs par défaut si non fournies
+        const content = artistData.content
+        if (!content.statsTitle) content.statsTitle = INREALART_DEFAULT_STATS_TITLE
+        if (!content.stats || content.stats.length === 0) content.stats = [...INREALART_DEFAULT_STATS]
 
         return artistData
     } catch (error) {

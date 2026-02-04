@@ -126,23 +126,6 @@ export const artCapital2026NadineLeprinceData: ArtistData = {
         gallerySubtitle: "& Nadine Leprince",
         galleryDescription: "Découvrez les œuvres exposées par Nadine au Art Capital 2026",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Nadine Leprince & InRealArt",
         catalogDescription: "Explorez une collection unique d'œuvres exposées au Art Capital 2026 du 13 février au 15 février 2026.",

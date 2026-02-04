@@ -159,23 +159,6 @@ export const vernissage2026LuciaMamosData: ArtistData = {
         gallerySubtitle: "& Lucia Mamos-Moreaux",
         galleryDescription: "Découvrez les œuvres exposées par Lucia a l'exposition 'Les Rencontres'",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Lucia Mamos-Moreaux & InRealArt",
         catalogDescription: "Explorez une collection unique d'œuvres exposées à la maison de la vie associative et citoyenne du 7 ème le mercredi 21 janvier au 3 février 2026",

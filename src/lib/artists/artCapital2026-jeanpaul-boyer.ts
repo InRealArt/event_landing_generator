@@ -136,13 +136,6 @@ export const artCapital2026JeanpaulBoyerData: ArtistData = {
     gallerySubtitle: '& Jean-Paul Boyer',
     galleryDescription: 'Découvrez les œuvres exposées par Jean-Paul au Art Capital 2026',
 
-    statsTitle: 'Le catalogue InRealArt c\'est',
-    stats: [
-      { number: '15 +', description: 'Artistes sélectionnés dans notre catalogue global' },
-      { number: '200+', description: 'Œuvres soigneusement choisies pour embellir votre collection.' },
-      { number: '100%', description: 'De nos artistes satisfaits de leurs accompagnements' }
-    ],
-
     catalogTitle: 'Catalogue Jean-Paul Boyer & InRealArt',
     catalogDescription: 'Explorez une collection unique d\'œuvres exposées au Art Capital 2026 du 13 au 15 février 2026.',
     catalogForm: {

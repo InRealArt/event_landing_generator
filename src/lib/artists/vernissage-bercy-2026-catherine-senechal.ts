@@ -126,23 +126,6 @@ export const vernissageBercy2026CatherineSenechalData: ArtistData = {
         gallerySubtitle: "& Catherine Senechal",
         galleryDescription: "Découvrez les œuvres exposées par Catherine a l'exposition au Ministère des Finances",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Catherine Senechal & InRealArt",
         catalogDescription: "Explorez une collection unique d'œuvres exposées au Ministère des Finances à Bercy le mercredi 14 janvier 2026 de 18h à 21h",

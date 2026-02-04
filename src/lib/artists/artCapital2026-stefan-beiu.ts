@@ -135,13 +135,6 @@ export const artCapital2026StefanBeiuData: ArtistData = {
     gallerySubtitle: '& Stefan Beiu',
     galleryDescription: 'Découvrez les œuvres exposées par Stefan au Art Capital 2026',
 
-    statsTitle: 'Le catalogue InRealArt c\'est',
-    stats: [
-      { number: '15 +', description: 'Artistes sélectionnés dans notre catalogue global' },
-      { number: '200+', description: 'Œuvres soigneusement choisies pour embellir votre collection.' },
-      { number: '100%', description: 'De nos artistes satisfaits de leurs accompagnements' }
-    ],
-
     catalogTitle: 'Catalogue Stefan Beiu & InRealArt',
     catalogDescription: 'Explorez une collection unique d\'œuvres exposées au Art Capital 2026 du 13 au 15 février 2026.',
     catalogForm: {

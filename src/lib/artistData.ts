@@ -10,6 +10,15 @@ export interface Artwork {
   available: boolean;
 }
 
+/** Stats InRealArt partagées pour toutes les landings (invariantes par slug) */
+export const INREALART_DEFAULT_STATS_TITLE = "Le catalogue InRealArt c'est"
+
+export const INREALART_DEFAULT_STATS: { number: string; description: string }[] = [
+  { number: "35 +", description: "Artistes sélectionnés dans notre catalogue global" },
+  { number: "600+", description: "Œuvres soigneusement choisies pour embellir votre collection." },
+  { number: "100%", description: "De nos artistes satisfaits de leurs accompagnements" }
+]
+
 export interface ArtistData {
   // Basic Info
   name: string;
@@ -80,9 +89,9 @@ export interface ArtistData {
     gallerySubtitle: string;
     galleryDescription: string;
 
-    // Stats Section
-    statsTitle: string;
-    stats: {
+    // Stats Section (optionnel : sinon valeurs par défaut InRealArt)
+    statsTitle?: string;
+    stats?: {
       number: string;
       description: string;
     }[];
@@ -256,22 +265,9 @@ export const defaultArtistData: ArtistData = {
     gallerySubtitle: "& Monique Laville",
     galleryDescription: "Découvrez les œuvres exposées lors de art3f Monaco",
 
-    // Stats Section
-    statsTitle: "Le catalogue InRealArt c'est",
-    stats: [
-      {
-        number: "15 +",
-        description: "Artistes sélectionnés dans notre catalogue global"
-      },
-      {
-        number: "200+",
-        description: "Œuvres soigneusement choisies pour embellir votre collection."
-      },
-      {
-        number: "100%",
-        description: "De nos artistes satisfaits de leurs accompagnements"
-      }
-    ],
+    // Stats Section (utilise INREALART_DEFAULT_* par défaut)
+    statsTitle: INREALART_DEFAULT_STATS_TITLE,
+    stats: INREALART_DEFAULT_STATS,
 
     // Catalog Section
     catalogTitle: "Catalogue art3f MONACO",

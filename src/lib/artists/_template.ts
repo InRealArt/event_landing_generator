@@ -96,23 +96,6 @@ export const art3fNouvelartisteData: ArtistData = {
         gallerySubtitle: "& Nom Artiste",
         galleryDescription: "Description de la galerie...",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Monique Laville & InRealart",
         catalogDescription: "Description du catalogue...",

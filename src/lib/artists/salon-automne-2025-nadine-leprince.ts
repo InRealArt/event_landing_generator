@@ -115,23 +115,6 @@ export const salonAutomne2025NadineLeprinceData: ArtistData = {
         gallerySubtitle: "& Nadine Leprince",
         galleryDescription: "Découvrez les œuvres exposées par Nadine au Salon Automne 2025",
 
-        // Stats Section
-        statsTitle: "Le catalogue InRealArt c'est",
-        stats: [
-            {
-                number: "15 +",
-                description: "Artistes sélectionnés dans notre catalogue global"
-            },
-            {
-                number: "200+",
-                description: "Œuvres soigneusement choisies pour embellir votre collection."
-            },
-            {
-                number: "100%",
-                description: "De nos artistes satisfaits de leurs accompagnements"
-            }
-        ],
-
         // Catalog Section
         catalogTitle: "Catalogue Nadine Leprince & InRealArt",
         catalogDescription: "Explorez une collection unique d'œuvres exposées au Salon Automne 2025 du 29 octobre au 02 novembre 2025.",
