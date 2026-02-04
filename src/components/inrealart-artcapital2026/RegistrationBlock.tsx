@@ -33,7 +33,8 @@ const PREFERRED_ARTISTS = [
   'Adélaïde Leferme',
   'Jean-Paul Boyer',
   'Nadine Leprince',
-  'Stefan Beiu'
+  'Stefan Beiu',
+  'Dominique Fonteneau'
 ] as const
 
 const initialState: ContestFormState = {
