@@ -35,24 +35,30 @@ export default function AboutSection({ artistData }: AboutSectionProps) {
             </div>
           </div>
 
-          {/* Middle Section - Artist Quote */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-bold text-gray-900 font-bricolage">
-              {artistData.content.aboutQuestion}
-            </h3>
-            {artistData.content.aboutQuote && (
+          {/* Middle Section - Artist Quote (vide conservé pour garder l'image à droite en pleine hauteur) */}
+          <div className={`space-y-6 ${!artistData.content.aboutQuote ? 'min-h-[min(400px,50vh)]' : ''}`}>
+            {artistData.content.aboutQuestion ? (
+              <h3 className="text-xl font-bold text-gray-900 font-bricolage">
+                {artistData.content.aboutQuestion}
+              </h3>
+            ) : null}
+            {artistData.content.aboutQuote ? (
               <blockquote className="text-gray-700 font-montserrat font-bold leading-relaxed italic text-2xl">
                 «{artistData.content.aboutQuote}»
               </blockquote>
+            ) : (
+              <span className="block" aria-hidden />
             )}
-            <p className="text-gray-700 font-montserrat font-bold leading-relaxed italic text-sm">
-              {artistData.content.aboutQuoteAuthor}
-            </p>
+            {artistData.content.aboutQuoteAuthor ? (
+              <p className="text-gray-700 font-montserrat font-bold leading-relaxed italic text-sm">
+                {artistData.content.aboutQuoteAuthor}
+              </p>
+            ) : null}
           </div>
 
           {/* Right Section - Artist Portrait */}
-          <div className="flex justify-center h-full">
-            <div className="relative w-full h-full">
+          <div className="flex justify-center h-full min-h-[min(400px,50vh)]">
+            <div className="relative w-full h-full min-h-[min(400px,50vh)]">
               <Image
                 src={addCacheBusting(artistData.aboutImage)}
                 alt={artistData.fullName}

@@ -49,6 +49,7 @@ export async function discoverAllArtists(): Promise<string[]> {
         const knownArtists = [
             'artCapital2026-adelaide-leferme',
             'artCapital2026-catherine-senechal',
+            'artCapital2026-dominique-fonteneau',
             'artCapital2026-jeanpaul-boyer',
             'artCapital2026-nadine-leprince',
             'artCapital2026-stefan-beiu',

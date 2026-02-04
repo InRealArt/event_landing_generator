@@ -40,7 +40,7 @@ export default function PortraitSection({ artistData }: PortraitSectionProps) {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-bricolage mb-4">
                 {artistData.content.portraitTitle}
               </h2>
-              <p className="text-gray-700 font-montserrat leading-relaxed">
+              <p className="text-gray-700 font-montserrat leading-relaxed whitespace-pre-line">
                 {artistData.content.portraitDescription}
               </p>
             </div>
