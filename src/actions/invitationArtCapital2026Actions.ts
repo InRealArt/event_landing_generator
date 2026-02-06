@@ -3,51 +3,52 @@
 import { z } from 'zod'
 import { createBrevoContact } from '@/actions/emailActions'
 import { verifyRecaptchaToken } from '@/lib/recaptcha'
+import { REGISTRATION_FIELD_NAMES, type ContestFormState, type RegistrationFieldName } from '@/lib/registrationForm'
 
-// IDs des listes Brevo : Newsletter FR (14), Prospect ArtCapital 2026 (57)
-const BREVO_LIST_IDS = [14, 57] as const
+// IDs des listes Brevo par défaut : Newsletter FR (14), Prospect ArtCapital 2026 (57)
+const DEFAULT_BREVO_LIST_IDS = [14, 57]
 
-// Schéma de validation Zod
-const contestSchema = z.object({
-  firstName: z.string()
-    .min(2, 'Le prénom doit contenir au moins 2 caractères')
-    .max(50, 'Le prénom ne peut pas dépasser 50 caractères'),
-  lastName: z.string()
-    .min(2, 'Le nom doit contenir au moins 2 caractères')
-    .max(50, 'Le nom ne peut pas dépasser 50 caractères'),
-  email: z.string()
-    .email('Adresse email invalide')
-    .max(255, "L'email ne peut pas dépasser 255 caractères"),
-  phone: z.string()
-    .min(8, 'Numéro de téléphone invalide')
-    .max(20, 'Numéro de téléphone trop long'),
-  acceptNewsletter: z.boolean()
-    .refine(val => val === true, "Vous devez accepter de vous inscrire à la newsletter"),
-  profession: z.string()
-    .min(1, 'Veuillez indiquer votre profession')
-    .max(200, 'La profession ne peut pas dépasser 200 caractères'),
-  residenceRegion: z.string()
-    .min(1, 'Veuillez sélectionner votre lieu de résidence')
-    .max(100, 'Lieu de résidence invalide'),
-  preferredArtist: z.string().max(100).optional()
-})
-
-export type ContestFormState = {
-  success: boolean
-  message: string
-  errors?: {
-    firstName?: string[]
-    lastName?: string[]
-    email?: string[]
-    phone?: string[]
-    acceptNewsletter?: string[]
-    profession?: string[]
-    residenceRegion?: string[]
-    preferredArtist?: string[]
-  }
+function parseListIds (raw: string | null): number[] {
+  if (!raw || typeof raw !== 'string') return [...DEFAULT_BREVO_LIST_IDS]
+  const ids = raw.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !Number.isNaN(n))
+  return ids.length > 0 ? ids : [...DEFAULT_BREVO_LIST_IDS]
 }
 
-export async function registerToContest(
+function parseEnabledFields (raw: string | null): RegistrationFieldName[] {
+  if (!raw || typeof raw !== 'string') return [...REGISTRATION_FIELD_NAMES]
+  const names = raw.split(',').map(s => s.trim() as RegistrationFieldName).filter(f => REGISTRATION_FIELD_NAMES.includes(f))
+  return names.length > 0 ? names : [...REGISTRATION_FIELD_NAMES]
+}
+
+function buildContestSchema (enabledFields: RegistrationFieldName[]) {
+  const has = (f: RegistrationFieldName) => enabledFields.includes(f)
+  return z.object({
+    firstName: has('firstName')
+      ? z.string().min(2, 'Le prénom doit contenir au moins 2 caractères').max(50, 'Le prénom ne peut pas dépasser 50 caractères')
+      : z.string().optional(),
+    lastName: has('lastName')
+      ? z.string().min(2, 'Le nom doit contenir au moins 2 caractères').max(50, 'Le nom ne peut pas dépasser 50 caractères')
+      : z.string().optional(),
+    email: has('email')
+      ? z.string().email('Adresse email invalide').max(255, "L'email ne peut pas dépasser 255 caractères")
+      : z.string().optional(),
+    phone: has('phone')
+      ? z.string().min(8, 'Numéro de téléphone invalide').max(20, 'Numéro de téléphone trop long')
+      : z.string().optional(),
+    acceptNewsletter: has('acceptNewsletter')
+      ? z.boolean().refine(val => val === true, "Vous devez accepter pour continuer")
+      : z.boolean().optional(),
+    profession: has('profession')
+      ? z.string().min(1, 'Veuillez indiquer votre profession').max(200, 'La profession ne peut pas dépasser 200 caractères')
+      : z.string().optional(),
+    residenceRegion: has('residenceRegion')
+      ? z.string().min(1, 'Veuillez sélectionner votre lieu de résidence').max(100, 'Lieu de résidence invalide')
+      : z.string().optional(),
+    preferredArtist: z.string().max(100).optional()
+  })
+}
+
+export async function registerToContest (
   prevState: ContestFormState,
   formData: FormData
 ): Promise<ContestFormState> {
@@ -70,18 +71,21 @@ export async function registerToContest(
       }
     }
 
+    const brevoListIds = parseListIds(formData.get('brevoListIds') as string | null)
+    const enabledFields = parseEnabledFields(formData.get('enabledFields') as string | null)
+    const contestSchema = buildContestSchema(enabledFields)
+
     const rawData = {
-      firstName: formData.get('firstName') as string,
-      lastName: formData.get('lastName') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
+      firstName: (formData.get('firstName') as string) ?? '',
+      lastName: (formData.get('lastName') as string) ?? '',
+      email: (formData.get('email') as string) ?? '',
+      phone: (formData.get('phone') as string) ?? '',
       acceptNewsletter: formData.get('acceptNewsletter') === 'on',
       profession: (formData.get('profession') as string) || '',
       residenceRegion: (formData.get('residenceRegion') as string) || '',
       preferredArtist: (formData.get('preferredArtist') as string) || ''
     }
 
-    // Validation avec Zod
     const validationResult = contestSchema.safeParse(rawData)
 
     if (!validationResult.success) {
@@ -102,18 +106,21 @@ export async function registerToContest(
       }
     }
 
-    const { firstName, lastName, email, phone, profession, residenceRegion, preferredArtist } = validationResult.data
+    const data = validationResult.data
+    const email = data.email || rawData.email
+    if (!email) {
+      return { success: false, message: 'Adresse email requise.' }
+    }
 
-    // Créer le contact dans Brevo (listes Newsletter FR + Prospect ArtCapital 2026)
     const contactResult = await createBrevoContact({
       email,
-      firstName,
-      lastName,
-      phone,
-      listIds: [...BREVO_LIST_IDS],
-      profession: profession || undefined,
-      residenceRegion: residenceRegion || undefined,
-      preferredArtist: preferredArtist || undefined
+      firstName: data.firstName || undefined,
+      lastName: data.lastName || undefined,
+      phone: data.phone || undefined,
+      listIds: brevoListIds,
+      profession: data.profession || undefined,
+      residenceRegion: data.residenceRegion || undefined,
+      preferredArtist: data.preferredArtist || undefined
     })
 
     if (!contactResult.success) {

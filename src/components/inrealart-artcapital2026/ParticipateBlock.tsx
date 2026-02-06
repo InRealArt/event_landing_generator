@@ -2,7 +2,19 @@
 
 import Image from 'next/image'
 
-const PARTICIPATE_BLOCK = {
+export interface ParticipateBlockStep {
+  number: number
+  text: string
+}
+
+export interface ParticipateBlockContent {
+  title: string
+  steps: ParticipateBlockStep[]
+  image: string
+  imageAlt: string
+}
+
+const DEFAULT_PARTICIPATE: ParticipateBlockContent = {
   title: 'Comment Participer',
   steps: [
     {
@@ -18,7 +30,17 @@ const PARTICIPATE_BLOCK = {
   imageAlt: 'Œuvre à gagner - Art Capital 2026'
 }
 
-export default function ParticipateBlock () {
+interface ParticipateBlockProps {
+  content?: Partial<ParticipateBlockContent>
+}
+
+export default function ParticipateBlock ({ content: contentOverride }: ParticipateBlockProps) {
+  const content: ParticipateBlockContent = {
+    ...DEFAULT_PARTICIPATE,
+    ...contentOverride,
+    steps: contentOverride?.steps ?? DEFAULT_PARTICIPATE.steps
+  }
+
   return (
     <div className="participate-block">
       <section className="py-12 md:py-20 px-4 bg-gray-900 text-center">
@@ -27,13 +49,13 @@ export default function ParticipateBlock () {
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-12 md:mb-16"
           style={{ fontFamily: 'var(--font-bricolage)' }}
         >
-          {PARTICIPATE_BLOCK.title}
+          {content.title}
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center text-left">
           {/* Colonne gauche - étapes */}
           <div className="lg:col-span-6 space-y-6">
-            {PARTICIPATE_BLOCK.steps.map((step) => (
+            {content.steps.map((step) => (
               <div
                 key={step.number}
                 className="rounded-xl border border-white/30 bg-gray-800/50 p-6 md:p-8"
@@ -60,8 +82,8 @@ export default function ParticipateBlock () {
               <div className="rounded-lg overflow-hidden border border-white/20 bg-gray-800/30 p-4">
                 <div className="relative aspect-[4/3] rounded overflow-hidden">
                   <Image
-                    src={PARTICIPATE_BLOCK.image}
-                    alt={PARTICIPATE_BLOCK.imageAlt}
+                    src={content.image}
+                    alt={content.imageAlt}
                     fill
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, 50vw"

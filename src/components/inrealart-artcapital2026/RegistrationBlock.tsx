@@ -4,8 +4,35 @@ import { useActionState, useState, useEffect, useRef } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import PhoneInput from 'react-phone-number-input'
 import { toast } from 'sonner'
-import { registerToContest, ContestFormState } from '@/actions/invitationArtCapital2026Actions'
+import { registerToContest } from '@/actions/invitationArtCapital2026Actions'
+import {
+  REGISTRATION_FIELD_NAMES,
+  type ContestFormState,
+  type RegistrationFieldName
+} from '@/lib/registrationForm'
 import 'react-phone-number-input/style.css'
+
+export interface RegistrationBlockContent {
+  title: string
+  fields: RegistrationFieldName[]
+  brevoListIds: number[]
+  newsletterLabel?: string
+  submitLabel?: string
+  submitPendingLabel?: string
+}
+
+const DEFAULT_CONTENT: RegistrationBlockContent = {
+  title: 'Inscrivez-vous pour participer',
+  fields: [...REGISTRATION_FIELD_NAMES],
+  brevoListIds: [14, 57],
+  newsletterLabel: "J'accepte de m'inscrire à la newsletter pour recevoir mon invitation",
+  submitLabel: "S'inscrire Maintenant",
+  submitPendingLabel: 'Inscription en cours...'
+}
+
+interface RegistrationBlockProps {
+  content?: Partial<RegistrationBlockContent>
+}
 
 const FRENCH_REGIONS = [
   'Auvergne-Rhône-Alpes',
@@ -42,12 +69,25 @@ const initialState: ContestFormState = {
   message: ''
 }
 
-export default function RegistrationBlock () {
+function hasField (fields: RegistrationFieldName[], name: RegistrationFieldName): boolean {
+  return fields.includes(name)
+}
+
+export default function RegistrationBlock ({ content: contentOverride }: RegistrationBlockProps) {
+  const content: RegistrationBlockContent = {
+    ...DEFAULT_CONTENT,
+    ...contentOverride,
+    fields: contentOverride?.fields ?? DEFAULT_CONTENT.fields,
+    brevoListIds: contentOverride?.brevoListIds ?? DEFAULT_CONTENT.brevoListIds
+  }
+  const fields = content.fields
   const { executeRecaptcha } = useGoogleReCaptcha()
   const [state, formAction, pending] = useActionState(registerToContest, initialState)
   const [phone, setPhone] = useState('')
   const [acceptNewsletter, setAcceptNewsletter] = useState(false)
   const lastToastedMessage = useRef('')
+  const mustAcceptNewsletter = hasField(fields, 'acceptNewsletter')
+  const isSubmitDisabled = pending || (mustAcceptNewsletter && !acceptNewsletter)
 
   useEffect(() => {
     if (!state.success && state.message && state.message !== lastToastedMessage.current) {
@@ -83,7 +123,7 @@ export default function RegistrationBlock () {
           className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10"
           style={{ fontFamily: 'var(--font-bricolage)' }}
         >
-          Inscrivez-vous pour participer
+          {content.title}
         </h1>
 
         <div className="rounded-xl border-2 border-gray-900 bg-gray-900 p-6 md:p-8">
@@ -98,8 +138,12 @@ export default function RegistrationBlock () {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            <input type="hidden" name="enabledFields" value={fields.join(',')} />
+            <input type="hidden" name="brevoListIds" value={content.brevoListIds.join(',')} />
             {/* Prénom et Nom */}
+            {hasField(fields, 'firstName') || hasField(fields, 'lastName') ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {hasField(fields, 'firstName') ? (
               <div>
                 <label
                   htmlFor="firstName"
@@ -122,7 +166,8 @@ export default function RegistrationBlock () {
                   <p className="text-red-400 text-sm mt-1">{state.errors.firstName[0]}</p>
                 )}
               </div>
-
+              ) : null}
+              {hasField(fields, 'lastName') ? (
               <div>
                 <label
                   htmlFor="lastName"
@@ -145,9 +190,12 @@ export default function RegistrationBlock () {
                   <p className="text-red-400 text-sm mt-1">{state.errors.lastName[0]}</p>
                 )}
               </div>
+              ) : null}
             </div>
+            ) : null}
 
             {/* Email */}
+            {hasField(fields, 'email') ? (
             <div>
               <label
                 htmlFor="email"
@@ -170,8 +218,10 @@ export default function RegistrationBlock () {
                 <p className="text-red-400 text-sm mt-1">{state.errors.email[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Téléphone */}
+            {hasField(fields, 'phone') ? (
             <div>
               <label
                 htmlFor="phone"
@@ -195,8 +245,10 @@ export default function RegistrationBlock () {
                 <p className="text-red-400 text-sm mt-1">{state.errors.phone[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Profession */}
+            {hasField(fields, 'profession') ? (
             <div>
               <label
                 htmlFor="profession"
@@ -220,8 +272,10 @@ export default function RegistrationBlock () {
                 <p className="text-red-400 text-sm mt-1">{state.errors.profession[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Lieu de résidence */}
+            {hasField(fields, 'residenceRegion') ? (
             <div>
               <label
                 htmlFor="residenceRegion"
@@ -250,8 +304,10 @@ export default function RegistrationBlock () {
                 <p className="text-red-400 text-sm mt-1">{state.errors.residenceRegion[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Artiste préféré */}
+            {hasField(fields, 'preferredArtist') ? (
             <div>
               <label
                 htmlFor="preferredArtist"
@@ -279,8 +335,10 @@ export default function RegistrationBlock () {
                 <p className="text-red-400 text-sm mt-1">{state.errors.preferredArtist[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Checkbox Newsletter */}
+            {hasField(fields, 'acceptNewsletter') ? (
             <div>
               <label className="flex items-start gap-3 cursor-pointer group">
                 <input
@@ -294,13 +352,14 @@ export default function RegistrationBlock () {
                   className="text-sm text-gray-300 group-hover:text-white transition-colors"
                   style={{ fontFamily: 'var(--font-bricolage)' }}
                 >
-                  J&apos;accepte de m&apos;inscrire à la newsletter pour recevoir mon invitation <span className="text-red-400">*</span>
+                  {content.newsletterLabel ?? DEFAULT_CONTENT.newsletterLabel} <span className="text-red-400">*</span>
                 </span>
               </label>
               {state.errors?.acceptNewsletter && (
                 <p className="text-red-400 text-sm mt-1">{state.errors.acceptNewsletter[0]}</p>
               )}
             </div>
+            ) : null}
 
             {/* Message d'erreur général */}
             {state.message && !state.success && (
@@ -310,11 +369,11 @@ export default function RegistrationBlock () {
             {/* Bouton Submit */}
             <button
               type="submit"
-              disabled={pending || !acceptNewsletter}
+              disabled={isSubmitDisabled}
               className="w-full py-4 px-6 bg-[#6052FF] text-white font-semibold rounded-lg hover:bg-[#4a3bcc] focus:outline-none focus:ring-2 focus:ring-[#6052FF] focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ fontFamily: 'var(--font-bricolage)' }}
             >
-              {pending ? 'Inscription en cours...' : "S'inscrire Maintenant"}
+              {pending ? (content.submitPendingLabel ?? DEFAULT_CONTENT.submitPendingLabel) : (content.submitLabel ?? DEFAULT_CONTENT.submitLabel)}
             </button>
           </form>
         )}
