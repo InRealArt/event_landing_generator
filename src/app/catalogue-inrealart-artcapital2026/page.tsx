@@ -45,7 +45,9 @@ export default function InrealartArtCapital2026Page () {
       <HeroSection
         content={{
           title: 'Art Capital 2026 : le catalogue complet des œuvres à télécharger gratuitement',
-          ctaLabel: 'Télécharger le catalogue'
+          ctaLabel: 'Télécharger le catalogue',
+          artworkImage: '/images/catalogue_ira_artCapital2026/Ira_artcapital2026.webp',
+          artworkImageAlt: 'Catalogue Art Capital 2026 — InRealArt'
         }}
       />
       <PresentationBlock
@@ -92,7 +94,10 @@ export default function InrealartArtCapital2026Page () {
           content={{
             title: "Télécharger gratuitement le catalogue d'œuvres d'exception",
             fields: ['firstName', 'lastName', 'email', 'phone', 'acceptNewsletter'],
-            brevoListIds: [14, 59]
+            brevoListIds: [14, 59],
+            successMessage: "Merci pour votre inscription ! Vous pouvez dès à présent télécharger le catalogue des œuvres d'exception Art Capital 2026 en cliquant sur le bouton ci-dessous.",
+            successButtonLabel: 'Télécharger le catalogue',
+            successButtonUrl: 'https://drive.google.com/file/d/17_6oqhCsDk5EcztePobEXNblb7yPgNLQ/view?usp=sharing'
           }}
         />
       </GoogleCaptchaWrapper>

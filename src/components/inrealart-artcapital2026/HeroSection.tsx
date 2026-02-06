@@ -17,6 +17,9 @@ export interface HeroSectionContent {
   artworkImage: string
   artworkImageAlt?: string
   artworkFallbackLabel?: string
+  /** Dimensions optionnelles de l'image œuvre (droite). Par défaut 280×480. */
+  artworkImageWidth?: number
+  artworkImageHeight?: number
 }
 
 const DEFAULT_HERO: HeroSectionContent = {
@@ -47,6 +50,8 @@ export default function HeroSection ({ content: contentOverride }: HeroSectionPr
   }
   const ctaHref = content.ctaHref ?? '#participer'
   const showDescription = content.description != null && content.description !== ''
+  const artworkWidth = content.artworkImageWidth ?? 280
+  const artworkHeight = content.artworkImageHeight ?? 480
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -113,8 +118,8 @@ export default function HeroSection ({ content: contentOverride }: HeroSectionPr
               <Image
                 src={content.artworkImage}
                 alt={content.artworkImageAlt ?? 'Affiche Art Capital 2026'}
-                width={280}
-                height={480}
+                width={artworkWidth}
+                height={artworkHeight}
                 className="w-full max-w-sm h-auto object-contain"
                 unoptimized
                 onError={() => setArtworkError(true)}

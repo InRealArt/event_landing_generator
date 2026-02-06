@@ -19,6 +19,12 @@ export interface RegistrationBlockContent {
   newsletterLabel?: string
   submitLabel?: string
   submitPendingLabel?: string
+  /** Message affiché après validation du formulaire (sinon message serveur). */
+  successMessage?: string
+  /** Libellé du bouton affiché après succès (ex. "Télécharger le catalogue PDF"). */
+  successButtonLabel?: string
+  /** URL du bouton après succès (ex. lien vers un PDF). Ouvre dans un nouvel onglet si fourni. */
+  successButtonUrl?: string
 }
 
 const DEFAULT_CONTENT: RegistrationBlockContent = {
@@ -128,13 +134,23 @@ export default function RegistrationBlock ({ content: contentOverride }: Registr
 
         <div className="rounded-xl border-2 border-gray-900 bg-gray-900 p-6 md:p-8">
         {state.success ? (
-          <div className="text-center p-6 bg-green-500/10 rounded-lg border border-green-500/30">
+          <div className="text-center p-6 bg-green-500/10 rounded-lg border border-green-500/30 space-y-4">
             <p
               className="text-green-400 font-semibold text-lg"
               style={{ fontFamily: 'var(--font-bricolage)' }}
             >
-              {state.message}
+              {content.successMessage ?? state.message}
             </p>
+            {content.successButtonLabel && content.successButtonUrl ? (
+              <a
+                href={content.successButtonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#6052FF] text-white font-medium rounded-lg border-2 border-white hover:bg-[#4a3bcc] focus:outline-none focus:ring-2 focus:ring-[#6052FF] focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors font-bricolage"
+              >
+                {content.successButtonLabel}
+              </a>
+            ) : null}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
