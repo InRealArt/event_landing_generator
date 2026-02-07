@@ -63,8 +63,9 @@ export default function InrealartArtCapital2026Page () {
           name: '',
           paragraphs: [
             "Découvrez les œuvres des artistes InRealArt lors d’Art Capital 2026, au Grand Palais du 13 au 15 février 2026.",
-            "Téléchargez gratuitement le catalogue complet des œuvres à télécharger gratuitement.",
-            "Feuilletez toutes les œuvres du salon Art Capital 2026 depuis chez vous."
+            "Découvrez notre catalogue complet, offert pour explorer chaque création à votre rythme, comme une visite privée depuis chez vous.",
+            "Parcourez une sélection d’œuvres soigneusement choisies et plongez dans les histoires, les gestes et les regards qui façonnent la scène artistique d’aujourd’hui.",
+            "Une immersion à vivre, à feuilleter, et à ressentir."
           ],
           signatureName: 'InRealArt',
           signatureRole: 'La plateforme curatoriale qui rend l\'art, la culture et le patrimoine accessible, humain et éthique'
