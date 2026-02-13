@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
+import Script from 'next/script'
 import { Toaster } from 'sonner'
 import "./globals.css"
+
+const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? 'df377442-13ac-4250-8711-79bb8ad9c6b9'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'production' 
@@ -41,6 +44,13 @@ export default function RootLayout({
       <body className="min-h-screen bg-backgroundColor text-textColor">
         {children}
         <Toaster position="top-center" richColors closeButton />
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            src="https://cloud.umami.is/script.js"
+            data-website-id={UMAMI_WEBSITE_ID}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
