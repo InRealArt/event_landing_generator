@@ -284,3 +284,41 @@ body {
   opacity: 1 !important;
   z-index: 999 !important;
 }
+
+/* ─── BiennnalePoweredBy — Luminous reveal animations ─────────────────────── */
+
+/* Logo fades in from below, settling at opacity 0.7 */
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Ambient golden glow pulses on the white wordmark.
+   invert(1) is kept here so the Image className="invert" can be removed —
+   the filter is now fully owned by this keyframe. */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: invert(1) drop-shadow(0 0 4px rgba(197, 160, 89, 0.2));
+  }
+  50% {
+    filter: invert(1) drop-shadow(0 0 40px rgba(197, 160, 89, 0.9)) drop-shadow(0 0 80px rgba(197, 160, 89, 0.4));
+  }
+}
+
+/* "Powered by" label drifts in with expanding letter-spacing */
+@keyframes labelReveal {
+  from {
+    opacity: 0;
+    letter-spacing: 0.05em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.35em;
+  }
+}
