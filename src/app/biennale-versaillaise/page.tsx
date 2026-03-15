@@ -5,7 +5,9 @@ import BiennaleEdito from '@/components/biennale-versaillaise/BiennaleEdito'
 import BiennaleHonorGuests from '@/components/biennale-versaillaise/BiennaleHonorGuests'
 import BiennaleArtists from '@/components/biennale-versaillaise/BiennaleArtists'
 import BiennaleInfo from '@/components/biennale-versaillaise/BiennaleInfo'
+import BiennaleNewsletter from '@/components/biennale-versaillaise/BiennaleNewsletter'
 import BiennaleFooter from '@/components/biennale-versaillaise/BiennaleFooter'
+import BiennnalePoweredBy from '@/components/biennale-versaillaise/BiennnalePoweredBy'
 
 export const metadata: Metadata = {
   title: 'Dossier de Presse - La Biennale Versaillaise 7ème Édition',
@@ -22,6 +24,8 @@ export default function BiennaleVersaillaisePage() {
       <BiennaleHonorGuests />
       <BiennaleArtists />
       <BiennaleInfo />
+      <BiennaleNewsletter />
+      <BiennnalePoweredBy />
       <BiennaleFooter />
     </main>
   )

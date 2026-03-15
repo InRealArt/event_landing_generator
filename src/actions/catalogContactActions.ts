@@ -6,7 +6,7 @@ import { getArtistData } from '@/lib/artistDataManager'
 import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 /** Normalise un numéro français vers E.164 pour Brevo (ex. 06 12 34 56 78 → +33612345678). */
-function toE164 (raw: string): string {
+function toE164(raw: string): string {
   const digits = raw.replace(/\D/g, '')
   if (digits.length === 9 && digits.startsWith('6')) {
     return '+33' + digits
