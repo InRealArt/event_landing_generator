@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { createBrevoContact } from '@/actions/emailActions'
 import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
-const BIENNALE_NEWSLETTER_LIST_ID = 999
+const BIENNALE_NEWSLETTER_LIST_ID = 63
 
 const schema = z.object({
   email: z
