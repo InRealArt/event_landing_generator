@@ -1,10 +1,11 @@
 'use client'
 
-import { useActionState, useEffect } from 'react'
+import { useActionState, useEffect, useRef, useTransition } from 'react'
 import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 import { subscribeToBiennaleNewsletter } from '@/actions/biennaleNewsletterActions'
 import type { BiennaleNewsletterState } from '@/actions/biennaleNewsletterActions'
+import { loadRecaptchaScript, executeRecaptcha } from '@/lib/recaptcha'
 
 const initialState: BiennaleNewsletterState = {
   success: false,
@@ -14,15 +15,18 @@ const initialState: BiennaleNewsletterState = {
 // ---------------------------------------------------------------------------
 // Submit button — reads pending state from the surrounding <form> via
 // useFormStatus, so it must live in its own component.
+// An extra `externalPending` prop covers the reCAPTCHA token fetch that
+// happens before the server action is dispatched.
 // ---------------------------------------------------------------------------
-function SubmitButton() {
+function SubmitButton({ externalPending }: { externalPending: boolean }) {
   const { pending } = useFormStatus()
+  const isDisabled = pending || externalPending
 
   return (
     <button
       type="submit"
-      disabled={pending}
-      aria-disabled={pending}
+      disabled={isDisabled}
+      aria-disabled={isDisabled}
       className="
         shrink-0 h-12 px-8
         bg-[#c5a059] hover:bg-[#b8924a] active:bg-[#a8833e]
@@ -33,7 +37,7 @@ function SubmitButton() {
         disabled:opacity-60 disabled:cursor-not-allowed
       "
     >
-      {pending ? 'Envoi\u2026' : "S'inscrire"}
+      {isDisabled ? 'Envoi\u2026' : "S'inscrire"}
     </button>
   )
 }
@@ -84,6 +88,15 @@ export default function BiennaleNewsletter() {
     subscribeToBiennaleNewsletter,
     initialState
   )
+  const formRef = useRef<HTMLFormElement>(null)
+  const [isRecaptchaLoading, startTransition] = useTransition()
+
+  // Load the reCAPTCHA v3 script as soon as the component mounts.
+  useEffect(() => {
+    loadRecaptchaScript().catch((err) =>
+      console.error('Erreur de chargement reCAPTCHA:', err)
+    )
+  }, [])
 
   // Show toast on state change, but only when a message is present
   // (skip the initial empty state).
@@ -96,6 +109,30 @@ export default function BiennaleNewsletter() {
       toast.error(state.message || 'Une erreur est survenue.')
     }
   }, [state])
+
+  // Intercept the native form submit so we can inject the reCAPTCHA token
+  // into FormData before dispatching the server action.
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const form = formRef.current
+    if (!form) return
+
+    let token: string
+    try {
+      token = await executeRecaptcha()
+    } catch {
+      toast.error('Vérification anti-spam échouée. Veuillez réessayer.')
+      return
+    }
+
+    const formData = new FormData(form)
+    formData.set('recaptchaToken', token)
+
+    startTransition(() => {
+      formAction(formData)
+    })
+  }
 
   return (
     <section
@@ -131,7 +168,8 @@ export default function BiennaleNewsletter() {
           <SuccessMessage />
         ) : (
           <form
-            action={formAction}
+            ref={formRef}
+            onSubmit={handleSubmit}
             noValidate
             className="flex flex-col sm:flex-row items-stretch gap-0 max-w-2xl mx-auto"
           >
@@ -212,7 +250,7 @@ export default function BiennaleNewsletter() {
               )}
             </div>
 
-            <SubmitButton />
+            <SubmitButton externalPending={isRecaptchaLoading} />
           </form>
         )}
 

@@ -2,6 +2,7 @@
 
 import { z } from 'zod'
 import { createBrevoContact } from '@/actions/emailActions'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 const BIENNALE_NEWSLETTER_LIST_ID = 999
 
@@ -31,6 +32,24 @@ export async function subscribeToBiennaleNewsletter(
   prevState: BiennaleNewsletterState,
   formData: FormData
 ): Promise<BiennaleNewsletterState> {
+  // Verify reCAPTCHA token before any processing
+  const recaptchaToken = formData.get('recaptchaToken') as string | null
+
+  if (!recaptchaToken) {
+    return {
+      success: false,
+      message: 'Vérification anti-spam échouée. Veuillez réessayer.',
+    }
+  }
+
+  const isHuman = await verifyRecaptchaToken(recaptchaToken)
+  if (!isHuman) {
+    return {
+      success: false,
+      message: 'Vérification anti-spam échouée. Veuillez réessayer.',
+    }
+  }
+
   const raw = {
     email: formData.get('email') as string,
     firstName: (formData.get('firstName') as string) || undefined,
