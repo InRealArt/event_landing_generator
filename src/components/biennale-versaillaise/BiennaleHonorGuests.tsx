@@ -55,7 +55,7 @@ export default function BiennaleHonorGuests() {
             imageSrc="/images/biennale-versaillaise-2026/AlainBonnefoit.webp"
             imageAlt="Alain Bonnefoit"
             name="Alain Bonnefoit"
-            title="Peintre de la femme et du nu"
+            title="Artiste Peintre Sensuel"
             quote={"« Il capture l'essence de la féminité à travers des traits d'une précision poétique, mêlant l'influence de l'Asie à la tradition française. »"}
             linkHref="https://biennale-versaillaise.fr/les-editions/la-biennale-2026/alain-bonnefoit"
             linkLabel="Découvrir son portrait"
