@@ -14,12 +14,12 @@ interface GuestCardProps {
 function GuestCard({ imageSrc, imageAlt, name, title, quote, linkHref, linkLabel }: GuestCardProps) {
   return (
     <div className="bg-white p-8 border border-gray-100 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
-      <div className="mb-6 overflow-hidden h-80 relative">
+      <div className="mb-6 overflow-hidden h-[500px] relative">
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
-          className="object-cover grayscale"
+          className="object-cover object-top grayscale"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
