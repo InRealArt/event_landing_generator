@@ -105,7 +105,7 @@ export default function NontronInfo() {
           </div>
 
           {/* Print button */}
-          <div className="mt-12">
+          {/* <div className="mt-12">
             <button
               onClick={() => window.print()}
               className="text-xs font-bold uppercase font-montserrat flex items-center gap-2 text-gray-500 hover:text-white transition-colors duration-200 mx-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c5a059]"
@@ -127,7 +127,7 @@ export default function NontronInfo() {
               </svg>
               Imprimer cette page
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
