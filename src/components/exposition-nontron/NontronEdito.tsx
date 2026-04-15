@@ -67,7 +67,7 @@ export default function NontronEdito() {
                 À propos
               </h2>
               <h3 className="text-3xl font-bricolage font-bold text-gray-900">
-                L'exposition
+                L&apos;exposition
               </h3>
             </div>
 
