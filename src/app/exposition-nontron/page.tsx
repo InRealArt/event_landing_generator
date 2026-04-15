@@ -5,9 +5,16 @@ import NontronEdito from '@/components/exposition-nontron/NontronEdito'
 import NontronGuest from '@/components/exposition-nontron/NontronGuest'
 import NontronArtistsGrid from '@/components/exposition-nontron/NontronArtistsGrid'
 import NontronArtists from '@/components/exposition-nontron/NontronArtists'
+import NontronMedias from '@/components/exposition-nontron/NontronMedias'
 import NontronStats from '@/components/exposition-nontron/NontronStats'
 import NontronInfo from '@/components/exposition-nontron/NontronInfo'
 import NontronFooter from '@/components/exposition-nontron/NontronFooter'
+import NontronContacts from '@/components/exposition-nontron/NontronContacts'
+import Newsletter from '@/components/shared/Newsletter'
+import PoweredBy from '@/components/shared/PoweredBy'
+
+// TODO: replace with the actual Brevo list ID for Nontron newsletter
+const NONTRON_NEWSLETTER_LIST_ID = 65
 
 export const metadata: Metadata = {
   title: "Exposition d'Art Contemporain — LJ Gallery & InRealArt | Nontron",
@@ -24,8 +31,17 @@ export default function ExpositionNontronPage() {
       <NontronGuest />
       <NontronArtistsGrid />
       {/* <NontronArtists /> */}
+      <NontronMedias />
       <NontronStats />
       <NontronInfo />
+      <NontronContacts />
+      <Newsletter
+        listId={NONTRON_NEWSLETTER_LIST_ID}
+        heading="Restez au cœur de l'art"
+        subtext="Recevez en avant-première les actualités de l'exposition, les portraits d'artistes et les invitations aux prochains vernissages."
+        privacyNote="Vos données sont traitées par LJ Gallery & InRealArt conformément au RGPD. Désinscription possible à tout moment."
+      />
+      <PoweredBy />
       <NontronFooter />
     </main>
   )

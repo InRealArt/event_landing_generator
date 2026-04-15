@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function NontronHero() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -12,15 +14,22 @@ export default function NontronHero() {
   return (
     <section
       id="accueil"
-      className="min-h-screen flex items-center justify-center pt-20 px-6"
-      style={{
-        background:
-          "linear-gradient(rgba(255,255,255,0.82), rgba(250,248,244,0.92)), url('https://images.unsplash.com/photo-1531913764164-f85c52e6e654?q=80&w=1974&auto=format&fit=crop')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden"
     >
-      <div className="max-w-4xl text-center">
+      {/* Background image */}
+      <Image
+        src="/images/exposition-nontron/Header_Pontecorvo.webp"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      {/* Overlay — léger pour laisser l'image visible */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(rgba(255,255,255,0.55), rgba(250,248,244,0.65))' }}
+      />
+      <div className="relative z-10 max-w-4xl text-center">
         {/* Surtitle */}
         <p className="text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat mb-4 text-sm">
           Dossier de Presse
@@ -46,15 +55,15 @@ export default function NontronHero() {
         </p>
 
         {/* Artists line */}
-        <p className="text-sm text-gray-500 font-montserrat tracking-widest uppercase mb-10">
+        <p className="text-sm text-black-500 font-montserrat tracking-widest uppercase mb-10">
           Anny Duperey &middot; Alain Pontecorvo &middot; Jean-Paul Boyer &middot; Marie De Saint Germain
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <a
-            href="#artistes"
-            onClick={(e) => handleScroll(e, '#artistes')}
+            href="#artistes-exposes"
+            onClick={(e) => handleScroll(e, '#artistes-exposes')}
             className="bg-[#c5a059] text-white px-8 py-4 rounded-sm uppercase text-xs font-bold tracking-widest font-montserrat transition-all duration-300 hover:bg-[#a88746] hover:scale-105"
           >
             Découvrir les Artistes

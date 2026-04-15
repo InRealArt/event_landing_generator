@@ -69,9 +69,8 @@ export default function NontronStats() {
       </section>
 
       {/* Section — Disciplines à l'honneur */}
-      <section className="py-24 bg-white px-6 border-t border-gray-100">
+      {/* <section className="py-24 bg-white px-6 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
-          {/* Titre section avec barre gauche */}
           <div className="border-l-4 border-[#c5a059] pl-4 mb-16">
             <h2 className="text-xs uppercase tracking-[0.3em] font-semibold font-montserrat text-[#c5a059] mb-1">
               Programme
@@ -82,7 +81,6 @@ export default function NontronStats() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Peinture */}
             <div className="bg-[#faf8f4] p-10 border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
               <div className="text-4xl mb-6" aria-hidden="true">
                 🎨
@@ -97,7 +95,6 @@ export default function NontronStats() {
               </p>
             </div>
 
-            {/* Sculpture */}
             <div className="bg-[#faf8f4] p-10 border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
               <div className="text-4xl mb-6" aria-hidden="true">
                 🏛️
@@ -113,7 +110,7 @@ export default function NontronStats() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
