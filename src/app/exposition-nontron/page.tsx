@@ -3,6 +3,7 @@ import NontronNav from '@/components/exposition-nontron/NontronNav'
 import NontronHero from '@/components/exposition-nontron/NontronHero'
 import NontronEdito from '@/components/exposition-nontron/NontronEdito'
 import NontronGuest from '@/components/exposition-nontron/NontronGuest'
+import NontronArtistsGrid from '@/components/exposition-nontron/NontronArtistsGrid'
 import NontronArtists from '@/components/exposition-nontron/NontronArtists'
 import NontronStats from '@/components/exposition-nontron/NontronStats'
 import NontronInfo from '@/components/exposition-nontron/NontronInfo'
@@ -21,7 +22,8 @@ export default function ExpositionNontronPage() {
       <NontronHero />
       <NontronEdito />
       <NontronGuest />
-      <NontronArtists />
+      <NontronArtistsGrid />
+      {/* <NontronArtists /> */}
       <NontronStats />
       <NontronInfo />
       <NontronFooter />

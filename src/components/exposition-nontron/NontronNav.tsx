@@ -6,6 +6,7 @@ const navLinks = [
   { href: '#accueil', label: 'Accueil' },
   { href: '#edito', label: 'Édito' },
   { href: '#invitee', label: 'Invitée Spéciale' },
+  { href: '#artistes-exposes', label: 'Artistes Exposés' },
   { href: '#artistes', label: 'Les Artistes' },
   { href: '#infos', label: 'Pratique' },
 ]
