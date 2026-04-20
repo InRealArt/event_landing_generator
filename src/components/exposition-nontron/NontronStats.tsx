@@ -36,7 +36,7 @@ export default function NontronStats() {
               <ul className="space-y-3">
                 {[
                   "Plus de 25 œuvres d'exception",
-                  '2 disciplines majeures',
+                  '3 disciplines majeures',
                   "30 jours d'exposition",
                 ].map((item) => (
                   <li

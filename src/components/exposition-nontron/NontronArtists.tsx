@@ -102,15 +102,27 @@ export default function NontronArtists() {
           bio="Jean-Paul Boyer est un sculpteur dont le travail explore la modularité et l'interaction avec l'espace. Après une production classique en bois, il développe en 1989 ses Sculptures Modulables, des œuvres où chaque élément, libéré et recomposable, permet au spectateur de modifier l'espace autour de la sculpture. Travaillant divers matériaux – bois, marbre, bronze, verre et résines – Boyer invite ainsi le public à interagir et à faire évoluer l'œuvre, plaçant l'air et l'espace comme parties intégrantes de sa création. À ce jour, il a réalisé près d'un millier de ces sculptures uniques."
         />
 
-        {/* Marie de Saint Germain */}
+        {/* Florence Autelin */}
         <ArtistCard
-          name="Marie de Saint Germain"
-          lastName="De Saint Germain"
-          firstName="Marie"
-          label="Peintre du réalisme constructivisme"
-          imageSrc="/images/exposition-nontron/Marie De Saint Germain.webp"
-          imageAlt="Marie De Saint Germain — Artiste"
-          bio="Marie de Saint Germain est une artiste plasticienne autodidacte dont l'œuvre se déploie essentiellement à travers le Mixed média. Son travail, profondément onirique et symbolique, explore les méandres de l'identité, les tensions du mental et les zones floues de la mémoire. Mêlant papier, photographie, peinture acrylique, encre, ficelles, elle compose des images troublantes, à la frontière du rêve et de l'éveil. Son univers visuel, habité par des figures fragmentées, des regards suspendus et des corps en métamorphose, interroge l'invisible, l'enfoui, et ce qui persiste au-delà de la faille."
+          name="Florence Autelin"
+          lastName="Autelin"
+          firstName="Florence"
+          label="Photographie et peinture"
+          imageSrc="/images/exposition-nontron/Florence AUTELIN.webp"
+          imageAlt="Florence Autelin — Peintre"
+          bio="Florence Autelin est une peintre française dont l'œuvre plonge dans les territoires de l'intime et du silence. Formée aux Beaux-Arts, elle développe un langage pictural personnel où la lumière joue un rôle central : elle sculpte, révèle, efface. Ses toiles, souvent habitées de figures féminines et de paysages intérieurs, oscillent entre réalisme sensible et poésie abstraite. À travers une palette de tons doux et profonds, elle interroge la mémoire, la présence et la fugacité du temps. Son travail a été exposé dans de nombreuses galeries régionales et nationales, lui valant une reconnaissance croissante dans le milieu de l'art contemporain français."
+        />
+
+        {/* Stéphane Illand */}
+        <ArtistCard
+          name="Stéphane Illand"
+          lastName="Illand"
+          firstName="Stéphane"
+          label="Peintre de la matière et du geste"
+          imageSrc="/images/exposition-nontron/Stephane illand.webp"
+          imageAlt="Stéphane Illand — Peintre"
+          reverse={true}
+          bio="Stéphane Illand est un peintre dont la pratique s'articule autour du geste, de la matière et de l'instinct créateur. Autodidacte dans l'âme, il forge son style à travers des années d'expérimentation, mêlant huile, acrylique et techniques mixtes pour créer des surfaces à la fois brutes et raffinées. Ses œuvres, souvent de grand format, capturent une énergie contenue : chaque coup de pinceau témoigne d'une tension entre maîtrise et abandon. Inspiré par les paysages du Périgord et les grandes traditions de la peinture expressionniste, son travail s'inscrit dans une démarche résolument contemporaine tout en restant profondément ancré dans le sensible."
         />
       </div>
     </section>

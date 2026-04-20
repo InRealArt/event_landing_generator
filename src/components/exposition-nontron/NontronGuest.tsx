@@ -92,8 +92,8 @@ function GuestPanel({ isOpen, onClose }: GuestPanelProps) {
         {/* Artist image */}
         <div className="relative h-64 w-full flex-shrink-0 overflow-hidden">
           <Image
-            src="/images/exposition-nontron/Anny Duperey.webp"
-            alt="Anny Duperey — Invitée Spéciale"
+            src="/images/exposition-nontron/Header_Pontecorvo.webp"
+            alt="Alain Pontecorvo — Invité Spécial"
             fill
             className="object-cover object-top grayscale-[0.3]"
             sizes="512px"
@@ -105,20 +105,24 @@ function GuestPanel({ isOpen, onClose }: GuestPanelProps) {
         {/* Scrollable text content */}
         <div className="flex-1 overflow-y-auto px-8 pb-12 pt-6">
           <p className="text-[#c5a059] uppercase tracking-[0.25em] text-xs font-montserrat font-semibold mb-3">
-            Invitée Spéciale
+            Invité Spécial
           </p>
 
           <h2 className="text-3xl font-bricolage italic text-white mb-3 leading-tight">
-            Anny Duperey
+            Alain Pontecorvo
           </h2>
 
           <div className="w-12 h-px bg-[#c5a059] mb-6" aria-hidden="true" />
 
           <div className="space-y-4">
             <p className="text-gray-400 font-light font-montserrat text-sm leading-relaxed">
-              Icône de la culture française, Anny Duperey apporte son regard sensible et sa passion
-              pour cette exposition. Sa présence souligne son engagement pour l&apos;art, la culture
-              et le patrimoine.
+              Figure majeure de la peinture française contemporaine, Alain Pontecorvo est reconnu pour son univers unique, où lumière, géométrie et émotion se rencontrent.
+            </p>
+            <p className="text-gray-400 font-light font-montserrat text-sm leading-relaxed">
+              Né à Paris en 1936 et formé aux Arts décoratifs puis à l&apos;École Estienne, il débute sa carrière comme directeur artistique avant de revenir à sa passion première : la peinture. Depuis sa première exposition en 1978, son travail a été salué par la critique et exposé dans de nombreuses galeries et salons internationaux.
+            </p>
+            <p className="text-gray-400 font-light font-montserrat text-sm leading-relaxed">
+              Son œuvre navigue entre figuration et abstraction, donnant naissance à ce que certains appellent un réalisme constructiviste. Figures, nus, intérieurs, paysages et natures mortes se transforment sous son regard en compositions où chaque lumière et chaque ombre racontent une histoire.
             </p>
           </div>
         </div>
@@ -142,12 +146,12 @@ export default function NontronGuest() {
           <div className="md:w-1/2 order-2 md:order-1">
             {/* Label doré */}
             <p className="text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat text-xs mb-4">
-              Invitée Spéciale
+              Invité Spécial
             </p>
 
             {/* Nom */}
             <h2 className="text-4xl md:text-5xl font-bricolage font-bold italic text-gray-900 mb-6">
-              Anny Duperey
+              Alain Pontecorvo
             </h2>
 
             {/* Divider doré court */}
@@ -155,9 +159,10 @@ export default function NontronGuest() {
 
             {/* Bio */}
             <p className="text-gray-600 leading-relaxed font-light font-montserrat text-base">
-              Icône de la culture française, Anny Duperey apporte son regard sensible et sa passion
-              pour cette exposition. Sa présence souligne son engagement pour l&apos;art, la culture
-              et le patrimoine.
+              Figure majeure de la peinture française contemporaine, Alain Pontecorvo est reconnu
+              pour son univers unique, où lumière, géométrie et émotion se rencontrent. Depuis sa
+              première exposition en 1978, son œuvre navigue entre figuration et abstraction,
+              donnant naissance à ce que certains appellent un réalisme constructiviste.
             </p>
 
             {/* Lien — ouvre le panel */}
@@ -172,8 +177,8 @@ export default function NontronGuest() {
           {/* Image — plein bord */}
           <div className="md:w-1/2 order-1 md:order-2 relative w-full aspect-[3/4] overflow-hidden">
             <Image
-              src="/images/exposition-nontron/Anny Duperey.webp"
-              alt="Anny Duperey — Invitée Spéciale"
+              src="/images/exposition-nontron/Header_Pontecorvo.webp"
+              alt="Alain Pontecorvo — Invité Spécial"
               fill
               className="object-cover object-top shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"

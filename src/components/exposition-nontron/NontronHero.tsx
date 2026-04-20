@@ -50,13 +50,21 @@ export default function NontronHero() {
         <div className="w-20 h-0.5 bg-[#c5a059] mx-auto my-8" />
 
         {/* Dates */}
-        <p className="text-lg tracking-wide uppercase font-semibold font-montserrat mb-4">
-          1 Mai — 1 Avril 2026 · Nontron
+        <p className="text-lg tracking-wide uppercase font-semibold font-montserrat mb-6">
+          1er Mai au 30 Mai 2026 · Nontron
+        </p>
+
+        {/* Hours & vernissage */}
+        <p className="text-sm text-gray-600 font-montserrat tracking-wide mb-1">
+          Ouvert tous les jours de 10h à 18h30
+        </p>
+        <p className="text-sm text-gray-600 font-montserrat tracking-wide mb-8">
+          Vernissage 1er mai à 18h30
         </p>
 
         {/* Artists line */}
         <p className="text-sm text-black-500 font-montserrat tracking-widest uppercase mb-10">
-          Anny Duperey &middot; Alain Pontecorvo &middot; Jean-Paul Boyer &middot; Marie De Saint Germain
+          Alain Pontecorvo &middot; Florence Autelin &middot; Jean-Paul Boyer &middot; Stéphane Illand
         </p>
 
         {/* CTAs */}

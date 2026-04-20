@@ -18,13 +18,15 @@ interface ArtistData {
 
 const artistsData: ArtistData[] = [
   {
-    name: 'Anny Duperey',
-    title: 'Invitée Spéciale',
-    imageSrc: '/images/exposition-nontron/Anny Duperey.webp',
-    imageAlt: 'Anny Duperey — Invitée Spéciale',
-    label: 'Invitée Spéciale',
+    name: 'Florence Autelin',
+    title: "Photographie et peinture",
+    imageSrc: '/images/exposition-nontron/Florence AUTELIN.webp',
+    imageAlt: 'Florence Autelin — Peintre',
+    label: "Photographie et peinture",
     bio: [
-      "Icône de la culture française, Anny Duperey apporte son regard sensible et sa passion pour cette exposition. Sa présence souligne son engagement pour l'art, la culture et le patrimoine.",
+      "Florence est une artiste reconnue pour ses œuvres impressionnantes et expressives, empreintes d'un style unique. Grâce à une technique singulière qui fusionne couleurs vibrantes et coups de pinceaux audacieux, elle donne vie avec maestria à ses sujets sur des toiles d'une ampleur saisissante.",
+      "L'approche de Florence, qui mêle différentes techniques, combine peinture acrylique, aérosol, pigments, stylo doré, photographies, graffiti, calligraphie et résine.",
+      "Chaque œuvre est minutieusement réalisée sur aluminium brossé ou toile – souvent rehaussée d'une finition laquée ou résineuse – et présentée dans d'élégants cadres noirs épurés, prête à être accrochée. Ce choix raffiné de matériaux amplifie la profondeur, la texture et l'intensité émotionnelle de son travail.",
     ],
   },
   {
@@ -51,15 +53,15 @@ const artistsData: ArtistData[] = [
     ],
   },
   {
-    name: 'Marie De Saint Germain',
-    title: 'Mixed média',
-    imageSrc: '/images/exposition-nontron/Marie De Saint Germain.webp',
-    imageAlt: 'Marie De Saint Germain — Artiste',
-    label: 'Peintre — Mixed Média',
+    name: 'Stéphane Illand',
+    title: 'Peintre à la cire d\'abeille',
+    imageSrc: '/images/exposition-nontron/Stephane illand.webp',
+    imageAlt: 'Stéphane Illand — Peintre',
+    label: 'Peintre à la cire d\'abeille',
     bio: [
-      "Marie de Saint Germain est une artiste plasticienne autodidacte dont l'œuvre se déploie essentiellement à travers le Mixed média, moyen d'expression privilégié pour incarner un imaginaire poétique et subtil. Son travail, profondément onirique et symbolique, explore les méandres de l'identité, les tensions du mental et les zones floues de la mémoire.",
-      "Mêlant papier, photographie, peinture acrylique, encre, ficelles, elle compose des images troublantes, à la frontière du rêve et de l\u2019éveil.",
-      "Son univers visuel, habité par des figures fragmentées, des regards suspendus et des corps en métamorphose, interroge l'invisible, l'enfoui, et ce qui persiste au-delà de la faille. Entre apparition et disparition, ses œuvres ouvrent un espace de poésie viscérale, où le visible vacille et où l'intime dialogue avec l'étrange.",
+      "Stéphane ILLAND puise au cœur du vivant pour révéler l'éclatante fragilité de la vie sauvage. Par son art, il interroge l'empreinte de nos modes de vie, mettant en lumière la manière dont le consumérisme érode l'équilibre des écosystèmes.",
+      "Porté par une conscience écologique exigeante, il privilégie désormais la peinture à la cire d'abeille, un médium noble et naturel. Cette démarche, à la fois esthétique et éthique, témoigne de son respect profond pour la Terre et de l'urgence de préserver la biodiversité.",
+      "Son engagement transcende la toile : fidèle à ses convictions, il reverse 10 % du fruit de ses ventes à des organisations telles que Jiboiana, Akatia, Sea Shepherd France, AVES France et la LPO, contribuant ainsi activement à la sauvegarde de l'Amazonie, des océans et de la faune sauvage.",
     ],
   },
 ]

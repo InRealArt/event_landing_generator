@@ -7,11 +7,11 @@ const stats = [
 ]
 
 const videoItems = [
-  {
-    label: 'Anny Duperey',
-    embedSrc: 'https://www.youtube.com/embed/rX3Kiipajws?start=2423',
-    title: 'Interview Anny Duperey — Exposition Nontron',
-  },
+  // {
+  //   label: 'Anny Duperey',
+  //   embedSrc: 'https://www.youtube.com/embed/rX3Kiipajws?start=2423',
+  //   title: 'Interview Anny Duperey — Exposition Nontron',
+  // },
   {
     label: 'Alain Pontecorvo',
     embedSrc: 'https://www.youtube.com/embed/mDVfbV8TNUQ',
@@ -39,12 +39,12 @@ export default function NontronMedias() {
           </p>
         </div>
 
-        {/* 4-column grid: 3 videos + 1 article card */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Videos — centrées */}
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
 
           {/* Video items */}
           {videoItems.map((item) => (
-            <div key={item.label} className="flex flex-col">
+            <div key={item.label} className="flex flex-col w-full sm:w-[calc(50%-12px)] lg:w-[400px]">
               <p className="text-[#c5a059] uppercase tracking-[0.2em] font-semibold font-montserrat text-[10px] mb-3">
                 {item.label}
               </p>
@@ -61,7 +61,7 @@ export default function NontronMedias() {
           ))}
 
           {/* Article card — Marie De Saint Germain */}
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <p className="text-[#c5a059] uppercase tracking-[0.2em] font-semibold font-montserrat text-[10px] mb-3">
               Marie De Saint Germain
             </p>
@@ -84,7 +84,7 @@ export default function NontronMedias() {
                 Lire le portrait →
               </span>
             </Link>
-          </div>
+          </div> */}
 
         </div>
 
