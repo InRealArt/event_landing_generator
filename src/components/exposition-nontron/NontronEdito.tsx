@@ -80,30 +80,30 @@ export default function NontronEdito() {
               </p>
               <p>
                 Quatre artistes y sont réunis :{' '}
-                <strong className="text-gray-800 font-semibold">Anny Duperey</strong>, entre scène
+                <strong className="text-gray-800 font-semibold">Florence Autelin</strong>, entre photographie
                 et peinture&nbsp;;{' '}
                 <strong className="text-gray-800 font-semibold">Alain Pontecorvo</strong>, figure
                 majeure de la peinture et de la publicité&nbsp;;{' '}
                 <strong className="text-gray-800 font-semibold">Jean-Paul Boyer</strong>, dont les
                 sculptures se réinventent dans l&apos;espace&nbsp;; et{' '}
-                <strong className="text-gray-800 font-semibold">Marie de Saint Germain</strong>, qui
-                explore un langage mixte et contemporain.
+                <strong className="text-gray-800 font-semibold">Stéphane Illand</strong>, qui
+                explore la peinture à la cire d&apos;abeille.
               </p>
               <p>
                 Une exposition manifeste, entre diversité des pratiques et liberté de création.
               </p>
             </div>
 
-            <p className="mt-8 font-semibold font-montserrat text-[#c5a059]">— Annia Chrusciany</p>
+            <p className="mt-8 font-semibold font-montserrat text-[#c5a059]">— Ania Chrusciany</p>
           </div>
 
           {/* Image de la galerie */}
-          <div className="md:w-1/2 relative w-full aspect-[3/2] overflow-hidden">
+          <div className="md:w-1/2 relative w-full aspect-[4/5] overflow-hidden">
             <Image
-              src="/images/exposition-nontron/Anna_chrusciany.webp"
-              alt="Annia Chrusciany"
+              src="/images/exposition-nontron/Anna.webp"
+              alt="Ania"
               fill
-              className="object-cover shadow-2xl"
+              className="object-cover object-top shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>

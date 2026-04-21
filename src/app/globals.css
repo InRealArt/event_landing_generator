@@ -4,8 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  overflow-x: hidden;
 }
 
 :root {
@@ -85,7 +86,6 @@ h6 {
 }
 
 html {
-  scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
 }

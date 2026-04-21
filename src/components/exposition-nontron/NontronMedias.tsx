@@ -39,8 +39,34 @@ export default function NontronMedias() {
           </p>
         </div>
 
-        {/* Videos — centrées */}
+        {/* Videos & Articles — centrées */}
         <div className="flex flex-wrap justify-center gap-6 mb-16">
+
+          {/* Article card — Florence Autelin */}
+          <div className="flex flex-col w-full sm:w-[calc(50%-12px)] lg:w-[400px]">
+            <p className="text-[#c5a059] uppercase tracking-[0.2em] font-semibold font-montserrat text-[10px] mb-3">
+              Florence Autelin
+            </p>
+            <Link
+              href="https://www.inrealart.com/blog/florence-autelin-entre-photographie-de-voyage-et-peinture-interieure"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex-1 flex flex-col border border-zinc-800 hover:border-[#c5a059] transition-colors duration-300 p-6"
+            >
+              <p className="text-[10px] uppercase tracking-widest font-montserrat text-[#c5a059] mb-3">
+                Article · InRealArt
+              </p>
+              <h3 className="text-sm font-bricolage italic text-white mb-3 leading-snug group-hover:text-[#c5a059] transition-colors duration-300 flex-1">
+                Entre photographie de voyage et peinture intérieure
+              </h3>
+              <p className="text-gray-500 font-montserrat font-light text-xs leading-relaxed mb-6">
+                Un univers suspendu entre le monde extérieur capturé et le monde intérieur ressenti, où chaque œuvre devient un fragment de mémoire vivante.
+              </p>
+              <span className="text-[10px] uppercase font-bold font-montserrat border-b border-zinc-600 pb-1 group-hover:text-[#c5a059] group-hover:border-[#c5a059] transition-colors duration-200 self-start">
+                Lire le portrait →
+              </span>
+            </Link>
+          </div>
 
           {/* Video items */}
           {videoItems.map((item) => (
