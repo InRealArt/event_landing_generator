@@ -109,7 +109,7 @@ export default function NontronContacts() {
             phone="+33 6 59 52 72 29"
           />
           <ContactCard
-            name="Annia Chrusciany"
+            name="Ania Chrusciany"
             title="Responsable de l'exposition"
             role=""
             email="teaminrealart@gmail.com"
