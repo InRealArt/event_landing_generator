@@ -2,6 +2,11 @@
 
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // ---------------------------------------------------------------------------
 // Panel — slide-over drawer (même pattern que NontronArtistsGrid)
@@ -137,13 +142,37 @@ function GuestPanel({ isOpen, onClose }: GuestPanelProps) {
 
 export default function NontronGuest() {
   const [panelOpen, setPanelOpen] = useState(false)
+  const containerRef = useRef<HTMLElement>(null)
+
+  useGSAP(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const ease = 'power3.out'
+
+    // Texte — slide depuis la gauche
+    const textBlock = containerRef.current?.querySelector('.guest-text')
+    if (textBlock) {
+      gsap.from(Array.from(textBlock.children), {
+        opacity: 0, y: 24, duration: 0.8, stagger: 0.1, ease,
+        scrollTrigger: { trigger: textBlock, start: 'top 85%', once: true },
+      })
+    }
+
+    // Image — slide depuis la droite + léger scale
+    const imageBlock = containerRef.current?.querySelector('.guest-image')
+    if (imageBlock) {
+      gsap.from(imageBlock, {
+        opacity: 0, x: 20, scale: 0.97, duration: 1, ease,
+        scrollTrigger: { trigger: imageBlock, start: 'top 85%', once: true },
+      })
+    }
+  }, { scope: containerRef })
 
   return (
     <>
-      <section id="invitee" className="py-24 bg-[#faf8f4] px-6">
+      <section id="invitee" ref={containerRef} className="py-24 bg-[#faf8f4] px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
           {/* Texte */}
-          <div className="md:w-1/2 order-2 md:order-1">
+          <div className="guest-text md:w-1/2 order-2 md:order-1">
             {/* Label doré */}
             <p className="text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat text-xs mb-4">
               Invité Spécial
@@ -175,7 +204,7 @@ export default function NontronGuest() {
           </div>
 
           {/* Image — plein bord */}
-          <div className="md:w-1/2 order-1 md:order-2 relative w-full aspect-[3/4] overflow-hidden">
+          <div className="guest-image md:w-1/2 order-1 md:order-2 relative w-full aspect-[3/4] overflow-hidden">
             <Image
               src="/images/exposition-nontron/Header_Pontecorvo.webp"
               alt="Alain Pontecorvo — Invité Spécial"

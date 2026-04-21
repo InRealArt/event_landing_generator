@@ -1,8 +1,97 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function NontronEdito() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    () => {
+      // Respect prefers-reduced-motion — skip all animations
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+      const defaults: gsap.TweenVars = {
+        ease: 'power3.out',
+        duration: 0.8,
+      }
+
+      const triggerDefaults = (trigger: string): ScrollTrigger.Vars => ({
+        trigger,
+        start: 'top 85%',
+        once: true,
+      })
+
+      // ── Dark section header: supertitle → h2 → gold divider, staggered ──
+      gsap.from('.edito-supertitle', {
+        ...defaults,
+        opacity: 0,
+        y: 24,
+        scrollTrigger: triggerDefaults('.edito-header'),
+      })
+      gsap.from('.edito-title', {
+        ...defaults,
+        opacity: 0,
+        y: 24,
+        delay: 0.12,
+        scrollTrigger: triggerDefaults('.edito-header'),
+      })
+      gsap.from('.edito-divider', {
+        ...defaults,
+        opacity: 0,
+        y: 16,
+        delay: 0.24,
+        scrollTrigger: triggerDefaults('.edito-header'),
+      })
+
+      // ── Left image: fade-in + slide from left ──
+      gsap.from('.edito-image-left', {
+        ...defaults,
+        duration: 0.9,
+        opacity: 0,
+        x: -20,
+        scrollTrigger: triggerDefaults('.edito-image-left'),
+      })
+
+      // ── Right text block: fade-in + slide from right ──
+      gsap.from('.edito-text-right', {
+        ...defaults,
+        duration: 0.9,
+        opacity: 0,
+        x: 20,
+        scrollTrigger: triggerDefaults('.edito-text-right'),
+      })
+
+      // ── Light section — left text block: slides from left ──
+      gsap.from('.apropos-text', {
+        ...defaults,
+        duration: 0.9,
+        opacity: 0,
+        x: -20,
+        scrollTrigger: triggerDefaults('.apropos-text'),
+      })
+
+      // ── Light section — right Anna image: slides from right + slight scale ──
+      gsap.from('.apropos-image', {
+        ...defaults,
+        duration: 1,
+        opacity: 0,
+        x: 20,
+        scale: 0.97,
+        transformOrigin: 'center center',
+        scrollTrigger: triggerDefaults('.apropos-image'),
+      })
+    },
+    { scope: containerRef }
+  )
+
   return (
-    <>
+    <div ref={containerRef}>
       {/* Section sombre — L'Édito */}
       <section
         id="edito"
@@ -13,20 +102,20 @@ export default function NontronEdito() {
       >
         <div className="max-w-6xl mx-auto">
           {/* En-tête centré */}
-          <div className="text-center text-white mb-16">
-            <p className="text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat text-sm mb-6">
+          <div className="edito-header text-center text-white mb-16">
+            <p className="edito-supertitle text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat text-sm mb-6">
               Le Mot de la Galerie
             </p>
-            <h2 className="text-4xl md:text-5xl font-bricolage italic mb-8">
+            <h2 className="edito-title text-4xl md:text-5xl font-bricolage italic mb-8">
               L&apos;Édito
             </h2>
-            <div className="w-20 h-0.5 bg-[#c5a059] mx-auto" />
+            <div className="edito-divider w-20 h-0.5 bg-[#c5a059] mx-auto" />
           </div>
 
           {/* Layout image gauche / texte droite */}
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             {/* Image à gauche */}
-            <div className="md:w-1/2 relative w-full aspect-[3/2] overflow-hidden shadow-2xl flex-shrink-0">
+            <div className="edito-image-left md:w-1/2 relative w-full aspect-[3/2] overflow-hidden shadow-2xl flex-shrink-0">
               <Image
                 src="/images/exposition-nontron/galerie_nontron.webp"
                 alt="La galerie de Nontron"
@@ -37,7 +126,7 @@ export default function NontronEdito() {
             </div>
 
             {/* Texte à droite */}
-            <div className="md:w-1/2 text-white">
+            <div className="edito-text-right md:w-1/2 text-white">
               <blockquote className="text-xl md:text-2xl font-bricolage italic font-light text-gray-300 leading-relaxed mb-8">
                 120 m² de bonheur au cœur du Périgord Vert
               </blockquote>
@@ -60,7 +149,7 @@ export default function NontronEdito() {
       <section className="py-24 bg-white px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
           {/* Texte */}
-          <div className="md:w-1/2">
+          <div className="apropos-text md:w-1/2">
             {/* Section title avec barre gauche */}
             <div className="border-l-4 border-[#c5a059] pl-4 mb-8">
               <h2 className="text-xs uppercase tracking-[0.3em] font-semibold font-montserrat text-[#c5a059] mb-1">
@@ -98,7 +187,7 @@ export default function NontronEdito() {
           </div>
 
           {/* Image de la galerie */}
-          <div className="md:w-1/2 relative w-full aspect-[4/5] overflow-hidden">
+          <div className="apropos-image md:w-1/2 relative w-full aspect-[4/5] overflow-hidden">
             <Image
               src="/images/exposition-nontron/Anna.webp"
               alt="Ania"
@@ -109,6 +198,6 @@ export default function NontronEdito() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

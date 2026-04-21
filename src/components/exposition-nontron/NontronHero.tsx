@@ -26,7 +26,7 @@ export default function NontronHero() {
       />
       {/* Overlay — léger pour laisser l'image visible */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{ background: 'linear-gradient(rgba(255,255,255,0.55), rgba(250,248,244,0.65))' }}
       />
       <div className="relative z-10 max-w-4xl text-center">

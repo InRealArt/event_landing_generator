@@ -10,7 +10,6 @@ import NontronStats from '@/components/exposition-nontron/NontronStats'
 import NontronInfo from '@/components/exposition-nontron/NontronInfo'
 import NontronFooter from '@/components/exposition-nontron/NontronFooter'
 import NontronContacts from '@/components/exposition-nontron/NontronContacts'
-import NontronScrollAnimations from '@/components/exposition-nontron/NontronScrollAnimations'
 import Newsletter from '@/components/shared/Newsletter'
 import PoweredBy from '@/components/shared/PoweredBy'
 
@@ -26,7 +25,6 @@ export const metadata: Metadata = {
 export default function ExpositionNontronPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white font-montserrat text-gray-800">
-      <NontronScrollAnimations />
       <NontronNav />
       <NontronHero />
       <NontronEdito />
