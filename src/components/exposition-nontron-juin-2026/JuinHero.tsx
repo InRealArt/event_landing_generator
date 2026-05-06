@@ -1,0 +1,80 @@
+'use client'
+
+import Image from 'next/image'
+
+export default function JuinHero() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section
+      id="accueil"
+      className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden"
+    >
+      <Image
+        src="/images/exposition-nontron-juin-2026/galerie_nontron.webp"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(rgba(255,255,255,0.55), rgba(250,248,244,0.65))' }}
+      />
+      <div className="relative z-10 max-w-4xl text-center">
+        <p className="text-[#c5a059] uppercase tracking-[0.3em] font-semibold font-montserrat mb-4 text-sm">
+          Dossier de Presse
+        </p>
+
+        <h1 className="text-5xl md:text-7xl mb-6 leading-tight font-bricolage font-bold">
+          Exposition d&apos;Art Contemporain
+        </h1>
+
+        <p className="text-xl md:text-2xl italic font-light font-bricolage mb-4 text-gray-700">
+          <span className="font-bold">LJ gallery</span> &amp;{' '}
+          <span className="font-bold">InRealArt</span>
+        </p>
+
+        <div className="w-20 h-0.5 bg-[#c5a059] mx-auto my-8" />
+
+        <p className="text-lg tracking-wide uppercase font-semibold font-montserrat mb-6">
+          Du 1er juin au 30 juin 2026 · Nontron
+        </p>
+
+        <p className="text-sm text-gray-600 font-montserrat tracking-wide mb-1">
+          Ouvert tous les jours de 10h à 18h30
+        </p>
+        <p className="text-sm text-gray-600 font-montserrat tracking-wide mb-8">
+          Vernissage le 1er juin à 18h30
+        </p>
+
+        <p className="text-sm text-black-500 font-montserrat tracking-widest uppercase mb-10">
+          Marie de Saint Germain &middot; Younes Farhi
+        </p>
+
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          <a
+            href="#artistes-exposes"
+            onClick={(e) => handleScroll(e, '#artistes-exposes')}
+            className="bg-[#c5a059] text-white px-8 py-4 rounded-sm uppercase text-xs font-bold tracking-widest font-montserrat transition-all duration-300 hover:bg-[#a88746] hover:scale-105"
+          >
+            Découvrir les Artistes
+          </a>
+          <a
+            href="#infos"
+            onClick={(e) => handleScroll(e, '#infos')}
+            className="bg-black text-white px-8 py-4 rounded-sm uppercase text-xs font-bold tracking-widest font-montserrat transition-all duration-300 hover:bg-gray-800"
+          >
+            Informations Pratiques
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
